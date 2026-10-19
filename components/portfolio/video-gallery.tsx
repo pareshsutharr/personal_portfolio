@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import Image from "next/image";
-import { ExternalLink, ListVideo, Play, X } from "lucide-react";
+import { ChevronDown, ExternalLink, ListVideo, Play, X } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { Stagger, StaggerItem } from "@/components/motion/reveal";
 import { cn } from "@/lib/utils/cn";
@@ -11,6 +11,8 @@ import { parseVideoUrl } from "@/lib/utils/video";
 import type { Video } from "@/types";
 
 type Group = { name: string; url: string | null; videos: Video[] };
+
+const PAGE_SIZE = 6;
 
 function groupByPlaylist(videos: Video[]): Group[] {
   const map = new Map<string, Group>();
@@ -38,6 +40,9 @@ export function VideoGallery({ videos, className }: { videos: Video[]; className
   const [selected, setSelected] = React.useState<string>("all");
   const multi = groups.length > 1;
   const visible = selected === "all" ? groups : groups.filter((g) => g.name === selected);
+  // Per-playlist visible count; long playlists reveal in pages so the page stays scannable on phones.
+  const [shown, setShown] = React.useState<Record<string, number>>({});
+  const limitFor = (g: Group) => shown[g.name] ?? PAGE_SIZE;
 
   return (
     <div className={className}>
@@ -87,12 +92,28 @@ export function VideoGallery({ videos, className }: { videos: Video[]; className
               </div>
             ) : null}
             <Stagger className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {g.videos.map((v, i) => (
-                <StaggerItem key={v.id} as="div">
+              {g.videos.slice(0, limitFor(g)).map((v, i) => (
+                <StaggerItem key={v.id} as="div" className="min-w-0">
                   <VideoCard video={v} index={i} onOpen={() => setActive(v)} />
                 </StaggerItem>
               ))}
             </Stagger>
+            {g.videos.length > limitFor(g) ? (
+              <div className="mt-8 flex items-center justify-between gap-4 border-t border-line-800 pt-6">
+                <span className="label-mono">
+                  {Math.min(limitFor(g), g.videos.length)} / {g.videos.length} videos
+                </span>
+                <button
+                  type="button"
+                  onClick={() =>
+                    setShown((prev) => ({ ...prev, [g.name]: limitFor(g) + PAGE_SIZE }))
+                  }
+                  className="inline-flex h-10 items-center gap-2 rounded-sm border border-line-700 px-4 text-sm text-fg-100 transition-colors hover:border-line-600 hover:text-fg-50"
+                >
+                  Show more <ChevronDown className="h-4 w-4" aria-hidden />
+                </button>
+              </div>
+            ) : null}
           </section>
         ))}
       </div>
@@ -170,7 +191,7 @@ function VideoCard({ video, index, onOpen }: { video: Video; index: number; onOp
   );
 
   return (
-    <article className="group flex flex-col">
+    <article className="group flex min-w-0 flex-col">
       {playable ? (
         <button
           type="button"
@@ -193,14 +214,16 @@ function VideoCard({ video, index, onOpen }: { video: Video; index: number; onOp
         </a>
       )}
       <div className="mt-4">
-        <h3 className="font-display text-lg font-semibold tracking-tight text-fg-50">
+        <h3 className="font-display text-lg font-semibold tracking-tight [overflow-wrap:anywhere] text-fg-50">
           {video.title}
         </h3>
         {video.playlist || video.company ? (
           <p className="mt-1 label-mono">{video.playlist ?? video.company}</p>
         ) : null}
         {video.description ? (
-          <p className="mt-2 text-sm leading-relaxed text-fg-300">{video.description}</p>
+          <p className="mt-2 text-sm leading-relaxed [overflow-wrap:anywhere] text-fg-300">
+            {video.description}
+          </p>
         ) : null}
       </div>
     </article>
