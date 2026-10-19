@@ -81,7 +81,7 @@ export function SiteSettingsForm({
   emailConfigured,
 }: {
   settings: SiteSettings | null;
-  /** Whether RESEND_API_KEY is set on the server. Never the key itself. */
+  /** Whether GMAIL_USER + GMAIL_APP_PASSWORD are set on the server. Never the values themselves. */
   emailConfigured: boolean;
 }) {
   const router = useRouter();
@@ -298,11 +298,12 @@ export function SiteSettingsForm({
               value={values.notification_email}
               onChange={(v) => set("notification_email", v)}
               errors={fieldErrors.notification_email}
-              hint="Messages are always stored in the inbox. Emails only send when RESEND_API_KEY is configured on the server."
+              hint="Messages are always stored in the inbox. Emails only send when Gmail SMTP (GMAIL_USER + GMAIL_APP_PASSWORD) is configured on the server."
             />
             {!emailConfigured ? (
               <FormNotice icon={Info}>
-                Add <code className="text-fg-100">RESEND_API_KEY</code> to the server environment to
+                Add <code className="text-fg-100">GMAIL_USER</code> and{" "}
+                <code className="text-fg-100">GMAIL_APP_PASSWORD</code> to the server environment to
                 enable forwarding. Nothing is sent until then.
               </FormNotice>
             ) : null}

@@ -17,13 +17,13 @@ pnpm dev
 
 `.env.local`
 
-| Variable                                                       | Where it runs         | Purpose                                                          |
-| -------------------------------------------------------------- | --------------------- | ---------------------------------------------------------------- |
-| `NEXT_PUBLIC_SUPABASE_URL`                                     | browser + server      | Supabase project URL                                             |
-| `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`                         | browser + server      | Publishable key (safe to expose)                                 |
-| `SUPABASE_SECRET_KEY`                                          | server only           | Secret key; used only for contact-form inserts and admin scripts |
-| `NEXT_PUBLIC_SITE_URL`                                         | browser + server      | Canonical URL for metadata, sitemap, OG images                   |
-| `RESEND_API_KEY`, `CONTACT_NOTIFY_EMAIL`, `CONTACT_FROM_EMAIL` | server only, optional | Email notification for new contact messages                      |
+| Variable                                                   | Where it runs         | Purpose                                                          |
+| ---------------------------------------------------------- | --------------------- | ---------------------------------------------------------------- |
+| `NEXT_PUBLIC_SUPABASE_URL`                                 | browser + server      | Supabase project URL                                             |
+| `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`                     | browser + server      | Publishable key (safe to expose)                                 |
+| `SUPABASE_SECRET_KEY`                                      | server only           | Secret key; used only for contact-form inserts and admin scripts |
+| `NEXT_PUBLIC_SITE_URL`                                     | browser + server      | Canonical URL for metadata, sitemap, OG images                   |
+| `GMAIL_USER`, `GMAIL_APP_PASSWORD`, `CONTACT_NOTIFY_EMAIL` | server only, optional | Gmail SMTP notification for new contact messages (App password)  |
 
 Never prefix a secret with `NEXT_PUBLIC_`.
 
@@ -83,5 +83,7 @@ lib/supabase      browser / server / public / admin clients + proxy session refr
 lib/queries       public read layer · lib/actions server actions · lib/validation zod schemas
 supabase/         migrations + seed · scripts/ db + auth helpers · types/ generated DB types
 ```
+
 # personal_portfolio
+
 # personal_portfolio

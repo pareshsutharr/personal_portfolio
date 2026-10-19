@@ -88,13 +88,19 @@ async function notifyByEmail(input: {
   timeline?: string | null;
   message: string;
 }) {
-  const apiKey = process.env.RESEND_API_KEY;
-  const to = process.env.CONTACT_NOTIFY_EMAIL;
-  if (!apiKey || !to) return;
+  const user = process.env.GMAIL_USER;
+  const pass = process.env.GMAIL_APP_PASSWORD;
+  if (!user || !pass) return;
+  const to = process.env.CONTACT_NOTIFY_EMAIL ?? user;
 
-  const { Resend } = await import("resend");
-  const resend = new Resend(apiKey);
-  const from = process.env.CONTACT_FROM_EMAIL ?? "Portfolio <onboarding@resend.dev>";
+  const { createTransport } = await import("nodemailer");
+  const transporter = createTransport({
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true,
+    auth: { user, pass },
+  });
+
   const lines = [
     `Name: ${input.name}`,
     `Email: ${input.email}`,
@@ -106,8 +112,8 @@ async function notifyByEmail(input: {
     input.message,
   ].filter((l): l is string => l !== null);
 
-  await resend.emails.send({
-    from,
+  await transporter.sendMail({
+    from: `"Portfolio" <${user}>`,
     to,
     replyTo: input.email,
     subject: `New portfolio inquiry from ${input.name}`,

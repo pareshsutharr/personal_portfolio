@@ -15,7 +15,7 @@ export default async function AdminSettingsPage() {
     .maybeSingle();
 
   // Only a boolean crosses to the client; the key itself never leaves the server.
-  const emailConfigured = Boolean(process.env.RESEND_API_KEY);
+  const emailConfigured = Boolean(process.env.GMAIL_USER && process.env.GMAIL_APP_PASSWORD);
 
   return (
     <>
