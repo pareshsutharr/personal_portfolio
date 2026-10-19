@@ -85,7 +85,7 @@ export function Hero({
           </Parallax>
 
           {/* Type */}
-          <Parallax speed={0.05} className="order-2 col-span-12 lg:order-1 lg:col-span-7">
+          <Parallax speed={-0.04} className="order-2 col-span-12 lg:order-1 lg:col-span-7">
             {kicker.length ? (
               <Reveal y={10} className="flex flex-wrap items-center gap-x-3 gap-y-1 label-mono">
                 <span className="text-ember-400">{"//"}</span>
@@ -164,9 +164,12 @@ export function Hero({
         </div>
       </ScrollFade>
 
-      {/* Bottom strip: client logos when available, otherwise the status bar */}
+      {/* Bottom strip: client logos when available, otherwise the status bar.
+          Opaque and above the fading hero content so nothing can overlap it. */}
       {clientLogos.length ? (
-        <LogoMarquee logos={clientLogos} />
+        <div className="relative z-10 bg-bg-950">
+          <LogoMarquee logos={clientLogos} />
+        </div>
       ) : (
         <div className="relative border-t border-line-800">
           <div className="container-x flex min-h-12 flex-wrap items-center justify-between gap-x-8 gap-y-2 py-3">

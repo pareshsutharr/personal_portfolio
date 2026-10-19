@@ -46,8 +46,9 @@ export function ScrollFade({
   const ref = React.useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const opacity = useTransform(scrollYProgress, [0, 0.75], [1, 0]);
-  const y = useTransform(scrollYProgress, [0, 1], [0, 120]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.96]);
+  // Drift up, never down: a downward shift would push hero content over whatever sits below it.
+  const y = useTransform(scrollYProgress, [0, 1], [0, -80]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.97]);
 
   return (
     <motion.div
