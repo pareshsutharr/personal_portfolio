@@ -39,6 +39,7 @@ export default async function ExperiencePage() {
         ])}
       />
       <PageHeader
+        backdrop={{ src: "/images/old-fort-gate.webp", position: "50% 40%" }}
         eyebrow="EXPERIENCE"
         title="Work history."
         description={DESCRIPTION}

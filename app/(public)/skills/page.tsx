@@ -96,6 +96,7 @@ export default async function SkillsPage() {
         ])}
       />
       <PageHeader
+        backdrop={{ src: "/images/morning-on-the-summit.webp", position: "50% 30%" }}
         eyebrow="SKILLS"
         title="Skills."
         description={DESCRIPTION}

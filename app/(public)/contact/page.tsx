@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
 import { ContactForm } from "@/components/contact/contact-form";
 import { AvailabilityBadge } from "@/components/portfolio/availability-badge";
@@ -48,9 +49,23 @@ export default async function ContactPage() {
         ])}
       />
       <section className="relative overflow-hidden border-b border-line-800">
+        {/* The White Rann: empty, calm, and a lot of quiet space for the form. */}
+        <div aria-hidden className="pointer-events-none absolute inset-0">
+          <Image
+            src="/images/white-rann.webp"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            style={{ objectPosition: "50% 62%" }}
+            className="object-cover opacity-60 saturate-[0.6]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-bg-950/75 via-bg-950/35 to-bg-950" />
+          <div className="absolute inset-0 bg-gradient-to-r from-bg-950/70 via-transparent to-bg-950/40" />
+        </div>
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 grid-lines [mask-image:radial-gradient(60%_60%_at_30%_0%,black,transparent)] opacity-60"
+          className="pointer-events-none absolute inset-0 grid-lines [mask-image:radial-gradient(60%_60%_at_30%_0%,black,transparent)] opacity-30"
         />
         <div className="relative container-x pt-32 pb-16 sm:pt-40 sm:pb-20 lg:pt-44 lg:pb-28">
           <div className="grid gap-14 lg:grid-cols-12 lg:gap-16">

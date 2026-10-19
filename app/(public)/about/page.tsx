@@ -79,6 +79,7 @@ export default async function AboutPage() {
         ]}
       />
       <PageHeader
+        backdrop={{ src: "/images/over-the-ranges.webp", position: "50% 60%" }}
         eyebrow="ABOUT"
         title={profile?.personal_intro ?? FALLBACK_TITLE}
         aside={

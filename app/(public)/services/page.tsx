@@ -34,7 +34,12 @@ export default async function ServicesPage() {
           { name: "Services", path: "/services" },
         ])}
       />
-      <PageHeader eyebrow="SERVICES" title="What I do." description={DESCRIPTION} />
+      <PageHeader
+        backdrop={{ src: "/images/sunrise-from-the-edge.webp", position: "50% 36%" }}
+        eyebrow="SERVICES"
+        title="What I do."
+        description={DESCRIPTION}
+      />
 
       <Section className="py-16 sm:py-20 lg:py-28">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">

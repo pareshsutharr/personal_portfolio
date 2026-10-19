@@ -40,6 +40,7 @@ export default async function NowPage() {
   return (
     <>
       <PageHeader
+        backdrop={{ src: "/images/white-rann.webp", position: "50% 70%" }}
         eyebrow="NOW"
         title="What I'm doing now"
         aside={updated ? <p className="label-mono lg:text-right">Updated {updated}</p> : null}
