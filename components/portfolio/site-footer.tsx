@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import type { Profile, SiteSettings, SocialLink } from "@/types";
@@ -33,6 +34,7 @@ export function SiteFooter({
       <div className="relative container-x">
         <div className="grid gap-12 py-16 sm:py-20 lg:grid-cols-12 lg:gap-8 lg:py-24">
           <div className="lg:col-span-6">
+            <Image src="/logo-mark.png" alt="" width={64} height={64} className="mb-5 h-12 w-12" />
             <p className="font-display text-lg font-semibold tracking-tight text-fg-50 uppercase">
               {name}
             </p>
