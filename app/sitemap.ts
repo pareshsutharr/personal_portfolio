@@ -3,6 +3,9 @@ import { absoluteUrl } from "@/lib/seo";
 import { getPosts } from "@/lib/blog";
 import { getNowPage, getProjectSlugs, getSiteSettings } from "@/lib/queries/public";
 
+/** Rebuilt hourly so a post that goes live on its date is listed without a deploy. */
+export const revalidate = 3600;
+
 const STATIC_ROUTES: { path: string; priority: number; changeFrequency: "weekly" | "monthly" }[] = [
   { path: "/", priority: 1, changeFrequency: "weekly" },
   { path: "/projects", priority: 0.9, changeFrequency: "weekly" },
