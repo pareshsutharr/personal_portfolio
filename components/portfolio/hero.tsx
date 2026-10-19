@@ -45,7 +45,6 @@ export function Hero({
   const line1 = profile?.hero_line_1 ?? name;
   const line2 = profile?.hero_line_2 ?? (profile?.hero_line_1 ? null : title);
   const keywords = profile?.hero_keywords?.filter(Boolean) ?? [];
-  const kicker = [profile?.hero_kicker, profile?.location].filter(Boolean) as string[];
   const primary = profile?.cta_primary_text || "View work";
   const secondary = profile?.cta_secondary_text || "Get in touch";
 
@@ -86,16 +85,9 @@ export function Hero({
 
           {/* Type */}
           <Parallax speed={-0.04} className="order-2 col-span-12 lg:order-1 lg:col-span-7">
-            {kicker.length ? (
-              <Reveal y={10} className="flex flex-wrap items-center gap-x-3 gap-y-1 label-mono">
-                <span className="text-ember-400">{"//"}</span>
-                <span className="text-fg-300">{kicker.join("  —  ")}</span>
-              </Reveal>
-            ) : null}
-
             <h1
               id="hero-heading"
-              className="mt-6 font-display text-display-xl font-semibold text-balance text-fg-50"
+              className="font-display text-display-xl font-semibold text-balance text-fg-50"
             >
               <span className="block">
                 <SplitWords text={line1} />
