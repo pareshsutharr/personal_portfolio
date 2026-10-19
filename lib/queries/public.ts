@@ -2,12 +2,12 @@ import { cache } from "react";
 import { createPublicClient } from "@/lib/supabase/public";
 import type {
   CareerMapStep,
-  ClientLogo,
-  Video,
   Certification,
+  ClientLogo,
   Education,
   Experience,
   Industry,
+  Media,
   NowPage,
   Profile,
   Project,
@@ -21,6 +21,7 @@ import type {
   SocialLink,
   Stat,
   Technology,
+  Video,
 } from "@/types";
 
 /**
@@ -352,6 +353,19 @@ export const getClientLogos = cache(async (): Promise<ClientLogo[]> => {
     .select("*")
     .eq("is_visible", true)
     .order("display_order");
+  return data ?? [];
+});
+
+/** Photos from one media-library folder (e.g. "travel"), newest first. */
+export const getMediaFolder = cache(async (folder: string, limit = 12): Promise<Media[]> => {
+  const supabase = createPublicClient();
+  const { data } = await supabase
+    .from("media")
+    .select("*")
+    .eq("folder", folder)
+    .like("mime_type", "image/%")
+    .order("created_at", { ascending: false })
+    .limit(limit);
   return data ?? [];
 });
 

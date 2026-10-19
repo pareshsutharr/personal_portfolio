@@ -22,7 +22,7 @@ export function Section({
   as?: "section" | "div" | "article";
 }) {
   return (
-    <Tag id={id} className={cn("relative py-20 sm:py-28 lg:py-36", className)}>
+    <Tag id={id} className={cn("relative py-16 sm:py-20 lg:py-24", className)}>
       {bleed ? children : <div className="container-x">{children}</div>}
     </Tag>
   );
@@ -71,7 +71,7 @@ export function SectionHeader({
   return (
     <div
       className={cn(
-        "mb-12 flex flex-col gap-6 sm:mb-16 lg:flex-row lg:items-end lg:justify-between",
+        "mb-10 flex flex-col gap-6 sm:mb-12 lg:flex-row lg:items-end lg:justify-between",
         align === "center" && "items-center text-center lg:flex-col lg:items-center",
         className,
       )}

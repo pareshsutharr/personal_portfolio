@@ -1,13 +1,14 @@
 export const MEDIA_BUCKET = "media";
 
 export type MediaFolder =
-  "profile" | "projects" | "certificates" | "logos" | "resume" | "og" | "general";
+  "profile" | "projects" | "certificates" | "logos" | "travel" | "resume" | "og" | "general";
 
 export const MEDIA_FOLDERS: MediaFolder[] = [
   "profile",
   "projects",
   "certificates",
   "logos",
+  "travel",
   "resume",
   "og",
   "general",
