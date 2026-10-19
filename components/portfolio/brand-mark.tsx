@@ -2,18 +2,22 @@
 
 import * as React from "react";
 import { usePathname } from "next/navigation";
-import { motion, useAnimate, type AnimationSequence } from "motion/react";
+import { motion, type Transition } from "motion/react";
 import { cn } from "@/lib/utils/cn";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
+const slide = (delay: number): Transition => ({ duration: 0.6, ease: EASE, delay });
 
 /**
  * The PS mark drawn from five layers that assemble on mount: the stem slides
  * in from the left, the bowl drops from above, the flag flies in from the
  * bottom-right, the corner dot pops in, then the white bracket rises and blinks
- * twice like a cursor. Replays on every route change and on hover. Runs as a
- * real animation (not a GIF) so it works on phones, including with Reduce
- * Motion enabled, and stays crisp at any size.
+ * twice like a cursor.
+ *
+ * Declarative Motion animations keyed on the route (and a hover counter), so a
+ * remount simply replays from the start. That makes it safe under React Strict
+ * Mode in `next dev`, on client-side navigation, and on phones with Reduce
+ * Motion enabled, where it still plays by design.
  */
 export function BrandMark({
   className,
@@ -23,59 +27,59 @@ export function BrandMark({
   replayOnHover?: boolean;
 }) {
   const pathname = usePathname();
-  const [scope, animate] = useAnimate();
-  const playing = React.useRef(false);
+  const [run, setRun] = React.useState(0);
 
-  const play = React.useCallback(async () => {
-    if (playing.current) return;
-    playing.current = true;
-    const sequence: AnimationSequence = [
-      [".stem", { x: "-55%", opacity: 0 }, { duration: 0 }],
-      [".bowl", { y: "-55%", opacity: 0 }, { duration: 0, at: "<" }],
-      [".flag", { x: "45%", y: "45%", opacity: 0 }, { duration: 0, at: "<" }],
-      [".dot", { scale: 0, opacity: 0 }, { duration: 0, at: "<" }],
-      [".bracket", { y: "40%", opacity: 0 }, { duration: 0, at: "<" }],
-      [".stem", { x: 0, opacity: 1 }, { duration: 0.6, ease: EASE, at: 0.05 }],
-      [".bowl", { y: 0, opacity: 1 }, { duration: 0.6, ease: EASE, at: 0.15 }],
-      [".flag", { x: 0, y: 0, opacity: 1 }, { duration: 0.6, ease: EASE, at: 0.25 }],
-      [".dot", { scale: 1, opacity: 1 }, { type: "spring", stiffness: 420, damping: 18, at: 0.55 }],
-      [".bracket", { y: 0, opacity: 1 }, { duration: 0.5, ease: EASE, at: 0.6 }],
-      [".bracket", { opacity: [1, 0, 1, 0, 1] }, { duration: 0.7, ease: "linear", at: 1.15 }],
-    ];
-    try {
-      await animate(sequence);
-    } finally {
-      playing.current = false;
-    }
-  }, [animate]);
-
-  React.useEffect(() => {
-    void play();
-  }, [play, pathname]);
-
-  const layer = (name: string, src: string) => (
+  const img = (name: string, props: React.ComponentProps<typeof motion.img>) => (
     <motion.img
       key={name}
-      src={src}
+      src={`/brand/mark-${name}.png`}
       alt=""
       aria-hidden
       draggable={false}
-      className={cn("absolute inset-0 h-full w-full select-none", name)}
-      style={{ willChange: "transform, opacity" }}
+      className="absolute inset-0 h-full w-full select-none"
+      {...props}
     />
   );
 
   return (
     <span
-      ref={scope}
-      onPointerEnter={replayOnHover ? () => void play() : undefined}
+      key={`${pathname}#${run}`}
+      onPointerEnter={replayOnHover ? () => setRun((r) => r + 1) : undefined}
       className={cn("relative block aspect-square shrink-0", className)}
     >
-      {layer("stem", "/brand/mark-stem.png")}
-      {layer("bowl", "/brand/mark-bowl.png")}
-      {layer("flag", "/brand/mark-flag.png")}
-      {layer("dot", "/brand/mark-dot.png")}
-      {layer("bracket", "/brand/mark-bracket.png")}
+      {img("stem", {
+        initial: { x: "-55%", opacity: 0 },
+        animate: { x: 0, opacity: 1 },
+        transition: slide(0.05),
+      })}
+      {img("bowl", {
+        initial: { y: "-55%", opacity: 0 },
+        animate: { y: 0, opacity: 1 },
+        transition: slide(0.15),
+      })}
+      {img("flag", {
+        initial: { x: "45%", y: "45%", opacity: 0 },
+        animate: { x: 0, y: 0, opacity: 1 },
+        transition: slide(0.25),
+      })}
+      {img("dot", {
+        initial: { scale: 0, opacity: 0 },
+        animate: { scale: 1, opacity: 1 },
+        transition: { type: "spring", stiffness: 420, damping: 18, delay: 0.55 },
+      })}
+      {img("bracket", {
+        initial: { y: "40%", opacity: 0 },
+        animate: { y: 0, opacity: [0, 1, 1, 0, 1, 0, 1] },
+        transition: {
+          y: { duration: 0.5, ease: EASE, delay: 0.6 },
+          opacity: {
+            duration: 1.3,
+            delay: 0.6,
+            ease: "linear",
+            times: [0, 0.3, 0.5, 0.6, 0.72, 0.82, 1],
+          },
+        },
+      })}
     </span>
   );
 }
