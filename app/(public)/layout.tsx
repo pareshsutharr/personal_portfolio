@@ -33,7 +33,6 @@ export async function generateMetadata(): Promise<Metadata> {
   const description = seo?.meta_description || profile?.short_bio || DEFAULT_DESCRIPTION;
   const ogImage = seo?.og_image || "/opengraph-image";
   const twitterImage = seo?.twitter_image || ogImage;
-  const icon = seo?.favicon || settings?.favicon_url || null;
 
   return {
     metadataBase: base,
@@ -62,7 +61,17 @@ export async function generateMetadata(): Promise<Metadata> {
       creator: seo?.twitter_handle || undefined,
     },
     verification: seo?.google_verification ? { google: seo.google_verification } : undefined,
-    icons: icon ? { icon, shortcut: icon, apple: icon } : undefined,
+    // One stable, same-origin icon set. Google shows a site icon in results only
+    // when the favicon URL is stable and unambiguous, so the admin's favicon
+    // setting is deliberately not used here.
+    icons: {
+      icon: [
+        { url: "/favicon.ico", sizes: "48x48", type: "image/x-icon" },
+        { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      ],
+      shortcut: "/favicon.ico",
+      apple: "/apple-touch-icon.png",
+    },
     robots: {
       index: true,
       follow: true,
