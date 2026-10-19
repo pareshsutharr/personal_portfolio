@@ -1,3 +1,5 @@
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import { ImageResponse } from "next/og";
 import { getSeoSettings } from "@/lib/queries/public";
 import { siteUrl } from "@/lib/seo";
@@ -8,6 +10,11 @@ export const contentType = "image/png";
 export const revalidate = 3600;
 
 const FALLBACK_TITLE = "Full Stack Software Engineer";
+
+// Brand mark, inlined so the route has no network dependency at render time.
+const logoMark = `data:image/png;base64,${(
+  await readFile(join(process.cwd(), "public/logo-mark.png"))
+).toString("base64")}`;
 const FALLBACK_DESCRIPTION = "Building complete digital products from idea to production.";
 
 export default async function OpenGraphImage() {
@@ -54,7 +61,10 @@ export default async function OpenGraphImage() {
           color: "#8a8a8a",
         }}
       >
-        <span>Portfolio</span>
+        <span style={{ display: "flex", alignItems: "center", gap: 18 }}>
+          <img src={logoMark} width={56} height={56} alt="" style={{ display: "flex" }} />
+          <span>Portfolio</span>
+        </span>
         <span style={{ display: "flex", alignItems: "center", gap: 14 }}>
           <span
             style={{
