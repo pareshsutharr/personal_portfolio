@@ -66,9 +66,11 @@ export async function submitContact(
     project_type: input.project_type ?? null,
     budget: input.budget ?? null,
     timeline: input.timeline ?? null,
-    subject: input.project_type
-      ? `${input.project_type} — ${input.name}`
-      : `Message from ${input.name}`,
+    subject: input.service
+      ? `${input.service} — ${input.name}`
+      : input.project_type
+        ? `${input.project_type} — ${input.name}`
+        : `Message from ${input.name}`,
     message: input.message,
     source,
     ip_hash: ipHash,
@@ -85,6 +87,7 @@ async function notifyByEmail(input: {
   email: string;
   company?: string | null;
   project_type?: string | null;
+  service?: string | null;
   budget?: string | null;
   timeline?: string | null;
   message: string;
@@ -93,6 +96,7 @@ async function notifyByEmail(input: {
     `Name: ${input.name}`,
     `Email: ${input.email}`,
     input.company ? `Company: ${input.company}` : null,
+    input.service ? `Service requested: ${input.service}` : null,
     input.project_type ? `Project type: ${input.project_type}` : null,
     input.budget ? `Budget: ${input.budget}` : null,
     input.timeline ? `Timeline: ${input.timeline}` : null,
@@ -101,7 +105,9 @@ async function notifyByEmail(input: {
   ].filter((l): l is string => l !== null);
 
   await sendOwnerEmail({
-    subject: `New portfolio inquiry from ${input.name}`,
+    subject: input.service
+      ? `Service request: ${input.service} from ${input.name}`
+      : `New portfolio inquiry from ${input.name}`,
     text: lines.join("\n"),
     replyTo: input.email,
   });

@@ -3,6 +3,7 @@ import { CtaBand } from "@/components/portfolio/cta-band";
 import { DynamicIcon } from "@/components/portfolio/icon";
 import { PageHeader } from "@/components/portfolio/page-header";
 import { Section } from "@/components/portfolio/section";
+import { ServiceEnquiry } from "@/components/contact/service-enquiry";
 import { Reveal } from "@/components/motion/reveal";
 import { EmptyState } from "@/components/ui/empty-state";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -66,7 +67,7 @@ export default async function ServicesPage() {
             {services.length ? (
               <ol className="border-t border-line-800">
                 {services.map((s, i) => (
-                  <li key={s.id} className="border-b border-line-800">
+                  <li key={s.id} id={s.slug} className="scroll-mt-28 border-b border-line-800">
                     <Reveal
                       delay={Math.min(i, 4) * 0.05}
                       className={cn(
@@ -112,9 +113,12 @@ export default async function ServicesPage() {
                             {s.description}
                           </p>
                         ) : null}
-                        {s.featured ? (
-                          <p className="mt-5 label-mono text-ember-400">Core service</p>
-                        ) : null}
+                        <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-3">
+                          <ServiceEnquiry title={s.title} slug={s.slug} />
+                          {s.featured ? (
+                            <p className="label-mono text-ember-400">Core service</p>
+                          ) : null}
+                        </div>
                       </div>
                     </Reveal>
                   </li>

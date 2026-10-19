@@ -1,3 +1,4 @@
+import { ServiceEnquiry } from "@/components/contact/service-enquiry";
 import { ButtonLink } from "@/components/ui/button";
 import { Stagger, StaggerItem } from "@/components/motion/reveal";
 import { padIndex } from "@/lib/utils/format";
@@ -55,6 +56,15 @@ export function WhatIBuild({
               {s.description ? (
                 <p className="mt-3 text-sm leading-relaxed text-fg-300">{s.description}</p>
               ) : null}
+              <div className="mt-5">
+                <ServiceEnquiry
+                  title={s.title}
+                  slug={s.slug}
+                  variant="ghost"
+                  label="Request"
+                  className="-ml-3"
+                />
+              </div>
             </div>
           </StaggerItem>
         ))}

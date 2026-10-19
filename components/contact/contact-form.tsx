@@ -35,12 +35,23 @@ const EMPTY: FormValues = {
   message: "",
 };
 
-export function ContactForm() {
+export function ContactForm({
+  service,
+  initial,
+  compact = false,
+}: {
+  /** Service being requested; sent as a hidden field and used in the inbox subject. */
+  service?: string;
+  /** Pre-filled values (e.g. the project type that matches a service). */
+  initial?: Partial<FormValues>;
+  /** Fewer fields and no outer card: for use inside a dialog. */
+  compact?: boolean;
+} = {}) {
   const [state, formAction, pending] = useActionState<ActionResult<null> | null, FormData>(
     submitContact,
     null,
   );
-  const [values, setValues] = React.useState<FormValues>(EMPTY);
+  const [values, setValues] = React.useState<FormValues>({ ...EMPTY, ...initial });
   const [startedAt] = React.useState(() => Date.now());
   const [dismissed, setDismissed] = React.useState<ActionResult<null> | null>(null);
 
@@ -58,7 +69,11 @@ export function ContactForm() {
       <div
         role="status"
         aria-live="polite"
-        className="flex min-h-[420px] flex-col justify-between rounded-md border border-line-800 bg-surface-900 p-6 sm:p-8"
+        className={
+          compact
+            ? "flex flex-col justify-between py-2"
+            : "flex min-h-[420px] flex-col justify-between rounded-md border border-line-800 bg-surface-900 p-6 sm:p-8"
+        }
       >
         <div>
           <p className="flex items-center gap-3 label-mono">
@@ -79,7 +94,7 @@ export function ContactForm() {
             type="button"
             variant="outline"
             onClick={() => {
-              setValues(EMPTY);
+              setValues({ ...EMPTY, ...initial });
               setDismissed(state);
             }}
           >
@@ -96,8 +111,13 @@ export function ContactForm() {
     <form
       action={formAction}
       noValidate
-      className="relative rounded-md border border-line-800 bg-surface-900 p-6 sm:p-8"
+      className={
+        compact
+          ? "relative"
+          : "relative rounded-md border border-line-800 bg-surface-900 p-6 sm:p-8"
+      }
     >
+      {service ? <input type="hidden" name="service" value={service} /> : null}
       <div className="grid gap-5 sm:grid-cols-2">
         <Field label="Name" htmlFor="contact-name" required errors={fieldErrors.name}>
           <Input
@@ -123,26 +143,30 @@ export function ContactForm() {
             aria-invalid={fieldErrors.email ? true : undefined}
           />
         </Field>
-        <Field label="Company" htmlFor="contact-company" errors={fieldErrors.company}>
-          <Input
-            id="contact-company"
-            name="company"
-            autoComplete="organization"
-            value={values.company}
-            onChange={set("company")}
-          />
-        </Field>
-        <Field label="Phone" htmlFor="contact-phone" errors={fieldErrors.phone}>
-          <Input
-            id="contact-phone"
-            name="phone"
-            type="tel"
-            autoComplete="tel"
-            inputMode="tel"
-            value={values.phone}
-            onChange={set("phone")}
-          />
-        </Field>
+        {compact ? null : (
+          <>
+            <Field label="Company" htmlFor="contact-company" errors={fieldErrors.company}>
+              <Input
+                id="contact-company"
+                name="company"
+                autoComplete="organization"
+                value={values.company}
+                onChange={set("company")}
+              />
+            </Field>
+            <Field label="Phone" htmlFor="contact-phone" errors={fieldErrors.phone}>
+              <Input
+                id="contact-phone"
+                name="phone"
+                type="tel"
+                autoComplete="tel"
+                inputMode="tel"
+                value={values.phone}
+                onChange={set("phone")}
+              />
+            </Field>
+          </>
+        )}
         <Field label="Project type" htmlFor="contact-type" errors={fieldErrors.project_type}>
           <Select
             id="contact-type"
@@ -197,7 +221,11 @@ export function ContactForm() {
             required
             minLength={MESSAGE_MIN}
             maxLength={MESSAGE_MAX}
-            placeholder="What are you building, who is it for, and where is it today?"
+            placeholder={
+              service
+                ? `What do you need from ${service.toLowerCase()}, and where is the project today?`
+                : "What are you building, who is it for, and where is it today?"
+            }
             value={values.message}
             onChange={set("message")}
             aria-invalid={fieldErrors.message ? true : undefined}

@@ -448,6 +448,7 @@ export const contactSchema = z.object({
   phone: optionalText,
   company: optionalText,
   project_type: optionalText,
+  service: optionalText,
   budget: optionalText,
   timeline: optionalText,
   message: z
