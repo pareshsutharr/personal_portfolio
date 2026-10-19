@@ -14,6 +14,7 @@ import { ButtonLink } from "@/components/ui/button";
 import { cn } from "@/lib/utils/cn";
 import type { SocialLink } from "@/types";
 import { BrandMark } from "./brand-mark";
+import { useSplashPhase } from "./splash";
 import { NAV_LINKS, ROUTES } from "./routes";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
@@ -27,6 +28,7 @@ export function SiteNav({
 }) {
   const pathname = usePathname();
   const reduce = useReducedMotion();
+  const splashPhase = useSplashPhase();
   const [scrolled, setScrolled] = React.useState(false);
   const [open, setOpen] = React.useState(false);
   const [lastPath, setLastPath] = React.useState(pathname);
@@ -105,7 +107,13 @@ export function SiteNav({
             aria-label="Paresh Suthar — Home"
             className="flex min-h-11 items-center gap-3 font-display text-sm font-semibold tracking-tight text-fg-50 uppercase"
           >
-            <BrandMark className="h-8 w-8 lg:h-9 lg:w-9" />
+            <BrandMark
+              anchor
+              className={cn(
+                "h-8 w-8 transition-opacity duration-300 lg:h-9 lg:w-9",
+                splashPhase !== "done" && "opacity-0",
+              )}
+            />
             <span>Paresh Suthar</span>
           </Link>
 

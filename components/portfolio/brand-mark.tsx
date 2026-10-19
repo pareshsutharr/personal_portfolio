@@ -22,9 +22,12 @@ const slide = (delay: number): Transition => ({ duration: 0.6, ease: EASE, delay
 export function BrandMark({
   className,
   replayOnHover = true,
+  anchor = false,
 }: {
   className?: string;
   replayOnHover?: boolean;
+  /** Marks this instance as the landing spot for the first-visit splash. */
+  anchor?: boolean;
 }) {
   const pathname = usePathname();
   const [run, setRun] = React.useState(0);
@@ -44,6 +47,7 @@ export function BrandMark({
   return (
     <span
       key={`${pathname}#${run}`}
+      data-brand-anchor={anchor ? "" : undefined}
       onPointerEnter={replayOnHover ? () => setRun((r) => r + 1) : undefined}
       className={cn("relative block aspect-square shrink-0", className)}
     >

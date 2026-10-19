@@ -5,6 +5,7 @@ import { getSiteShell } from "@/lib/queries/public";
 import { CustomCursor } from "@/components/portfolio/custom-cursor";
 import { ScrollProgress } from "@/components/portfolio/scroll-progress";
 import { SmoothScroll } from "@/components/motion/smooth-scroll";
+import { SplashContent, SplashProvider } from "@/components/portfolio/splash";
 import { SiteFooter } from "@/components/portfolio/site-footer";
 import { SiteNav } from "@/components/portfolio/site-nav";
 
@@ -111,14 +112,16 @@ export default async function PublicLayout({ children }: LayoutProps<"/">) {
       >
         Skip to content
       </a>
-      <SmoothScroll />
-      <ScrollProgress />
-      <SiteNav email={email} socialLinks={socialLinks} />
-      <main id="main" className="flex-1">
-        {children}
-      </main>
-      <SiteFooter profile={profile} settings={settings} socialLinks={socialLinks} />
-      <CustomCursor />
+      <SplashProvider>
+        <SmoothScroll />
+        <ScrollProgress />
+        <SiteNav email={email} socialLinks={socialLinks} />
+        <main id="main" className="flex-1">
+          <SplashContent>{children}</SplashContent>
+        </main>
+        <SiteFooter profile={profile} settings={settings} socialLinks={socialLinks} />
+        <CustomCursor />
+      </SplashProvider>
       <JsonLd data={person} />
       <JsonLd data={website} />
       {gaId ? (
