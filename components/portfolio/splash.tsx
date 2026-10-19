@@ -96,28 +96,6 @@ export function SplashProvider({ children }: { children: React.ReactNode }) {
             >
               <BrandMark className="h-full w-full" replayOnHover={false} />
             </motion.div>
-            <motion.p
-              initial={{ opacity: 0, y: 8 }}
-              animate={phase === "travel" ? { opacity: 0, y: -4 } : { opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: phase === "travel" ? 0 : 1.1, ease: EASE }}
-              className="mt-7 label-mono text-fg-300"
-            >
-              Paresh Suthar
-            </motion.p>
-            <motion.span
-              aria-hidden
-              initial={{ opacity: 0 }}
-              animate={{ opacity: phase === "travel" ? 0 : 1 }}
-              transition={{ duration: 0.3, delay: phase === "travel" ? 0 : 0.2 }}
-              className="mt-5 block h-px w-28 overflow-hidden bg-line-700"
-            >
-              <motion.span
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ duration: ASSEMBLE_MS / 1000, ease: "linear" }}
-                className="block h-full w-full origin-left bg-ember-500"
-              />
-            </motion.span>
           </motion.div>
         ) : null}
       </AnimatePresence>
