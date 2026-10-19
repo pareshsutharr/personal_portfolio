@@ -17,6 +17,7 @@ export const ROUTES = {
 
 export const NAV_LINKS: { href: Route; label: string }[] = [
   { href: ROUTES.projects, label: "Work" },
+  { href: ROUTES.services, label: "Services" },
   { href: ROUTES.about, label: "About" },
   { href: ROUTES.experience, label: "Experience" },
   { href: ROUTES.skills, label: "Skills" },
