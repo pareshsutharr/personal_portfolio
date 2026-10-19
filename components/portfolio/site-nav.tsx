@@ -1,7 +1,6 @@
 "use client";
 
 import * as React from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -105,14 +104,17 @@ export function SiteNav({
             aria-label="Paresh Suthar — Home"
             className="flex min-h-11 items-center gap-3 font-display text-sm font-semibold tracking-tight text-fg-50 uppercase"
           >
-            <Image
-              src="/logo-mark.png"
-              alt=""
-              width={64}
-              height={64}
-              priority
-              className="h-8 w-8 lg:h-9 lg:w-9"
-            />
+            <picture>
+              <source srcSet="/logo-mark.png" media="(prefers-reduced-motion: reduce)" />
+              <img
+                src="/logo-animated.gif"
+                alt=""
+                width={64}
+                height={64}
+                fetchPriority="high"
+                className="h-8 w-8 lg:h-9 lg:w-9"
+              />
+            </picture>
             <span>Paresh Suthar</span>
           </Link>
 
