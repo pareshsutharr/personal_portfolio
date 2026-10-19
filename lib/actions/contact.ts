@@ -2,6 +2,7 @@
 
 import { createHash } from "node:crypto";
 import { headers } from "next/headers";
+import { sendOwnerEmail } from "@/lib/email";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { contactSchema } from "@/lib/validation/schemas";
 import type { ActionResult } from "@/types";
@@ -88,19 +89,6 @@ async function notifyByEmail(input: {
   timeline?: string | null;
   message: string;
 }) {
-  const user = process.env.GMAIL_USER;
-  const pass = process.env.GMAIL_APP_PASSWORD;
-  if (!user || !pass) return;
-  const to = process.env.CONTACT_NOTIFY_EMAIL ?? user;
-
-  const { createTransport } = await import("nodemailer");
-  const transporter = createTransport({
-    host: "smtp.gmail.com",
-    port: 465,
-    secure: true,
-    auth: { user, pass },
-  });
-
   const lines = [
     `Name: ${input.name}`,
     `Email: ${input.email}`,
@@ -112,11 +100,9 @@ async function notifyByEmail(input: {
     input.message,
   ].filter((l): l is string => l !== null);
 
-  await transporter.sendMail({
-    from: `"Portfolio" <${user}>`,
-    to,
-    replyTo: input.email,
+  await sendOwnerEmail({
     subject: `New portfolio inquiry from ${input.name}`,
     text: lines.join("\n"),
+    replyTo: input.email,
   });
 }
