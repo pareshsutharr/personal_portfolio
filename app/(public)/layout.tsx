@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { siteUrl as sharedSiteUrl } from "@/lib/seo";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { getSiteShell } from "@/lib/queries/public";
@@ -17,12 +18,8 @@ const DEFAULT_DESCRIPTION =
   "Full-stack developer in Surat, India. React, Node.js, MongoDB and Postgres, for web and mobile.";
 
 function siteUrl(): URL {
-  const raw = process.env.NEXT_PUBLIC_SITE_URL;
-  try {
-    return new URL(raw && raw.length ? raw : "http://localhost:3000");
-  } catch {
-    return new URL("http://localhost:3000");
-  }
+  // Delegates to the shared helper so the fallback logic lives in one place.
+  return new URL(sharedSiteUrl());
 }
 
 export async function generateMetadata(): Promise<Metadata> {
