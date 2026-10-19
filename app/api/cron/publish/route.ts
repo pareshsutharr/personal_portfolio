@@ -1,6 +1,7 @@
 import { revalidatePath } from "next/cache";
 import { getPosts, getTags } from "@/lib/blog";
 import { submitIndexNow } from "@/lib/indexnow";
+import { purgeOldPageViews } from "@/lib/analytics";
 
 export const dynamic = "force-dynamic";
 
@@ -41,11 +42,14 @@ export async function GET(request: Request) {
       .map((t) => `/blog/tag/${t.tag}`),
   ]);
 
+  const purged = await purgeOldPageViews(180);
+
   return Response.json({
     ok: true,
     at: new Date().toISOString(),
     published: posts.length,
     indexNow,
+    purged,
     refreshed: paths,
     latest: recent.map((p) => ({ slug: p.slug, date: p.date })),
   });

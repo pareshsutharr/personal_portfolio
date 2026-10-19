@@ -4,6 +4,7 @@ import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { getSiteShell } from "@/lib/queries/public";
 import { CustomCursor } from "@/components/portfolio/custom-cursor";
+import { PageViewBeacon } from "@/components/analytics/beacon";
 import { FeedbackWidget } from "@/components/portfolio/feedback-widget";
 import { ScrollProgress } from "@/components/portfolio/scroll-progress";
 import { SmoothScroll } from "@/components/motion/smooth-scroll";
@@ -166,6 +167,7 @@ export default async function PublicLayout({ children }: LayoutProps<"/">) {
         </main>
         <SiteFooter profile={profile} settings={settings} socialLinks={socialLinks} />
         <FeedbackWidget />
+        <PageViewBeacon />
         <CustomCursor />
       </SplashProvider>
       <JsonLd data={person} />

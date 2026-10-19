@@ -1198,6 +1198,48 @@ export type Database = {
         }
         Relationships: []
       }
+      page_views: {
+        Row: {
+          campaign: string | null
+          country: string | null
+          day: string
+          device: string | null
+          id: number
+          medium: string
+          path: string
+          referrer_host: string | null
+          source: string
+          ts: string
+          visitor: string
+        }
+        Insert: {
+          campaign?: string | null
+          country?: string | null
+          day: string
+          device?: string | null
+          id?: never
+          medium?: string
+          path: string
+          referrer_host?: string | null
+          source?: string
+          ts?: string
+          visitor: string
+        }
+        Update: {
+          campaign?: string | null
+          country?: string | null
+          day?: string
+          device?: string | null
+          id?: never
+          medium?: string
+          path?: string
+          referrer_host?: string | null
+          source?: string
+          ts?: string
+          visitor?: string
+        }
+        Relationships: []
+      }
       videos: {
         Row: {
           company: string | null
