@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { getSiteShell } from "@/lib/queries/public";
 import { CustomCursor } from "@/components/portfolio/custom-cursor";
 import { ScrollProgress } from "@/components/portfolio/scroll-progress";
+import { SmoothScroll } from "@/components/motion/smooth-scroll";
 import { SiteFooter } from "@/components/portfolio/site-footer";
 import { SiteNav } from "@/components/portfolio/site-nav";
 
@@ -110,6 +111,7 @@ export default async function PublicLayout({ children }: LayoutProps<"/">) {
       >
         Skip to content
       </a>
+      <SmoothScroll />
       <ScrollProgress />
       <SiteNav email={email} socialLinks={socialLinks} />
       <main id="main" className="flex-1">

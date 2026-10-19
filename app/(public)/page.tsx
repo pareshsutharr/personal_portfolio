@@ -9,6 +9,7 @@ import { Statement } from "@/components/portfolio/statement";
 import { TechEcosystem } from "@/components/portfolio/tech-ecosystem";
 import { WhatIBuild } from "@/components/portfolio/what-i-build";
 import { Showcase } from "@/components/projects/showcase";
+import { VelocityMarquee } from "@/components/motion/velocity-marquee";
 import { ButtonLink } from "@/components/ui/button";
 import { ROUTES } from "@/components/portfolio/routes";
 import {
@@ -71,6 +72,14 @@ export default async function HomePage() {
       {showStatement ? <Statement profile={profile} stats={stats} index={next()} /> : null}
 
       {showWork ? <Showcase projects={projects} index={next()} /> : null}
+
+      <VelocityMarquee
+        items={
+          profile?.hero_keywords?.length
+            ? profile.hero_keywords
+            : ["Web", "Mobile", "APIs", "Fintech", "Enterprise"]
+        }
+      />
 
       {showServices ? (
         <WhatIBuild services={services} intro={profile?.what_i_build} index={next()} />

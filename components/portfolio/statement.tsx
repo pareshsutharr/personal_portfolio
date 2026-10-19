@@ -1,5 +1,6 @@
 import { Counter } from "@/components/motion/counter";
-import { Reveal, Stagger, StaggerItem } from "@/components/motion/reveal";
+import { Stagger, StaggerItem } from "@/components/motion/reveal";
+import { ScrollText } from "@/components/motion/scroll-text";
 import type { Profile, Stat } from "@/types";
 import { Eyebrow, Section } from "./section";
 
@@ -26,11 +27,10 @@ export function Statement({
         </div>
         <div className="lg:col-span-8">
           {bio ? (
-            <Reveal>
-              <p className="max-w-3xl font-display text-display-sm leading-tight font-normal text-balance text-fg-100">
-                {bio}
-              </p>
-            </Reveal>
+            <ScrollText
+              text={bio}
+              className="max-w-3xl font-display text-display-sm leading-tight font-normal text-fg-100"
+            />
           ) : null}
 
           {stats.length ? (

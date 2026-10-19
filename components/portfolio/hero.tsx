@@ -1,6 +1,8 @@
 import { ArrowDownToLine } from "lucide-react";
 import { ButtonLink } from "@/components/ui/button";
+import { CursorSpotlight } from "@/components/motion/cursor-spotlight";
 import { Magnetic } from "@/components/motion/magnetic";
+import { Parallax, ScrollFade } from "@/components/motion/parallax";
 import { Reveal, SplitWords } from "@/components/motion/reveal";
 import type { ClientLogo, Profile } from "@/types";
 import { AvailabilityBadge } from "./availability-badge";
@@ -65,21 +67,25 @@ export function Hero({
         aria-hidden
         className="pointer-events-none absolute -top-40 -right-40 h-[32rem] w-[32rem] rounded-full opacity-100 [background:radial-gradient(closest-side,rgb(232_82_31_/_0.10),transparent)]"
       />
+      <CursorSpotlight />
 
-      <div className="relative container-x flex flex-1 flex-col pt-24 pb-10 sm:pt-28 lg:pt-32">
+      <ScrollFade className="relative container-x flex flex-1 flex-col pt-24 pb-10 sm:pt-28 lg:pt-32">
         <div className="grid flex-1 grid-cols-12 gap-x-8 gap-y-10 lg:items-center">
           {/* Portrait */}
-          <div className="order-1 col-span-12 lg:order-2 lg:col-span-5 lg:-mr-16 xl:-mr-24 2xl:-mr-32">
+          <Parallax
+            speed={-0.12}
+            className="order-1 col-span-12 lg:order-2 lg:col-span-5 lg:-mr-16 xl:-mr-24 2xl:-mr-32"
+          >
             <HeroPortrait
               src={profile?.hero_photo ?? null}
               name={name}
               location={profile?.location}
               className="mx-auto w-full max-w-[min(100%,58svh)] sm:max-w-[min(100%,62svh)] lg:max-w-none"
             />
-          </div>
+          </Parallax>
 
           {/* Type */}
-          <div className="order-2 col-span-12 lg:order-1 lg:col-span-7">
+          <Parallax speed={0.05} className="order-2 col-span-12 lg:order-1 lg:col-span-7">
             {kicker.length ? (
               <Reveal y={10} className="flex flex-wrap items-center gap-x-3 gap-y-1 label-mono">
                 <span className="text-ember-400">{"//"}</span>
@@ -154,9 +160,9 @@ export function Hero({
                 ) : null}
               </div>
             </Reveal>
-          </div>
+          </Parallax>
         </div>
-      </div>
+      </ScrollFade>
 
       {/* Bottom strip: client logos when available, otherwise the status bar */}
       {clientLogos.length ? (

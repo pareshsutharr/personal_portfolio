@@ -126,6 +126,11 @@
     -webkit-text-size-adjust: 100%;
   }
 
+  /* Lenis drives scrolling itself; native smooth scrolling would double-ease anchor jumps. */
+  html.lenis {
+    scroll-behavior: auto;
+  }
+
   body {
     font-family: var(--font-sans);
     font-feature-settings: "ss01", "cv11", "calt";

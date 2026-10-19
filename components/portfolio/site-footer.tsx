@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import type { Profile, SiteSettings, SocialLink } from "@/types";
+import { Parallax } from "@/components/motion/parallax";
 import { AvailabilityBadge } from "./availability-badge";
 import { BackToTop } from "./back-to-top";
 import { FOOTER_LINKS } from "./routes";
@@ -23,12 +24,17 @@ export function SiteFooter({
 
   return (
     <footer className="relative overflow-hidden border-t border-line-800 bg-bg-950">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -bottom-[0.18em] left-1/2 -translate-x-1/2 font-display text-display-xl font-bold tracking-tighter whitespace-nowrap text-white/[0.04] select-none"
+      <Parallax
+        speed={-0.25}
+        className="pointer-events-none absolute -bottom-[0.18em] left-1/2 -translate-x-1/2"
       >
-        PARESH
-      </div>
+        <div
+          aria-hidden
+          className="font-display text-display-xl font-bold tracking-tighter whitespace-nowrap text-white/[0.04] select-none"
+        >
+          PARESH
+        </div>
+      </Parallax>
 
       <div className="relative container-x">
         <div className="grid gap-12 py-16 sm:py-20 lg:grid-cols-12 lg:gap-8 lg:py-24">

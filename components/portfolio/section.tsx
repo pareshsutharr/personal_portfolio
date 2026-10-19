@@ -1,4 +1,6 @@
 import * as React from "react";
+import { DrawLine } from "@/components/motion/draw-line";
+import { Reveal } from "@/components/motion/reveal";
 import { cn } from "@/lib/utils/cn";
 import { padIndex } from "@/lib/utils/format";
 
@@ -41,7 +43,7 @@ export function Eyebrow({
       {typeof index === "number" ? (
         <>
           <span className="text-ember-400">{padIndex(index)}</span>
-          <span aria-hidden className="h-px w-6 bg-line-600" />
+          <DrawLine className="h-px w-6 bg-ember-500/70" />
         </>
       ) : null}
       <span>{children}</span>
@@ -78,9 +80,13 @@ export function SectionHeader({
         <Eyebrow index={index} className={cn(align === "center" && "justify-center")}>
           {eyebrow}
         </Eyebrow>
-        <h2 className="mt-5 font-display text-display-md font-semibold text-balance text-fg-50">
+        <Reveal
+          as="h2"
+          y={28}
+          className="mt-5 font-display text-display-md font-semibold text-balance text-fg-50"
+        >
           {title}
-        </h2>
+        </Reveal>
         {description ? (
           <p className="mt-5 max-w-xl text-base leading-relaxed text-fg-300 sm:text-lg">
             {description}

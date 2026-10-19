@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { DeviceFrame, asCoverFrame } from "@/components/projects/device-frame";
+import { Tilt } from "@/components/motion/tilt";
 import Link from "next/link";
 import type { Route } from "next";
 import { Badge } from "@/components/ui/badge";
@@ -103,7 +104,7 @@ export function ProjectCard({
         className="flex h-full flex-col rounded-xs focus-visible:outline-offset-4"
         aria-label={`${project.title} — view case study`}
       >
-        <div
+        <Tilt
           className={cn(
             "relative overflow-hidden rounded-sm border border-line-800 bg-surface-900",
             ASPECT_CLASS[span],
@@ -141,7 +142,7 @@ export function ProjectCard({
             aria-hidden
             className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
           />
-        </div>
+        </Tilt>
 
         <div className="mt-5 flex items-center justify-between gap-4">
           <p className="label-mono">
