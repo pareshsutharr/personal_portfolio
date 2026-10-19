@@ -14,10 +14,10 @@ import { formatMonthYear, padIndex } from "@/lib/utils/format";
 import { isOptimizableImage } from "@/lib/utils/image";
 
 const DESCRIPTION =
-  "Credentials and certificates, with issuer and verification links where available.";
+  "Certifications held by Paresh Suthar, full stack developer in Surat: Microsoft Azure AI, HackerRank JavaScript and SQL, and SDJ International College courses.";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Certifications",
+  title: "Certifications and Credentials",
   description: DESCRIPTION,
   path: "/certifications",
 });

@@ -78,6 +78,7 @@ export function Hero({
             <HeroPortrait
               src={profile?.hero_photo ?? null}
               name={name}
+              alt={`${name}, ${title}${profile?.location ? ` in ${profile.location}` : ""}`}
               location={profile?.location}
               className="mx-auto w-full max-w-[min(100%,58svh)] sm:max-w-[min(100%,62svh)] lg:max-w-none"
             />

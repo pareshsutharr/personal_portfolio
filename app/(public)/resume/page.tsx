@@ -10,8 +10,9 @@ import { getProfile, getSkills } from "@/lib/queries/public";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Resume",
-  description: "Resume of Paresh Suthar, Full Stack Software Engineer.",
+  title: "Resume, Full Stack Developer",
+  description:
+    "Resume of Paresh Suthar, full stack developer in Surat, India: React, Node.js, MongoDB, Postgres, mobile apps and Linux deployment.",
   path: "/resume",
 });
 

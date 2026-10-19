@@ -9,10 +9,11 @@ import { getProfile, getSiteSettings, getSocialLinks } from "@/lib/queries/publi
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 import { titleCase } from "@/lib/utils/format";
 
-const DESCRIPTION = "Tell me what you are building. I read every message and reply personally.";
+const DESCRIPTION =
+  "Contact Paresh Suthar, full stack developer in Surat, India, for freelance web and mobile projects or full-time roles. Replies come from me, by email.";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Contact",
+  title: "Hire a Full Stack Developer in Surat",
   description: DESCRIPTION,
   path: "/contact",
 });

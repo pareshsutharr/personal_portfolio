@@ -13,10 +13,11 @@ import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 import { cn } from "@/lib/utils/cn";
 import { SKILL_CATEGORY_LABELS, type SkillCategory, type SkillWithProjects } from "@/types";
 
-const DESCRIPTION = "Every technology listed here is tied to the shipped projects that used it.";
+const DESCRIPTION =
+  "The stack I work in, from React and Next.js to Node.js, MongoDB, Postgres, React Native and Nginx, each tied to the shipped projects that used it.";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Skills",
+  title: "Skills: React, Node.js, Postgres",
   description: DESCRIPTION,
   path: "/skills",
 });

@@ -12,8 +12,9 @@ import { pageMetadata } from "@/lib/seo";
 import { formatDate } from "@/lib/utils/format";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Now",
-  description: "What I am building, learning and open to right now.",
+  title: "Now: What I Am Building and Learning",
+  description:
+    "What Paresh Suthar is building and learning right now in Surat: the Growth Avenues platform, Docker and CI/CD, and what work he is open to.",
   path: "/now",
 });
 

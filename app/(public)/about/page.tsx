@@ -19,8 +19,9 @@ const FALLBACK_TITLE = "Built to ship complete products.";
 export async function generateMetadata(): Promise<Metadata> {
   const profile = await getProfile();
   return pageMetadata({
-    title: "About",
-    description: profile?.short_bio ?? profile?.personal_intro ?? null,
+    title: "About, Full Stack Developer in Surat",
+    description:
+      "Paresh Suthar, full stack developer in Surat, India. React, Node.js, MongoDB, Postgres and the servers they run on. From freelance work to Growth Avenues.",
     path: "/about",
     image: profile?.about_photo ?? profile?.profile_photo ?? null,
   });
@@ -64,14 +65,19 @@ export default async function AboutPage() {
     <>
       <JsonLd
         data={[
-          personJsonLd({
-            name,
-            title: profile?.professional_title,
-            image: portrait,
-            email: profile?.email,
-            location: profile?.location,
-            sameAs: socialLinks.map((s) => s.url),
-          }),
+          {
+            "@context": "https://schema.org",
+            "@type": "ProfilePage",
+            dateModified: profile?.updated_at ?? undefined,
+            mainEntity: personJsonLd({
+              name,
+              title: profile?.professional_title,
+              image: portrait,
+              email: profile?.email,
+              location: profile?.location,
+              sameAs: socialLinks.map((s) => s.url),
+            }),
+          },
           breadcrumbJsonLd([
             { name: "Home", path: "/" },
             { name: "About", path: "/about" },

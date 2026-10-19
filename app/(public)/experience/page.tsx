@@ -12,10 +12,11 @@ import { ButtonLink } from "@/components/ui/button";
 import { ArrowUpRight } from "lucide-react";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
-const DESCRIPTION = "Where I have worked and what I built there.";
+const DESCRIPTION =
+  "Work history of Paresh Suthar: full stack developer at Growth Avenues in Surat, earlier freelance and PHP work, and the systems built at each step.";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Experience",
+  title: "Experience at Growth Avenues",
   description: DESCRIPTION,
   path: "/experience",
 });

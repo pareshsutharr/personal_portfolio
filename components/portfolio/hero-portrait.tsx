@@ -12,11 +12,14 @@ import { cn } from "@/lib/utils/cn";
 export function HeroPortrait({
   src,
   name,
+  alt,
   location,
   className,
 }: {
   src: string | null;
   name: string;
+  /** Descriptive alt for the photo; falls back to the name. */
+  alt?: string;
   location?: string | null;
   className?: string;
 }) {
@@ -49,7 +52,7 @@ export function HeroPortrait({
         {src ? (
           <Image
             src={src}
-            alt={name}
+            alt={alt ?? name}
             fill
             preload
             sizes="(max-width: 1024px) 92vw, 50vw"

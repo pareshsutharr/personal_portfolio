@@ -10,11 +10,14 @@ export const SITE_NAME = "Paresh Suthar";
 export const DEFAULT_OG_PATH = "/opengraph-image";
 
 export function siteUrl(): string {
-  const explicit = process.env.NEXT_PUBLIC_SITE_URL?.trim();
-  if (explicit) return explicit.replace(/\/+$/, "");
+  const explicit = process.env.NEXT_PUBLIC_SITE_URL?.trim().replace(/\/+$/, "");
   const vercel = process.env.VERCEL_PROJECT_PRODUCTION_URL ?? process.env.VERCEL_URL;
+  // A localhost value is only ever right on a developer machine. On Vercel,
+  // fall through to the deployment's own production hostname so canonical
+  // URLs, Open Graph images and the sitemap never point at localhost.
+  if (explicit && !(vercel && /localhost|127\.0\.0\.1/.test(explicit))) return explicit;
   if (vercel) return `https://${vercel.replace(/\/+$/, "")}`;
-  return "http://localhost:3000";
+  return explicit || "http://localhost:3000";
 }
 
 export function absoluteUrl(path: string): string {

@@ -63,7 +63,17 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     verification: seo?.google_verification ? { google: seo.google_verification } : undefined,
     icons: icon ? { icon, shortcut: icon, apple: icon } : undefined,
-    robots: { index: true, follow: true },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
+      },
+    },
   };
 }
 
@@ -88,7 +98,32 @@ export default async function PublicLayout({ children }: LayoutProps<"/">) {
     name,
     jobTitle: profile?.professional_title ?? "Full Stack Software Engineer",
     url: base.origin,
-    address: { "@type": "PostalAddress", addressCountry: "IN" },
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Surat",
+      addressRegion: "Gujarat",
+      addressCountry: "IN",
+    },
+    worksFor: {
+      "@type": "Organization",
+      name: "JBV Share Broker & Fintech / Growth Avenues",
+      url: "https://www.growthavenues.in",
+    },
+    knowsAbout: [
+      "Full stack development",
+      "React",
+      "Next.js",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "PostgreSQL",
+      "Supabase",
+      "React Native",
+      "Nginx",
+      "Linux server deployment",
+      "Fintech platforms",
+    ],
+    alumniOf: { "@type": "CollegeOrUniversity", name: "Veer Narmad South Gujarat University" },
     ...(socialLinks.length ? { sameAs: socialLinks.map((s) => s.url) } : {}),
     ...(email ? { email: `mailto:${email}` } : {}),
     ...(profile?.profile_photo ? { image: profile.profile_photo } : {}),

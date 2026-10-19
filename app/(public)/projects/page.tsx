@@ -9,10 +9,10 @@ import { getProjects } from "@/lib/queries/public";
 import { absoluteUrl, breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 const DESCRIPTION =
-  "Case studies of the products I have built, what they do and how they are put together.";
+  "Case studies by Paresh Suthar, full stack developer in Surat: fintech and broking platforms, admin systems, mobile apps and websites, with stack and outcomes.";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Projects",
+  title: "Projects: Web, Mobile and Fintech",
   description: DESCRIPTION,
   path: "/projects",
 });
