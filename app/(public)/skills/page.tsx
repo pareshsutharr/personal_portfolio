@@ -97,7 +97,7 @@ export default async function SkillsPage() {
       />
       <PageHeader
         eyebrow="SKILLS"
-        title="Technology, in production."
+        title="Skills."
         description={DESCRIPTION}
         aside={
           skills.length ? (
@@ -131,7 +131,7 @@ export default async function SkillsPage() {
           <SectionHeader
             index={++index}
             eyebrow="SKILL JOURNEY"
-            title="What was learned, and when."
+            title="What I learned, and when."
           />
           <SkillJourney milestones={milestones} />
         </Section>
@@ -141,7 +141,7 @@ export default async function SkillsPage() {
         <SectionHeader
           index={++index}
           eyebrow="BY CATEGORY"
-          title="Skills, with receipts."
+          title="Skills, and where each one was used."
           description="Each entry links to the projects it was used in."
         />
         {groups.length ? (

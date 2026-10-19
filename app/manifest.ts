@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Paresh Suthar — Full Stack Software Engineer",
     short_name: "Paresh Suthar",
     description:
-      "Full Stack Software Engineer building complete digital products from idea to production.",
+      "Full-stack developer in Surat, India. React, Node.js, MongoDB and Postgres, for web and mobile.",
     start_url: "/",
     display: "standalone",
     background_color: "#050505",

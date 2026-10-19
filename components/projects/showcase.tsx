@@ -34,7 +34,7 @@ function toView(p: ProjectWithRelations, i: number): View {
   const tech = p.technologies.slice(0, 4).map((t) => t.name);
   const year = p.year_label || yearOf(p.end_date || p.start_date);
   const meta: { label: string; value: string }[] = [
-    { label: "Build status", value: !summary && p.live_url ? "Production" : "Delivered" },
+    { label: "Status", value: !summary && p.live_url ? "Live" : "Delivered" },
   ];
   if (tech.length) meta.push({ label: "Tech stack", value: tech.join(", ") });
   if (p.role) meta.push({ label: "Role", value: p.role });
@@ -218,7 +218,7 @@ export function Showcase({ projects, index }: { projects: ProjectWithRelations[]
       <SectionHeader
         index={index}
         eyebrow="Selected work"
-        title="Shipped products across web, mobile and APIs."
+        title="Recent projects."
         action={
           <ButtonLink href={ROUTES.projects} variant="outline" className="hidden lg:inline-flex">
             All projects

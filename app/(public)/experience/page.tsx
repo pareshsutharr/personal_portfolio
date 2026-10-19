@@ -12,7 +12,7 @@ import { ButtonLink } from "@/components/ui/button";
 import { ArrowUpRight } from "lucide-react";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
-const DESCRIPTION = "Roles, responsibilities and the systems shipped at each step.";
+const DESCRIPTION = "Where I have worked and what I built there.";
 
 export const metadata: Metadata = pageMetadata({
   title: "Experience",

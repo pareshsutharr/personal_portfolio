@@ -94,7 +94,7 @@ export default async function HomePage() {
           <SectionHeader
             index={next()}
             eyebrow="Technology ecosystem"
-            title="The stack, mapped to the work."
+            title="Technologies, and the projects they shipped in."
             description="Select a category to see the technologies, then a technology to see where it shipped."
             action={
               <ButtonLink href={ROUTES.skills} variant="outline">

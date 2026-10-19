@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     template: "%s — Paresh Suthar",
   },
   description:
-    "Full Stack Software Engineer building complete digital products from idea to production.",
+    "Full-stack developer in Surat, India. React, Node.js, MongoDB and Postgres, for web and mobile.",
 };
 
 export const viewport: Viewport = {

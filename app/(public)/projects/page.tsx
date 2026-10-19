@@ -9,7 +9,7 @@ import { getProjects } from "@/lib/queries/public";
 import { absoluteUrl, breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 const DESCRIPTION =
-  "Production work documented as case studies: the problem, the architecture, the decisions and what shipped.";
+  "Case studies of the products I have built, what they do and how they are put together.";
 
 export const metadata: Metadata = pageMetadata({
   title: "Projects",

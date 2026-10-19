@@ -37,7 +37,7 @@ export function CtaBand(props: {
             <Reveal>
               <p className="flex items-center gap-3 label-mono">
                 <span className="text-ember-400">{"//"}</span>
-                <span>Next step</span>
+                <span>Contact</span>
               </p>
               <h2
                 id="cta-heading"

@@ -185,7 +185,7 @@ export default async function AboutPage() {
 
       {careerMap.length ? (
         <Section className="border-t border-line-800 py-16 sm:py-20 lg:py-24">
-          <SectionHeader eyebrow="CAREER MAP" title="From first commit to full ownership." />
+          <SectionHeader eyebrow="CAREER MAP" title="How my work has changed." />
           <ol className="flex flex-wrap items-stretch gap-y-6">
             {careerMap.map((step, i) => (
               <li key={step.id} className="flex items-stretch">

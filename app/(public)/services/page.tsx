@@ -11,7 +11,7 @@ import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 import { cn } from "@/lib/utils/cn";
 import { padIndex } from "@/lib/utils/format";
 
-const DESCRIPTION = "What I take on, from a first conversation to a production deployment.";
+const DESCRIPTION = "The kinds of work I take on, with examples from real projects.";
 
 export const metadata: Metadata = pageMetadata({
   title: "Services",
@@ -34,7 +34,7 @@ export default async function ServicesPage() {
           { name: "Services", path: "/services" },
         ])}
       />
-      <PageHeader eyebrow="SERVICES" title="From idea to production." description={DESCRIPTION} />
+      <PageHeader eyebrow="SERVICES" title="What I do." description={DESCRIPTION} />
 
       <Section className="py-16 sm:py-20 lg:py-28">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
@@ -123,7 +123,7 @@ export default async function ServicesPage() {
       </Section>
 
       <CtaBand
-        heading="Need a developer who can take it from idea to production?"
+        heading="Have a project? Send me the details."
         subheading={settings?.cta_subheading}
         buttonText={settings?.cta_button_text}
         email={profile?.email ?? settings?.contact_email ?? null}

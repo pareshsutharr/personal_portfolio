@@ -26,7 +26,7 @@ export function WhatIBuild({
       <SectionHeader
         index={index}
         eyebrow="What I build"
-        title="Complete products, not just code."
+        title="What I take on."
         description={intro ?? undefined}
         action={
           <ButtonLink href={ROUTES.services} variant="outline" size="md">

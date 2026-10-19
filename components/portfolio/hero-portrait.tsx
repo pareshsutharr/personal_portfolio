@@ -60,20 +60,13 @@ export function HeroPortrait({
             <span className="sr-only">Portrait — add from admin</span>
             <div className="flex items-center justify-between label-mono">
               <span>PORTRAIT</span>
-              <span className="text-ember-400">● ONLINE</span>
+              <span className="text-ember-400">{name.toUpperCase()}</span>
             </div>
             <div className="font-display text-[clamp(5rem,18vw,11rem)] leading-none font-bold tracking-tighter text-fg-50">
               {initials}
             </div>
             <div className="flex items-end justify-between gap-4 label-mono">
-              <span className="max-w-[60%] leading-relaxed">
-                {location ? `LOC / ${location}` : "LOC / IN"}
-              </span>
-              <span className="text-right leading-relaxed">
-                20.5937° N
-                <br />
-                78.9629° E
-              </span>
+              <span className="max-w-[60%] leading-relaxed">{location ?? "Surat, Gujarat"}</span>
             </div>
           </div>
         )}

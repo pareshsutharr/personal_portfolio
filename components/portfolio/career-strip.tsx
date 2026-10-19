@@ -34,7 +34,7 @@ export function CareerStrip({
         <SectionHeader
           index={index}
           eyebrow="Career timeline"
-          title="Position to position."
+          title="Where I have worked."
           action={
             <ButtonLink href={ROUTES.experience} variant="outline">
               Full experience

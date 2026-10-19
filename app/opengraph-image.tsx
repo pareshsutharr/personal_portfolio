@@ -15,7 +15,8 @@ const FALLBACK_TITLE = "Full Stack Software Engineer";
 const logoMark = `data:image/png;base64,${(
   await readFile(join(process.cwd(), "public/logo-mark.png"))
 ).toString("base64")}`;
-const FALLBACK_DESCRIPTION = "Building complete digital products from idea to production.";
+const FALLBACK_DESCRIPTION =
+  "Full-stack developer in Surat, India. React, Node.js, MongoDB and Postgres.";
 
 export default async function OpenGraphImage() {
   let title = FALLBACK_TITLE;

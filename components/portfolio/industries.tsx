@@ -18,7 +18,7 @@ export function Industries({
 
   return (
     <Section className="bg-bg-900">
-      <SectionHeader index={index} eyebrow="Industries" title="Domains I have shipped in." />
+      <SectionHeader index={index} eyebrow="Industries" title="Industries I have worked in." />
       <Stagger
         className="grid grid-cols-2 border-t border-l border-line-800 lg:grid-cols-4"
         stagger={0.05}

@@ -138,7 +138,7 @@ export function SiteNav({
 
           <div className="flex items-center gap-3">
             <ButtonLink href={ROUTES.contact} size="sm" className="hidden sm:inline-flex">
-              Let&apos;s Talk
+              Contact
             </ButtonLink>
             <button
               ref={toggleRef}
@@ -224,7 +224,7 @@ export function SiteNav({
                   className="flex flex-col gap-5"
                 >
                   <ButtonLink href={ROUTES.contact} size="lg" className="w-full">
-                    Let&apos;s Talk
+                    Contact
                   </ButtonLink>
                   <div className="flex flex-wrap items-center justify-between gap-4">
                     {email ? (

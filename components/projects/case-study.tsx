@@ -216,7 +216,7 @@ export function ProjectCaseStudy({
   const confidential = project.confidential;
   const links = summary ? [] : actionLinks(project);
   const year = projectYearRange(project);
-  const status = project.live_url ? "Production" : "Delivered";
+  const status = project.live_url ? "Live" : "Delivered";
 
   const heroImageRow = project.images.find((i) => i.type === "hero") ?? null;
   const hero = summary
@@ -251,7 +251,7 @@ export function ProjectCaseStudy({
     { label: "ROLE", value: project.role },
     { label: "YEAR", value: year },
     { label: "PLATFORMS", value: project.platforms.length ? project.platforms.join(", ") : null },
-    { label: "BUILD STATUS", value: status },
+    { label: "STATUS", value: status },
   ];
 
   const overview = project.overview ?? project.full_description;

@@ -87,13 +87,13 @@ export function ProjectCard({
   const summary = isSummaryConfidential(project);
   const image = summary ? null : (project.cover_image ?? project.thumbnail);
   const year = projectYear(project);
-  const status = project.live_url ? "Production" : "Delivered";
+  const status = project.live_url ? "Live" : "Delivered";
   const chips = project.technologies.slice(0, MAX_CHIPS);
   const extra = project.technologies.length - chips.length;
   const meta = [
     { label: "ROLE", value: project.role },
     { label: "YEAR", value: year },
-    { label: "BUILD STATUS", value: status },
+    { label: "STATUS", value: status },
   ].filter((m) => Boolean(m.value));
 
   return (

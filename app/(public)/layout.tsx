@@ -12,7 +12,7 @@ export const revalidate = 60;
 
 const DEFAULT_TITLE = "Paresh Suthar — Full Stack Software Engineer";
 const DEFAULT_DESCRIPTION =
-  "Full Stack Software Engineer building complete digital products from idea to production.";
+  "Full-stack developer in Surat, India. React, Node.js, MongoDB and Postgres, for web and mobile.";
 
 function siteUrl(): URL {
   const raw = process.env.NEXT_PUBLIC_SITE_URL;

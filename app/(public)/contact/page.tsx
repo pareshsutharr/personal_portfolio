@@ -58,7 +58,7 @@ export default async function ContactPage() {
             <div className="lg:col-span-5">
               <p className="label-mono">Contact</p>
               <h1 className="mt-6 font-display text-display-lg font-semibold text-balance text-fg-50">
-                Let&apos;s build something.
+                Get in touch.
               </h1>
               {settings?.cta_subheading ? (
                 <p className="mt-6 max-w-md text-lg leading-relaxed text-fg-300">
