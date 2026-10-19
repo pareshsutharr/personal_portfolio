@@ -10,6 +10,14 @@ imageAlt: "Padlock on a wooden door"
 imageCredit: "Quim Gil"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Abloy_padlock_in_Oulu.jpg"
 imageLicense: "CC0"
+summary: "Use server sessions in Redis with an HttpOnly cookie for browser apps, and short JWTs with rotating refresh tokens for mobile apps. A session version on the user gives JWTs a kill switch, and server-to-server callers get API keys instead of either."
+faq:
+  - q: "Can I log a user out everywhere with JWTs?"
+    a: "Only by adding state: carry a session version in the token, bump it on password change or sign-out-everywhere, and compare it on every request from a cached lookup."
+  - q: "Why use sessions for web apps if JWTs are stateless?"
+    a: "Revocation, listing active logins and idle timeouts are trivial with a session store, and one Redis read per request costs under a millisecond."
+  - q: "What is refresh token rotation and why does it matter?"
+    a: "Each refresh issues a new token and marks the old one used. A used token presented again means theft, so the whole token family is revoked."
 ---
 
 The question "JWT or sessions?" has a tribal answer on every forum and a practical answer in every codebase that has had to revoke access in a hurry. Here is what I run now and why, after having been bitten by the wrong choice on both sides.

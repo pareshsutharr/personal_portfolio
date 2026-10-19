@@ -10,6 +10,14 @@ imageAlt: "Two people shaking hands"
 imageCredit: "Lucas"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Shake_hand.jpg"
 imageLicense: "Public domain"
+summary: "For the second company that wanted the HRMS, one deployment per customer won over a tenant id on every row: simpler security, independent upgrades and no risk of cross-tenant leaks, at the cost of running more servers and scripting the deploys. A year later the trade-offs still hold."
+faq:
+  - q: "When is multi-tenancy the wrong choice?"
+    a: "When there are a handful of customers, each wants its own pace of change, and a single cross-tenant bug would be catastrophic. Separate deployments remove that whole class of bug."
+  - q: "What does per-customer deployment cost?"
+    a: "More servers and a deploy script that targets each one, plus discipline about keeping the codebase single so fixes reach everyone."
+  - q: "What would change the decision?"
+    a: "Dozens of small customers, where the operational cost of separate deployments outweighs the risk, and a team large enough to build tenant isolation properly."
 ---
 
 The HRMS was built for one company. When a related business asked to use it, the question was not whether to say yes but how. Multi-tenancy, one running system serving many customers with a tenant id on every record, is the default answer in every SaaS article. For a one-developer team with two customers, I chose the other answer, and I would again.

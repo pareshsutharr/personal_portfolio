@@ -10,6 +10,14 @@ imageAlt: "Source code on a dark monitor"
 imageCredit: "luis gomes"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Pexels-luis-gomes-546819.jpg"
 imageLicense: "CC0"
+summary: "Give Express one HttpError class and one error middleware registered last. Clients get a consistent JSON body with a code and request id; stack traces and internals stay in the server log, keyed by the same id."
+faq:
+  - q: "Why should a 500 never show its message to the client?"
+    a: "A 500 is the server's fault and its message often contains file paths, query text or library internals. Log the real error with a request id and return a generic message plus that id."
+  - q: "Does Express 5 catch errors thrown in async handlers?"
+    a: "Yes. Express 5 forwards rejected promises from async handlers to the error middleware. On Express 4 you need a wrapper or the express-async-errors package, or the request hangs."
+  - q: "Where do Mongoose and JWT errors get turned into HTTP statuses?"
+    a: "In the error middleware, which maps ValidationError to 400, CastError to 400, duplicate key 11000 to 409 and token errors to 401 before anything is sent."
 ---
 
 Early on, a failed MongoDB query in the Growth Avenues API returned a 500 with the full stack trace, including file paths and the query, to whoever made the request. A client saw it once. That was enough to write the error handling properly, which turned out to be about forty lines.

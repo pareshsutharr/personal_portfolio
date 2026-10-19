@@ -10,6 +10,14 @@ imageAlt: "Laptop showing a code editor"
 imageCredit: "Tirza van Dijk tirzavandijk"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Laptop_coding_programs_(Unsplash).jpg"
 imageLicense: "CC0"
+summary: "Tailwind v4 moves configuration into a CSS @theme block, so this site's colours, type scale, radii, shadows and motion are about sixty lines of CSS variables that generate utilities and are usable from plain CSS. Dark mode works by pointing theme variables at values that change with the colour scheme."
+faq:
+  - q: "Where did tailwind.config.js go in Tailwind v4?"
+    a: "Into CSS. An @theme block declares variables such as --color-accent, and Tailwind generates bg-accent, text-accent and friends from them."
+  - q: "How do I support dark mode without dark: prefixes everywhere?"
+    a: "Make the @theme colours reference plain variables that you redefine under prefers-color-scheme and a data-theme attribute, so one utility class is right in both modes."
+  - q: "Why use oklch for colours?"
+    a: "Lighter and darker steps are perceptually even, and an alpha variant such as oklch(... / 0.14) needs no plugin."
 ---
 
 When I rebuilt this site on Tailwind v4 the `tailwind.config.js` file went away and did not come back. Everything it used to hold lives in `app/globals.css`, as CSS variables that Tailwind reads to generate utilities. The result is shorter, easier to read, and usable from plain CSS when a component needs it.

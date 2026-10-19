@@ -9,6 +9,14 @@ imageAlt: "Fingerprint scanner device on a desk"
 imageCredit: "Harrison Keely"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:A_fingerprint_scanner_at_a_prison_or_jail_in_the_United_States.jpg"
 imageLicense: "CC BY 4.0"
+summary: "Keep secrets in .env files that are ignored from the first commit, commit a .env.example with placeholders, use the hosting provider's environment settings for production, and run a pre-commit secret scan. If a key gets in anyway, rotate it first and clean history second."
+faq:
+  - q: "What should I do if I pushed an API key to GitHub?"
+    a: "Rotate the key immediately; assume it is already harvested. Then remove it from history and check the provider's usage logs."
+  - q: "How do I share config without sharing secrets?"
+    a: "Commit .env.example with every variable name and a placeholder, and keep real values in the provider's environment settings."
+  - q: "Is a secrets manager needed for a one-person project?"
+    a: "No. Ignored env files, provider environments and a scanner cover it. A manager earns its keep with a team."
 ---
 
 Every project I run has a handful of secrets: a database connection string, an email password, a service account for push notifications. A solo developer has no one to review the commit that would leak one. These habits are what stand in for that reviewer.

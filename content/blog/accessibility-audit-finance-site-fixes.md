@@ -10,6 +10,14 @@ imageAlt: "Backlit laptop keyboard close-up"
 imageCredit: "Bike756"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Close_up_of_IBM_Laptop_Keyboard.JPG"
 imageLicense: "Public domain"
+summary: "Most findings in a regulated finance site's accessibility review were small and mechanical: contrast, labels, focus states, heading order, link text, alt text and keyboard traps. Twelve fixes cleared the review and each takes minutes once you know what to look for."
+faq:
+  - q: "What fails most often in an accessibility audit of a corporate site?"
+    a: "Low-contrast grey text, buttons without accessible names, missing focus styles and heading levels used for size rather than structure."
+  - q: "Do automated tools find everything?"
+    a: "No. They catch contrast and missing labels; they miss a focus order that makes no sense and an error nobody hears. A short screen reader pass finds those."
+  - q: "Why does a broker's site need to pass this?"
+    a: "Regulated firms are expected to serve all clients, and the review was part of the compliance work. The fixes also improved the site for everyone on a phone in sunlight."
 ---
 
 Accessibility for a broker's website is not a nice-to-have; it is part of the review a regulated site goes through. When the Growth Avenues site was audited, the list of findings looked long and turned out to be mostly a day of mechanical fixes. These are the twelve that came up, in the order I would check them on any site.

@@ -10,6 +10,14 @@ imageAlt: "Old alarm clock on a bookshelf"
 imageCredit: "Nenad Stojkovic"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Old_alarm_clock_on_the_bookshelf_-_50233824038.jpg"
 imageLicense: "CC BY 2.0"
+summary: "With no always-on server, pg_cron schedules SQL jobs inside Supabase's Postgres and pg_net lets a job call an HTTP route in the Next.js app. The analytics rollup and purge are pure SQL; the Monday digest and the blog warm-up call authenticated routes. Job history is in cron.job_run_details."
+faq:
+  - q: "How do I run scheduled jobs on a Vercel and Supabase stack?"
+    a: "Enable pg_cron and pg_net, schedule SQL directly, and for app code have the job POST to a route handler with a bearer token stored in a private schema."
+  - q: "Is pg_cron in UTC?"
+    a: "Yes. Write the IST time in a comment next to each schedule so nobody converts twice."
+  - q: "How do I know whether a pg_net call succeeded?"
+    a: "pg_net is fire-and-forget. Check net._http_response on the next run, or have the called route record its own result in a job_runs table."
 ---
 
 The VPS projects have systemd timers and a worker process. This site has neither: Vercel runs the pages on request and Supabase holds the data. Three things still need to happen on a schedule, and the answer that needed no new infrastructure was to let the database schedule them.

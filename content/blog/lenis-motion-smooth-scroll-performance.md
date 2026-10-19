@@ -9,6 +9,14 @@ imageAlt: "Car speedometer dial"
 imageCredit: "www.Pixel.la Free Stock Photos"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Car-vehicle-measure-fast_(23698208123).jpg"
 imageLicense: "CC0"
+summary: "Lenis provides inertia scrolling and Motion drives scroll-linked effects from the same scroll position; keep one scroll listener, animate only transform and opacity, and respect reduced-motion. Measured on a mid-range phone it holds 60 fps with those three rules."
+faq:
+  - q: "How do Lenis and Motion work together?"
+    a: "Lenis drives the scroll and emits progress; Motion's scroll values read from the window as usual, so effects stay in sync without wiring them together manually."
+  - q: "What makes scroll effects janky?"
+    a: "Animating width, height or top, which forces layout, and multiple listeners each doing work per frame. Use transforms and consolidate."
+  - q: "What about users who prefer reduced motion?"
+    a: "Disable inertia and scroll-linked movement for them and keep fades instant. The content must be identical either way."
 ---
 
 Smooth scrolling libraries have a reputation for making sites feel heavy. Most of that comes from the old approach, where the library hijacked scrolling and moved the whole page with transforms. Lenis does not do that. It keeps native scrolling and smooths the wheel and touch input, so everything that reads the scroll position, including Motion's `useScroll` and the browser's own `IntersectionObserver`, keeps working.

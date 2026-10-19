@@ -10,6 +10,14 @@ imageAlt: "Rows of server racks lit blue in a data centre"
 imageCredit: "NOIRLab/NSF/AURA/P. Horálek"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:NOIRLab_HQ_Server_Racks_(OK_upr_IMG_0225-CC).jpg"
 imageLicense: "CC BY 4.0"
+summary: "External uptime checks from a free monitor, a small script that emails before disk or memory run out, and a PM2 event hook that reports crashes and restarts. None of it costs money and it means an outage is known before a client calls."
+faq:
+  - q: "How do I get alerted when my VPS goes down?"
+    a: "An external uptime service pings a health endpoint every minute and emails or messages when it fails. It must be external; a monitor on the same server dies with it."
+  - q: "What causes most surprise outages on a small server?"
+    a: "A full disk from logs or backups. A cron script that checks free space and emails at 80 percent prevents nearly all of them."
+  - q: "How do I know PM2 restarted my app?"
+    a: "A small process subscribed to PM2's event bus sends a message on restart and exit events, with the process name and the reason."
 ---
 
 For two years the monitoring on the Growth Avenues servers has cost nothing and has caught every outage before a user reported it. It is three pieces, none of them a monitoring product: an external uptime check, a cron script on the box, and a PM2 event hook. Here they are.

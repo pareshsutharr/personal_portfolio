@@ -10,6 +10,14 @@ imageAlt: "Hard disk drives opened side by side"
 imageCredit: "Shams948"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Hard_drive_07.jpg"
 imageLicense: "CC0"
+summary: "Confirm a leak from a rising heap under flat traffic, reproduce it under load, take two heap snapshots with a forced GC between them, compare and follow the retainers. The culprit was an event listener added per request; the fix was moving it to startup. Keep max_memory_restart, but alert when it fires."
+faq:
+  - q: "How do I tell a memory leak from normal heap growth?"
+    a: "Normal growth plateaus after garbage collection. A leak climbs without bound under steady traffic, which the health endpoint's heapUsed line shows over hours."
+  - q: "How do I take a heap snapshot on a production server?"
+    a: "Start Node with --heapsnapshot-signal and send that signal; the snapshot is written next to the process and can be compared in Chrome DevTools."
+  - q: "What are the usual Node leaks?"
+    a: "Listeners added per request on long-lived emitters, unbounded module-level caches, timers holding request scope, and outbound requests without timeouts."
 ---
 
 PM2's `max_memory_restart` is a safety net and a blindfold. The API had been restarting every eleven hours for a month before the monitoring dashboard from an earlier post showed a sawtooth and I went looking. Nothing had failed. Memory just climbed until PM2 killed and restarted the process. That is a leak, and the method for finding one is the same every time.

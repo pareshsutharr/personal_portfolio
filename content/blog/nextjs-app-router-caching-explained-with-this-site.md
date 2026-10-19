@@ -10,6 +10,14 @@ imageAlt: "Light trails on a road at night"
 imageCredit: "Piviso"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Krzeszowice_by_night_long_exposure_photo,_Poland.jpg"
 imageLicense: "CC0"
+summary: "The App Router has four caches: the full route cache, the data cache, the browser's router cache and per-render memoisation. Blog pages revalidate hourly, the home page is invalidated on write with revalidatePath, the admin is force-dynamic, and stale-data bugs are usually a missing revalidate call."
+faq:
+  - q: "Why does my page still show old data after saving?"
+    a: "Most often the write path never called revalidatePath or revalidateTag for that route. Check that first, then whether fetch is caching, then the browser's router cache."
+  - q: "What does export const revalidate = 3600 do?"
+    a: "The route is served from cache for an hour; the first request after that triggers a background re-render and the following request gets the fresh page."
+  - q: "When should I use revalidateTag instead of revalidatePath?"
+    a: "When one piece of data appears on many pages. Tag the fetch and one revalidateTag call invalidates every page that used it."
 ---
 
 The App Router's caching has a reputation for being confusing, and most of the confusion comes from four separate mechanisms being described as one. Looked at page by page on a real site, each one is simple. Here is every kind of page this site has and the caching it uses.

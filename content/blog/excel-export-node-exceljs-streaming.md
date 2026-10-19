@@ -10,6 +10,14 @@ imageAlt: "Stack of paper documents"
 imageCredit: "Niklas Bildhauer (who also is User gerolsteiner91."
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:FileStack.jpg"
 imageLicense: "CC BY-SA 2.0"
+summary: "Stream rows from a Mongoose cursor into ExcelJS's streaming workbook writer so memory stays flat for any number of rows, write dates as Dates and numbers as numbers with number formats, and use a conditional format mask for lakh and crore grouping. Very large exports move to a background job with a download link."
+faq:
+  - q: "Why does my Excel export crash the server on big reports?"
+    a: "Loading every row into memory before writing. Use the ExcelJS streaming writer with a database cursor and commit each row as it is written."
+  - q: "How do I get Indian number grouping like 12,34,567 in Excel?"
+    a: "A conditional number format with sections for crores, lakhs and below, applied as the column's numFmt."
+  - q: "Why do my dates show as text in Excel?"
+    a: "They were written as strings. Write JavaScript Date objects and set a date numFmt on the column so Excel can sort and filter them."
 ---
 
 The accounts team at a client exports the salary register every month, the attendance report every week, and the expense claims whenever someone asks. The export is where the HRMS data meets the rest of the company, so it has to work, and work for a year's worth of rows.

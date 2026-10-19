@@ -10,6 +10,14 @@ imageAlt: "Container cranes at a port"
 imageCredit: "Garitzko"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Container_cranes_Bremerhaven.jpg"
 imageLicense: "Public domain"
+summary: "A three-stage Dockerfile on node:22-alpine produces a 180 MB image that runs as a non-root user with only production dependencies and compiled output. The HEALTHCHECK hits a real endpoint that reports the database connection, and exec-form CMD lets Node receive SIGTERM for clean shutdowns."
+faq:
+  - q: "Why is my Node Docker image over a gigabyte?"
+    a: "It includes dev dependencies, the TypeScript toolchain and the full Debian base. Multi-stage builds copying only dist and production node_modules onto Alpine cut it to under 200 MB."
+  - q: "Why run the container as a non-root user?"
+    a: "A compromised process running as root has a shorter path to the host. Creating an app user and setting USER costs nothing."
+  - q: "What should a container health check actually test?"
+    a: "Whether the app can serve requests, which means checking the database connection state, not just that the process is alive."
 ---
 
 Docker was not the first way I deployed Node, and the VPS posts on this blog still run PM2 directly for most things. But two clients wanted containers, and getting a Node API into a container that is small, safe and honest about its health took a few iterations. This is the Dockerfile that came out of them.

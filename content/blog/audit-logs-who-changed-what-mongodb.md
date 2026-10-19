@@ -10,6 +10,14 @@ imageAlt: "Fingerprint scanner device on a desk"
 imageCredit: "Harrison Keely"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:A_fingerprint_scanner_at_a_prison_or_jail_in_the_United_States.jpg"
 imageLicense: "CC BY 4.0"
+summary: "Keep an append-only audit collection with one entry per change holding the actor, the action, the document and a list of changed paths with before and after values. A Mongoose plugin writes it from save hooks using AsyncLocalStorage for the request context, so no route can forget."
+faq:
+  - q: "Why store diffs rather than full snapshots?"
+    a: "Diffs are what people read, such as basic 32000 to 38000, and they keep the collection dozens of times smaller than a snapshot per edit."
+  - q: "How does a Mongoose hook know which user made the change?"
+    a: "Middleware stores the user and request details in AsyncLocalStorage; any code that runs during that request, including hooks, can read it."
+  - q: "Does the plugin capture updateOne and findOneAndUpdate?"
+    a: "No. Query updates skip document hooks, so sensitive edits go through findById then save, and bulk jobs write their own audit entries."
 ---
 
 The question arrived as "who changed Rahul's basic salary?" and the honest answer was "the database does not know". Mongoose `timestamps` records *when* a document last changed, not *what* or *by whom*. For an HRMS that is not acceptable, so the next sprint added an audit log. It has answered that question every time since.

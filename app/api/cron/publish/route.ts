@@ -1,5 +1,6 @@
 import { revalidatePath } from "next/cache";
-import { getPosts } from "@/lib/blog";
+import { getPosts, getTags } from "@/lib/blog";
+import { submitIndexNow } from "@/lib/indexnow";
 
 export const dynamic = "force-dynamic";
 
@@ -21,14 +22,30 @@ export async function GET(request: Request) {
   const weekAgo = Date.now() - 8 * 24 * 60 * 60 * 1000;
   const recent = posts.filter((p) => new Date(p.date).getTime() >= weekAgo);
 
-  const paths = ["/", "/blog", "/sitemap.xml", "/feed.xml"];
-  for (const p of recent) paths.push(`/blog/${p.slug}`, `/blog/${p.slug}/cover`);
+  const paths = ["/", "/blog", "/sitemap.xml", "/feed.xml", "/llms.txt", "/llms-full.txt"];
+  for (const p of recent) {
+    paths.push(`/blog/${p.slug}`, `/blog/${p.slug}/cover`, `/blog/${p.slug}/markdown`);
+    for (const t of p.tags) paths.push(`/blog/tag/${t}`);
+  }
   for (const path of paths) revalidatePath(path);
+
+  // Tell Bing and friends about the new post and everything that lists it.
+  const tags = await getTags();
+  const indexNow = await submitIndexNow([
+    "/",
+    "/blog",
+    "/sitemap.xml",
+    ...recent.map((p) => `/blog/${p.slug}`),
+    ...tags
+      .filter((t) => recent.some((p) => p.tags.includes(t.tag)))
+      .map((t) => `/blog/tag/${t.tag}`),
+  ]);
 
   return Response.json({
     ok: true,
     at: new Date().toISOString(),
     published: posts.length,
+    indexNow,
     refreshed: paths,
     latest: recent.map((p) => ({ slug: p.slug, date: p.date })),
   });

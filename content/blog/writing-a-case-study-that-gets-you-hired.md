@@ -10,6 +10,14 @@ imageAlt: "Two people shaking hands"
 imageCredit: "Lucas"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Shake_hand.jpg"
 imageLicense: "Public domain"
+summary: "A case study that brings enquiries states who the client was and what they needed, the constraint that made it hard, what was built in terms of outcomes, one or two decisions worth explaining, what changed, and what you would do differently. Four to eight hundred words, two or three screenshots, no logo wall."
+faq:
+  - q: "What should a developer case study contain?"
+    a: "The situation, the constraint, the outcomes, one or two decisions, the result and an honest note on what you would change. Not a feature list or a stack wall."
+  - q: "How do I write about a project under NDA?"
+    a: "Describe the industry, the shape of the problem, the architecture and rough outcomes without the name or real data; ask the client later for a named version."
+  - q: "Which case studies bring clients?"
+    a: "The ones that describe a business problem readers recognise. Nobody has ever mentioned a tech stack in a first call."
 ---
 
 The projects on this site used to be screenshots with a tech-stack list underneath. They got views and no messages. Rewriting them as case studies, each answering the questions a client actually has, is the change that made the contact form start working. The structure is below, and it is the same for a two-week landing page and a two-year HRMS.

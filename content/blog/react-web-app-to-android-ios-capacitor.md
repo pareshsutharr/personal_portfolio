@@ -10,6 +10,14 @@ imageAlt: "Hands holding a smartphone and a coffee"
 imageCredit: "www.Pixel.la Free Stock Photos"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Hands-coffee-smartphone-technology_(23698591814).jpg"
 imageLicense: "CC0"
+summary: "Capacitor wraps the existing React build in a native shell, so the employee app shipped without a rewrite; the work was push notifications through Firebase, safe-area insets, back-button handling, secure token storage and testing on real devices. The web code stays one codebase."
+faq:
+  - q: "Do I need to rewrite a React app in React Native to publish it?"
+    a: "No. Capacitor packages the web build as a native app with access to device features through plugins."
+  - q: "What is different on a phone?"
+    a: "Safe areas around notches, the Android back button, no HttpOnly cookies you can rely on, and a different origin for CORS."
+  - q: "How are push notifications added?"
+    a: "The Firebase plugin registers a device token that the app sends to the API; the server sends through Firebase Admin."
 ---
 
 The Growth Avenues HRMS started as a web portal: attendance, leave, expenses, salary slips. Then the team wanted it on their phones, with notifications when a leave request was approved. The obvious answer was "rewrite it in React Native". The right answer, for a working React app and a team of one, was Capacitor.

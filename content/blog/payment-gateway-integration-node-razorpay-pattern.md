@@ -10,6 +10,14 @@ imageAlt: "Card payment terminal at a shop counter"
 imageCredit: "Syced"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:LaCuCa_card_reader_-_payment_terminal_at_supermarket_register.jpg"
 imageLicense: "CC0"
+summary: "Create your own order first, let the gateway own the payment, verify the client callback signature, and treat the gateway's webhook as the source of truth; both paths call one markPaid function that is safe to run twice. Store amounts as integers and keep a ledger with one entry per payment or refund."
+faq:
+  - q: "Should the client send the amount to pay?"
+    a: "No. The client sends what it is paying for and the server looks up the price. A client-supplied amount can be edited in dev tools."
+  - q: "What if the webhook arrives before the redirect, or never?"
+    a: "Either path marks the order paid through the same idempotent function; the order page polls briefly and a nightly job reconciles pending orders with the gateway API."
+  - q: "Why keep a ledger instead of a balance field?"
+    a: "A balance computed as the sum of ledger entries, each with a unique payment or refund reference, is correct by construction and survives duplicate webhooks."
 ---
 
 Every gateway's quick-start shows the same thing: a button, a checkout popup, a success callback. Shipping that as-is leads to the three support tickets I have personally handled: "I paid but the portal says pending", "I was charged twice", and "where is my refund". The pattern below has not produced any of them in two years.

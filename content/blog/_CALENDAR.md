@@ -15,6 +15,12 @@ in its frontmatter). The photos are CC0, public domain or CC BY/BY-SA from Wikim
 cropped to 1280x720 WebP in `public/blog/stock/` with a 1200x630 JPEG twin used by the cover
 renderer; `public/blog/stock/credits.json` lists every photo's source and licence.
 
+Every post also has `summary` (a two-sentence direct answer shown as "In short" and used as the
+schema abstract) and `faq` (three question/answer pairs rendered at the end with FAQPage schema).
+Posts are also served as plain Markdown at `/blog/<slug>.md`, listed in `/llms.txt` and
+`/llms-full.txt`, grouped on `/blog/tag/<tag>` hub pages, and submitted to IndexNow by the Monday
+cron. New posts need all of these fields: image*, summary, faq.
+
 ## Schedule (all written, 104 posts, 2026-10-19 to 2028-10-09)
 
 | #   | Date       | Slug                                                    | Title                                                                                                                                 |

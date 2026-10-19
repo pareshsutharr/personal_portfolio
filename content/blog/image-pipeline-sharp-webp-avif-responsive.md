@@ -10,6 +10,14 @@ imageAlt: "City skyline with light trails"
 imageCredit: "Davide Cantelli cant89"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:New_York_skyline_with_light_trails_(Unsplash).jpg"
 imageLicense: "CC0"
+summary: "A sharp script turns phone photos into WebP and AVIF at four widths plus a tiny blur placeholder, and a picture element with srcset and sizes lets the browser pick the smallest file that covers its slot. The home page went from 28 MB to under 2 MB."
+faq:
+  - q: "Should I use AVIF or WebP?"
+    a: "Both, with AVIF first in the picture element. AVIF is about 40 percent smaller at matching quality and browsers that lack it fall back to WebP."
+  - q: "What does the sizes attribute do?"
+    a: "It tells the browser how wide the image will be rendered at each viewport, so it can choose the right srcset candidate before layout."
+  - q: "When is next/image better than pre-generating files?"
+    a: "For images at unpredictable sizes from a CMS or uploads. For static photos in the repo, generating at build time avoids runtime work."
 ---
 
 Images are most of the bytes on most pages, and this site was no exception until the photos went through a pipeline. The pipeline is one script, run once per new image, that produces everything the page needs.

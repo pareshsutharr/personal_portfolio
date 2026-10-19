@@ -5,13 +5,12 @@ import { ArrowUpRight } from "lucide-react";
 import { CtaBand } from "@/components/portfolio/cta-band";
 import { PageHeader } from "@/components/portfolio/page-header";
 import { Section } from "@/components/portfolio/section";
-import { Stagger, StaggerItem } from "@/components/motion/reveal";
 import { EmptyState } from "@/components/ui/empty-state";
 import { JsonLd } from "@/components/seo/json-ld";
-import { getPosts, postImagePath } from "@/lib/blog";
+import { PostList } from "@/components/portfolio/post-list";
+import { getPosts, getTags } from "@/lib/blog";
 import { getProfile, getSiteSettings } from "@/lib/queries/public";
 import { absoluteUrl, breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
-import { formatDate } from "@/lib/utils/format";
 
 export const revalidate = 3600;
 
@@ -25,11 +24,13 @@ export const metadata: Metadata = pageMetadata({
 });
 
 export default async function BlogPage() {
-  const [posts, settings, profile] = await Promise.all([
+  const [posts, tags, settings, profile] = await Promise.all([
     getPosts(),
+    getTags(),
     getSiteSettings(),
     getProfile(),
   ]);
+  const topics = tags.filter((t) => t.count >= 2).slice(0, 14);
 
   return (
     <>
@@ -72,50 +73,25 @@ export default async function BlogPage() {
       />
 
       <Section>
-        {posts.length ? (
-          <Stagger className="divide-y divide-line-800 border-y border-line-800">
-            {posts.map((p) => (
-              <StaggerItem key={p.slug} as="div">
+        {topics.length ? (
+          <nav aria-label="Browse by topic" className="mb-10">
+            <p className="label-mono">Browse by topic</p>
+            <p className="mt-4 flex flex-wrap gap-2">
+              {topics.map((t) => (
                 <Link
-                  href={`/blog/${p.slug}` as Route}
-                  className="group grid gap-5 py-8 sm:grid-cols-12 sm:gap-8 sm:py-10"
+                  key={t.tag}
+                  href={`/blog/tag/${t.tag}` as Route}
+                  className="hover:border-line-500 inline-flex min-h-9 items-center gap-2 rounded-sm border border-line-700 px-3 text-xs text-fg-300 transition-colors hover:text-fg-50"
                 >
-                  <div className="sm:col-span-4">
-                    <div className="overflow-hidden rounded-sm border border-line-800 bg-surface-900">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={postImagePath(p)}
-                        alt={p.image?.alt ?? ""}
-                        width={1280}
-                        height={720}
-                        loading="lazy"
-                        className="aspect-video w-full object-cover transition-transform duration-700 ease-out-expo group-hover:scale-[1.03]"
-                      />
-                    </div>
-                    <p className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 label-mono">
-                      <time dateTime={p.date}>{formatDate(p.date)}</time>
-                      <span className="text-fg-500">{p.readingMinutes} min read</span>
-                    </p>
-                  </div>
-                  <div className="min-w-0 sm:col-span-8">
-                    <h2 className="font-display text-2xl font-semibold tracking-tight text-balance text-fg-50 transition-colors group-hover:text-ember-300 sm:text-3xl">
-                      {p.title}
-                    </h2>
-                    <p className="mt-3 max-w-2xl text-base leading-relaxed text-fg-300">
-                      {p.description}
-                    </p>
-                    {p.tags.length ? (
-                      <p className="mt-4 flex flex-wrap gap-x-4 gap-y-1 label-mono text-fg-500">
-                        {p.tags.map((t) => (
-                          <span key={t}>#{t}</span>
-                        ))}
-                      </p>
-                    ) : null}
-                  </div>
+                  {t.label}
+                  <span className="text-fg-600 tabular-nums">{t.count}</span>
                 </Link>
-              </StaggerItem>
-            ))}
-          </Stagger>
+              ))}
+            </p>
+          </nav>
+        ) : null}
+        {posts.length ? (
+          <PostList posts={posts} />
         ) : (
           <EmptyState title="The first post is on its way." />
         )}

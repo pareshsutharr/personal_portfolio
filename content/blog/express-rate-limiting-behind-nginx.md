@@ -10,6 +10,14 @@ imageAlt: "Old iron latch on weathered wooden boards"
 imageCredit: "Estormiz"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Padlock_Valimokatu_Oulu_20250307_01.jpg"
 imageLicense: "CC0"
+summary: "Behind Nginx every request looks like it comes from 127.0.0.1 until Express trusts the proxy header, so set trust proxy first; then limit per IP in Nginx, per user in Express, and return 429 with Retry-After so the frontend can back off honestly."
+faq:
+  - q: "Why does my rate limiter block everyone at once?"
+    a: "Express sees Nginx's address for every request. Set app.set(\"trust proxy\", 1) so req.ip is the real client address from X-Forwarded-For."
+  - q: "Should I rate limit in Nginx or in Express?"
+    a: "Both. Nginx limits per IP cheaply before Node is touched; Express limits per authenticated user for routes that are expensive or sensitive."
+  - q: "What should a 429 response include?"
+    a: "A Retry-After header and a short JSON message, so the client can show when to try again instead of retrying immediately."
 ---
 
 The first rate limiter I added to the Growth Avenues API did nothing for a week and then blocked the whole office in one minute. Both failures had the same cause: behind Nginx, Express sees every request from `127.0.0.1`. Until you fix that, per-IP limiting is per-everyone limiting.

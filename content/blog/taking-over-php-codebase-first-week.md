@@ -10,6 +10,14 @@ imageAlt: "Painting of the harbour at Surat, Gujarat"
 imageCredit: "Rijksmuseum"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Gezicht_op_de_haven_van_S%C5%ABrat_(Gujar%C4%81t),_SK-A-4778.jpg"
 imageLicense: "CC0"
+summary: "Put the code in version control before touching it, take a full backup, get it running locally, map the URLs and the database, find the admin login and the cron jobs, then make one small visible fix. The site stays up while you learn it."
+faq:
+  - q: "What is the first thing to do with an inherited codebase?"
+    a: "Commit it as-is to git and take a complete backup of files and database. Everything after that is reversible."
+  - q: "How do I understand a custom PHP CMS with no docs?"
+    a: "Map the URLs to the files that serve them, read the database schema, and follow one request from the front page to the query."
+  - q: "When should I rewrite it?"
+    a: "Not in the first week. Keep it running, fix what hurts, and decide about a rewrite only once you know what the site actually does for the client."
 ---
 
 The first codebase I was paid to take over was a multimedia site with a custom PHP CMS. The previous developer had moved on. There was a cPanel login, an FTP password, and a folder with 600 files. The client wanted a new section added "this week". Here is what I did instead, in the order I would do it again.

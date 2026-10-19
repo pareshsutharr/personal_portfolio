@@ -10,6 +10,14 @@ imageAlt: "Man working at a laptop in an office"
 imageCredit: "Bench Accounting benchaccounting"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Man_at_a_laptop_in_an_office_(Unsplash).jpg"
 imageLicense: "CC0"
+summary: "A lead desk needs five statuses, one owner per lead, notes with timestamps, and a rule that nothing sits untouched for more than a set number of days without someone being told. Built into the admin, it replaced an inbox where account-opening requests got lost."
+faq:
+  - q: "What statuses does a simple lead pipeline need?"
+    a: "New, contacted, qualified, won and lost. More than that and people stop updating them."
+  - q: "How do you stop leads from being forgotten?"
+    a: "Every lead has an owner and a last-touched time; a daily job flags anything untouched past the limit and emails the owner and their manager."
+  - q: "Where do leads come from?"
+    a: "The contact form, the account-opening form and WhatsApp clicks, each tagged with its source page so the team knows which pages bring work."
 ---
 
 Before the lead desk existed, an "Open your account" form on the Growth Avenues site sent an email. Three people received it. Each assumed another would reply. Some leads waited a week; a few were never answered. The fix was not a bigger CRM. It was a table with a status, an owner, and a nagging dashboard.

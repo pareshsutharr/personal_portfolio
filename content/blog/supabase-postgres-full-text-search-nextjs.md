@@ -10,6 +10,14 @@ imageAlt: "Close-up of a camera with a long lens"
 imageCredit: "Matthew Hamilton thatsmrbio"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Long-lens_camera_in_close-up_(Unsplash).jpg"
 imageLicense: "CC0"
+summary: "A generated tsvector column weighted by field, a GIN index, websearch_to_tsquery for natural input and ts_rank for ordering give Postgres search inside Supabase with no extra service; a prefix query powers search-as-you-type and pg_trgm catches typos."
+faq:
+  - q: "Why use a generated column for the tsvector?"
+    a: "Postgres maintains it on every write, so there are no triggers or application code to keep in sync and it can never be stale."
+  - q: "What is the difference between to_tsquery and websearch_to_tsquery?"
+    a: "websearch_to_tsquery accepts what people type, including quotes and minus signs, and never throws on odd input; to_tsquery rejects stray operators."
+  - q: "How do I get prefix matching for suggestions?"
+    a: "Append :* to the last term with to_tsquery so attend matches attendance, after sanitising the input to letters, digits and spaces."
 ---
 
 The last post looked at search for MongoDB apps, where the good options live outside the database. On Postgres the good option is inside it. This site's search across projects and posts is a few lines of SQL and a function the Next.js app calls through Supabase.

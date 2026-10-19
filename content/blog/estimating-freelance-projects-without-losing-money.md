@@ -10,6 +10,14 @@ imageAlt: "Hand signing a document with a pen"
 imageCredit: "Pfc. Franklin E. Mercado"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:USMC-110310-M-5396M-008.jpg"
 imageLicense: "Public domain"
+summary: "Charge for a short discovery before quoting, break the scope into deliverables the client can see and cut, give a range with the risks that widen it, tie payments to accepted milestones, and agree the change process before the first invoice. Record actual days to improve the next estimate."
+faq:
+  - q: "Why should discovery be paid?"
+    a: "It filters out people who are not serious and it is the only way to produce a number you can stand behind. The client owns the document either way."
+  - q: "Fixed price or hourly?"
+    a: "Fixed price per deliverable when scope is clear after discovery; time and materials with a monthly cap for exploratory or ongoing work. Hourly with no cap is not offered."
+  - q: "How do I handle scope creep?"
+    a: "A clause agreed up front: requests outside the scope document are estimated separately and approved in writing before being built, with small things absorbed."
 ---
 
 Estimation is the skill that decides whether freelance work is a living or a hobby that pays. I got it wrong in three different ways before finding a method that has held for two years. The method is not clever; it is a sequence that stops me from quoting before I know what I am quoting.

@@ -10,6 +10,14 @@ imageAlt: "Smartphone held in one hand"
 imageCredit: "NeONBRAND neonbrand"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Smartphone_in_Hand_(Unsplash).jpg"
 imageLicense: "CC0"
+summary: "Sending a push with Firebase Admin is one call; the work is keeping device tokens clean. Store tokens per device with a last-seen time, remove any that Firebase reports as unregistered, cap devices per user, and send to the user's active devices rather than every token ever saved."
+faq:
+  - q: "Why do some users get three copies of each notification?"
+    a: "Each login on each device saved a new token and none were ever removed. Key tokens by device and prune on unregistered errors."
+  - q: "How do I handle tokens that no longer work?"
+    a: "Firebase returns a specific error for unregistered tokens. Delete them immediately; retrying them wastes quota."
+  - q: "Should I use topics or send to tokens?"
+    a: "Topics for broadcast messages such as company announcements; direct tokens for personal events such as a leave approval."
 ---
 
 The Capacitor post covered the phone side of push notifications: asking permission, getting a token, saving it. This is the server side, where the HRMS decides who to notify, sends through Firebase Cloud Messaging, and deals with the tokens that stop working.

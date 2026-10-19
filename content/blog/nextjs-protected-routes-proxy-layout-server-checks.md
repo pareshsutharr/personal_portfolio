@@ -10,6 +10,14 @@ imageAlt: "Padlock on a wooden door"
 imageCredit: "Quim Gil"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Abloy_padlock_in_Oulu.jpg"
 imageLicense: "CC0"
+summary: "Protect a Next.js admin with three layers: a cheap cookie check in the proxy file that redirects logged-out visitors, a verified session read in the protected layout, and an authorisation check inside every server action and route handler. Row-level security in the database is the fourth."
+faq:
+  - q: "Is a middleware or proxy check enough to secure admin routes?"
+    a: "No. It only sees that a cookie exists and cannot verify it. Server actions and route handlers are callable directly, so each one must check authorisation itself."
+  - q: "Why check again in server actions if the layout already did?"
+    a: "A layout check only runs when a page renders. Anyone can call an action with curl without rendering the layout."
+  - q: "How does Supabase fit into this?"
+    a: "The layout verifies the session with auth.getUser, and row-level security policies mean the database refuses private rows even if every Next.js check were removed."
 ---
 
 The admin pages of this site live under `/admin`. Three layers decide who gets in, and when I review other people's Next.js projects, the usual mistake is having only the first one.

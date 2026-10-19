@@ -10,6 +10,14 @@ imageAlt: "Alarm clock on a dark desk"
 imageCredit: "Raul Petri raulpetri"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Alarm_Clock_(Unsplash).jpg"
 imageLicense: "CC0"
+summary: "Store attendance days as YYYY-MM-DD strings, compute the day of a punch in the office time zone before saving, and build the month grid from those strings rather than Date objects. Every bug in the calendar was a Date being converted through the browser's or server's zone."
+faq:
+  - q: "Why did a punch at 11:50 pm land on the next day?"
+    a: "The server in UTC computed the day from the timestamp. Convert to Asia/Kolkata first, then take the date part."
+  - q: "Should attendance days be stored as Dates?"
+    a: "No. A date-only value as a string cannot shift. Keep timestamps for punches and strings for days."
+  - q: "How do I render a month grid safely?"
+    a: "Generate the day strings for the month with Date.UTC arithmetic and look up attendance by string, never by comparing Date objects."
 ---
 
 Everyone who builds an attendance system makes the same mistake once: storing the punch time as a JavaScript `Date`, then grouping by `getDate()`. It works on the developer's laptop and breaks on the server, because the server's clock is in UTC and a punch at 11:50 pm IST is 6:20 pm UTC, which is a different day in one place and the same day in the other.

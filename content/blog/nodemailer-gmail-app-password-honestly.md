@@ -9,6 +9,14 @@ imageAlt: "Padlock on a wooden door"
 imageCredit: "Quim Gil"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Abloy_padlock_in_Oulu.jpg"
 imageLicense: "CC0"
+summary: "For a contact form sending a few emails a week, Gmail SMTP with an app password through Nodemailer is fine: two-step verification on, a 16-character app password, port 465, and the limits of about 500 messages a day and no bounce handling. Move to a provider when you send to users."
+faq:
+  - q: "Why is Gmail rejecting my Nodemailer login?"
+    a: "Regular passwords no longer work for SMTP. Turn on two-step verification and create an app password, then use that with the full address as the user."
+  - q: "What are the limits of sending through Gmail?"
+    a: "Roughly 500 messages a day for a personal account, no deliverability records you control, and no bounce webhook. Fine for notifications to yourself."
+  - q: "When should I switch to a transactional email service?"
+    a: "As soon as you email your users rather than yourself: password resets and receipts need SPF, DKIM, DMARC and bounce handling."
 ---
 
 This site's contact form and feedback widget email me through Gmail. Not through a transactional email API with templates and dashboards, through SMTP with an app password, the same way an email client would. For a personal site that sends a few messages a day to one inbox, that is the right amount of infrastructure.

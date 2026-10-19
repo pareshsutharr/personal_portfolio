@@ -10,6 +10,14 @@ imageAlt: "Clipboards with paper checklists"
 imageCredit: "Unknown"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:USMC-100914-M-0646Q-45.jpg"
 imageLicense: "Public domain"
+summary: "Embed data that is small, bounded and always read with its parent; reference data that grows without limit, is queried on its own or is shared. Attendance and leave balances in the HRMS were the two embedded designs that had to be moved to their own collections."
+faq:
+  - q: "When should I embed instead of reference in MongoDB?"
+    a: "Embed when the child is small, has a fixed upper bound and is always read with the parent, such as an address or a short approval history. Otherwise reference."
+  - q: "Why not store attendance as an array on the employee?"
+    a: "It grows forever, every read of the employee gets slower, and cross-company queries such as who is present today cannot use an index. One document per employee per day fixes both."
+  - q: "Is copying the department onto attendance records a mistake?"
+    a: "No. The historical value is what reports need, so a small, rarely changing field copied at write time avoids a join and stays correct after transfers."
 ---
 
 The question in every MongoDB schema is the same: put this inside that document, or in its own collection with a reference? The HRMS has a dozen entity types, and I got about ten of them right the first time. The two I got wrong were the two that grow without bound. Here is the shape it settled into and why.

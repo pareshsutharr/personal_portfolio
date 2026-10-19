@@ -9,6 +9,14 @@ imageAlt: "Person writing in a notebook beside a laptop"
 imageCredit: "Shixart1985"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Person_writing_in_notebook_while_using_laptop_at_a_modern_workspace.jpg"
 imageLicense: "CC BY 2.0"
+summary: "Of a long technical SEO checklist, five things moved this site: fixing a canonical URL bug that pointed at localhost, adding a sitemap and robots file, and writing two pages of real content for the queries that matter. Everything else measured nothing."
+faq:
+  - q: "What technical SEO actually matters for a small Next.js site?"
+    a: "Correct canonical URLs, a sitemap, a robots file, titles and descriptions per page, fast pages, and content that answers real queries."
+  - q: "What was the canonical bug?"
+    a: "The site URL fell back to localhost on Vercel because of a misconfigured environment variable, so every page told Google its canonical was localhost."
+  - q: "Does a Vercel subdomain hurt ranking?"
+    a: "It shares reputation with every other site on the subdomain and cannot build its own. A custom domain is the biggest lever left."
 ---
 
 This site lives on a Vercel subdomain, which is the worst possible starting point for ranking on anything except my own name. I spent an afternoon on technical SEO and then watched Search Console for weeks. Here is what moved impressions and what did not.

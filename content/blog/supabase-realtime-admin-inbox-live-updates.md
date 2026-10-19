@@ -10,6 +10,14 @@ imageAlt: "Taking a photo with a smartphone"
 imageCredit: "James Sutton jamessutton_photography"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Smartphone_photographer_(Unsplash).jpg"
 imageLicense: "CC0"
+summary: "Add the table to the supabase_realtime publication, subscribe from a client component to inserts and updates, patch the server-rendered list, and refetch the unread count from the database on every event and reconnect. Row-level security decides what each subscriber receives."
+faq:
+  - q: "Can anonymous visitors listen to my admin table over Realtime?"
+    a: "Only if a read policy allows them. Realtime applies row-level security per subscriber, so a table with no anonymous select policy sends nothing to them."
+  - q: "Why not count unread messages from the live list in the client?"
+    a: "The list is paginated and a dropped socket silently makes the count wrong. Use the events as a trigger to recount on the server."
+  - q: "What happens to events while the laptop was asleep?"
+    a: "They are not delivered. On the reconnect transition, refetch the list and the count so nothing is missed."
 ---
 
 The admin inbox is a server component that lists rows from `contact_messages`. Fine for reading; stale within seconds of a new message. Supabase Realtime subscribes the browser to row changes on that table, so the list and the unread badge update as messages arrive. It is about forty lines of client code and one database setting.

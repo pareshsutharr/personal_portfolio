@@ -10,6 +10,14 @@ imageAlt: "Self-service payment kiosk"
 imageCredit: "Nicbou"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Payment_terminal_at_the_Berlin_immigration_office.jpg"
 imageLicense: "CC0"
+summary: "The clauses that get used: scope by reference to the discovery document, a written change process, milestone payments with late fees and a deemed-acceptance window, IP transfer on final payment, client-owned accounts, a defined warranty period, portfolio rights agreed up front and a clean termination clause. Have a lawyer check yours."
+faq:
+  - q: "When should intellectual property transfer to the client?"
+    a: "On receipt of full payment, with a licence to evaluate before that. It protects the final invoice without blocking the client's use."
+  - q: "Who should own the hosting and domain accounts?"
+    a: "The client, from day one, with the developer granted access for the engagement. Inheriting a project where the developer owns the domain is miserable for everyone."
+  - q: "What is deemed acceptance and why include it?"
+    a: "A milestone counts as accepted if no issues are raised within ten working days, so acceptance and payment cannot be deferred indefinitely."
 ---
 
 The first project I did without a written agreement went fine. The second one did not, and the issue was not bad faith; it was two people remembering a call differently. Since then every engagement has a short agreement, and the version below is what it has become. Have a lawyer check yours; what follows is what has proven useful, in plain language, with the reason each clause is there.

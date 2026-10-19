@@ -10,6 +10,14 @@ imageAlt: "Rusted hasp and padlock on a red wooden door"
 imageCredit: "Estormiz"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Padlock_Valimokatu_Oulu_20250307_03.jpg"
 imageLicense: "CC0"
+summary: "Count failures per account, not just per IP, grow the delay with each failure, soft-lock after ten with an unlock email the real user can click, alert when the global failure rate jumps, and check passwords against the Have I Been Pwned range API. No CAPTCHA was needed."
+faq:
+  - q: "Why is per-IP rate limiting not enough against credential stuffing?"
+    a: "Attackers rotate through hundreds of IPs and try each account a few times, staying under every IP limit. A per-account counter sees all of them."
+  - q: "Why not hard-lock the account after failed attempts?"
+    a: "Anyone could lock you out of your own account by failing ten times. A soft lock that the owner clears by email and that expires avoids that."
+  - q: "How does the leaked-password check work without sending the password?"
+    a: "Send the first five characters of the SHA-1 hash to the range API and compare the returned suffixes locally. The full hash never leaves the server."
 ---
 
 Per-IP rate limiting is the first line and it is not enough. The attempt that got through it used a list of leaked email and password pairs, tried each once or twice, and rotated IPs on every request. Every IP stayed under the limit. Four accounts with reused passwords were accessed before the pattern was noticed. The defences below went in that week.

@@ -9,6 +9,14 @@ imageAlt: "Rusted hasp and padlock on a red wooden door"
 imageCredit: "Estormiz"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Padlock_Valimokatu_Oulu_20250307_03.jpg"
 imageLicense: "CC0"
+summary: "A hidden honeypot field, a minimum time between page load and submit, and a rate limit per IP stop almost all bot spam on a small site with no CAPTCHA and no third-party script. The rare message that gets through is a one-click delete in the admin inbox."
+faq:
+  - q: "Do honeypot fields still work against bots?"
+    a: "Against the bots that visit small sites, yes. They fill every field. Combined with a fill-time check and a rate limit, spam dropped to a handful a year."
+  - q: "Why not just add a CAPTCHA?"
+    a: "It costs real visitors time and accessibility, adds a third-party script, and the form's spam volume never justified it."
+  - q: "How short is too short for the fill-time check?"
+    a: "Under three seconds is a bot. Real people take longer even when pasting, and the check rejects silently with a generic error."
 ---
 
 The contact form on this site has had spam protection since the day it went live, and in that time it has forwarded three spam messages. It has never shown a CAPTCHA. The bots that hit small business sites are not sophisticated; they fill every field, submit instantly, and come back from the same address. Three cheap checks catch nearly all of them.

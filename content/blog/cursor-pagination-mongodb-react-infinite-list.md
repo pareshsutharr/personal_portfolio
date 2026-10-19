@@ -10,6 +10,14 @@ imageAlt: "Network cables patched into a switch"
 imageCredit: "Inisheer"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:CERN-20060225-01.jpg"
 imageLicense: "CC BY-SA 3.0"
+summary: "Offset pagination gets slower with every page because MongoDB still walks the skipped rows; a cursor on an indexed sort key plus _id stays fast at any depth. The React side uses a sentinel element to load the next page and handles ties and newly inserted rows."
+faq:
+  - q: "Why is page 200 slow with skip and limit?"
+    a: "MongoDB has to find and discard every skipped document first. A cursor query starts directly at the last seen key through the index."
+  - q: "What breaks naive cursor pagination?"
+    a: "Ties on the sort field and rows inserted between pages. Sort by the field and _id together and compare on both."
+  - q: "How does infinite scroll trigger the next page?"
+    a: "An IntersectionObserver on a sentinel element below the list calls the next fetch when it comes into view, disabled while a request is in flight."
 ---
 
 The audit log in the Growth Avenues back office grows by a few thousand rows a day. Paginating it with `skip` and `limit` worked for a month, then page 200 took two seconds because MongoDB walked 10,000 index entries to throw them away. Cursor pagination makes every page cost the same. This is the whole thing: the query, the API shape, and the React side.

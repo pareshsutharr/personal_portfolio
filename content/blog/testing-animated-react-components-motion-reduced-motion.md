@@ -10,6 +10,14 @@ imageAlt: "Laptop keyboard in low light"
 imageCredit: "Markus Petritz petritzdesigns"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Backlit_laptop_keyboard_(Unsplash).jpg"
 imageLicense: "CC0"
+summary: "Do not test that things move; test the end state, the reduced-motion path, the gates such as once-per-session, the timing contract and the accessibility attributes. A few jsdom stubs for observers and matchMedia plus fake timers make Motion components testable in Vitest."
+faq:
+  - q: "What should a test of an animated component assert?"
+    a: "That the content is present after the animation, that it still finishes under reduced motion, that session or route gates behave, and that decorative layers are aria-hidden."
+  - q: "Why does Motion throw in jsdom?"
+    a: "jsdom lacks IntersectionObserver, ResizeObserver, matchMedia and Element.animate. Minimal stubs in the test setup stop the constructors throwing."
+  - q: "How do I test a three-second splash without waiting three seconds?"
+    a: "Vitest fake timers: advance 2999 ms, assert the splash is still there, advance 1 ms, assert it is gone."
 ---
 
 The splash screen on this site had a bug for a week: under "reduce motion" it never finished, so the site never appeared. No test caught it because there were no tests for anything animated. The reason there were none is a good one, badly applied: you should not test that things animate. You should test what the animation is for.

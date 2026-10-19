@@ -25,6 +25,10 @@ const nextConfig: NextConfig = {
       },
     },
   },
+  async rewrites() {
+    // Plain-Markdown twin of every post for readers and AI agents.
+    return [{ source: "/blog/:slug.md", destination: "/blog/:slug/markdown" }];
+  },
   async headers() {
     return [
       {

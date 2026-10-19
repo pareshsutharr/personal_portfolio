@@ -9,6 +9,14 @@ imageAlt: "Source code on a dark monitor"
 imageCredit: "luis gomes"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Pexels-luis-gomes-546819.jpg"
 imageLicense: "CC0"
+summary: "Pages are static and fast while content lives in a database because each page has a revalidate time matched to how often it changes, and the admin's save actions call revalidatePath so edits show immediately. The month-long mistake was a layout-level revalidate that overrode the pages."
+faq:
+  - q: "How can a page be static if its content is in a database?"
+    a: "Incremental static regeneration renders it once, serves the cached result, and re-renders in the background after the revalidate window or on demand."
+  - q: "How do admin edits appear without waiting for the window?"
+    a: "The server action that saves the record calls revalidatePath for the affected pages, dropping them from the cache."
+  - q: "What was the mistake?"
+    a: "A revalidate export on the shared layout that applied a shorter window to every page under it, hiding the per-page settings for a month."
 ---
 
 Every page on this site is served as static HTML from a CDN, and every piece of text on it can be changed from an admin panel without a deploy. Those two facts are compatible because of incremental static regeneration: pages are built once, cached, and rebuilt in the background when they are stale or when the admin says so.

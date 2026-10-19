@@ -9,6 +9,14 @@ imageAlt: "Man working at a laptop in an office"
 imageCredit: "Bench Accounting benchaccounting"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Man_at_a_laptop_in_an_office_(Unsplash).jpg"
 imageLicense: "CC0"
+summary: "A floating button, a five-star rating, an optional note, a row in the admin inbox and an email took one afternoon because every decision was the boring one: a server action, the existing messages table, the existing mail helper and a headless-browser test."
+faq:
+  - q: "Where should feedback be stored?"
+    a: "In the same table as contact messages with a type field, so the admin inbox, email notification and spam checks all work without new code."
+  - q: "How is the widget kept from being annoying?"
+    a: "It is a small corner button, opens only on click, remembers in session storage that it was dismissed, and never pops up on its own."
+  - q: "How was it tested?"
+    a: "A headless Chrome script opens the site, fills the form, submits and checks the thank-you text, then the database row is checked."
 ---
 
 The bottom-right corner of this site has an ember button. Tap it and you get "How was this portfolio?", five stars, an optional note, optional name and email, and a Send button. I built it between lunch and dinner. Nothing about it is clever, which is why it took an afternoon rather than a week.

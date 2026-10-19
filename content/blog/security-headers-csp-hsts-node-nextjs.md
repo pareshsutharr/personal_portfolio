@@ -10,6 +10,14 @@ imageAlt: "Rusted hasp and padlock on a red wooden door"
 imageCredit: "Estormiz"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Padlock_Valimokatu_Oulu_20250307_03.jpg"
 imageLicense: "CC0"
+summary: "Five headers take a line each: HSTS, nosniff, frame denial, a referrer policy and a permissions policy. The sixth, Content-Security-Policy, uses a per-request nonce via the Next.js proxy and should ship in report-only mode for a week before enforcing."
+faq:
+  - q: "How do I add a Content-Security-Policy to a Next.js app without breaking it?"
+    a: "Generate a nonce in the proxy file, set the CSP header with that nonce and strict-dynamic, and run as Content-Security-Policy-Report-Only first to collect violations."
+  - q: "Why keep style-src unsafe-inline?"
+    a: "Tailwind and animation libraries set inline styles, and nonce-ing styles in React is impractical. Inline styles are a far smaller risk than inline scripts."
+  - q: "Do I need these headers on Vercel?"
+    a: "Vercel sets HSTS already; the rest come from the headers function in next.config or from the Nginx server block on a VPS."
 ---
 
 A client's auditor ran an online scanner against the portal and sent a screenshot with a D grade. Nothing was exploited; the headers that tell browsers how to behave were simply absent. Most of them are a line. One of them is a project.

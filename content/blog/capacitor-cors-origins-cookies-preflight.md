@@ -10,6 +10,14 @@ imageAlt: "Hands holding a smartphone and a coffee"
 imageCredit: "www.Pixel.la Free Stock Photos"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Hands-coffee-smartphone-technology_(23698591814).jpg"
 imageLicense: "CC0"
+summary: "A Capacitor app's origin is capacitor://localhost on iOS and http://localhost on Android, so the API's CORS allow-list must include both, with credentials enabled and the preflight answering the headers the app sends. Cookies are unreliable in the WebView, so the app uses bearer tokens."
+faq:
+  - q: "Why does my API reject requests from the Capacitor app but not the browser?"
+    a: "The app's origin is capacitor://localhost or http://localhost, which was not in the CORS allow-list. Add both, exactly."
+  - q: "Can a Capacitor app use HttpOnly cookies for auth?"
+    a: "It can on some platform versions and silently fails on others. Bearer tokens in secure storage behave the same everywhere."
+  - q: "What makes the preflight fail?"
+    a: "A custom header or method not listed in Access-Control-Allow-Headers or Allow-Methods, or a 401 from an auth middleware that runs before the cors middleware."
 ---
 
 The web build of Growth HR called the API from `https://hr.growthavenues.in` and everything worked. The same build inside the Android app failed every request with a CORS error, and the origin in the error was `http://localhost`. On iOS it was `capacitor://localhost`. Neither was in the API's allow list, because I had not known they existed.

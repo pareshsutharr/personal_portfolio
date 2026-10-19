@@ -10,6 +10,14 @@ imageAlt: "Tangle of blue network cables in a rack"
 imageCredit: "Unknown"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Cable_closet_bh.jpg"
 imageLicense: "Public domain"
+summary: "Keep data-shape changes as dated migration files run by a forty-line script that records what has been applied in a _migrations collection. Use pipeline updates for restructuring, batch large backfills by _id with pauses, keep migrations forward-only, and make code work before and after."
+faq:
+  - q: "Do I need migrations if MongoDB is schemaless?"
+    a: "Yes. Renaming a field, splitting a name or backfilling a computed value changes every document, and doing it by hand in a production shell is how data gets corrupted."
+  - q: "How do I update a million documents without locking the collection?"
+    a: "Batch by _id in chunks of about a thousand with bulkWrite, pause briefly between batches, and filter so the script is resumable if it stops."
+  - q: "Should migrations have a down function?"
+    a: "No. They are rarely tested and give false confidence. Take a backup before the migration; that is the rollback."
 ---
 
 The HRMS stored employee names as one `name` field for a year. Then the payroll export needed first and last names separately. That is a migration: a one-time, versioned, tested change to the data's shape. Running `db.employees.find().forEach(...)` in a production shell at 4 pm is how a colleague once turned every name into `undefined undefined`. Hence the runner.

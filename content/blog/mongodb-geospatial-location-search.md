@@ -10,6 +10,14 @@ imageAlt: "Old printed city map"
 imageCredit: "AnonymousUnknown author"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Canton1920_d006_map_of_the_city.jpg"
 imageLicense: "Public domain"
+summary: "Store coordinates as GeoJSON points, add a 2dsphere index, and query with $geoNear or $near to get listings sorted by distance from the searcher with the distance included. Computing distances in JavaScript over every listing stops working at a few thousand rows."
+faq:
+  - q: "How do I store a location in MongoDB for distance queries?"
+    a: "As a GeoJSON Point with coordinates in longitude, latitude order, under a field that has a 2dsphere index."
+  - q: "What is the difference between $near and $geoNear?"
+    a: "$near is a find operator; $geoNear is an aggregation stage that also returns the computed distance and allows further stages such as filters and pagination."
+  - q: "Why are my results in the wrong place?"
+    a: "Latitude and longitude were swapped. GeoJSON is longitude first."
 ---
 
 "Show me cameras available within 10 km" is the whole point of a local rental marketplace. My first implementation fetched every active listing and sorted by a Haversine distance computed in Node. It worked for 200 listings and would have died at 20,000. MongoDB does this natively, and the query is faster than the JavaScript loop even at small sizes.

@@ -10,6 +10,14 @@ imageAlt: "Electronic stock price board in Tokyo"
 imageCredit: "nappa"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Electronic_stock_board_in_Yaesu,_Tokyo_2007.jpg"
 imageLicense: "CC BY 2.0"
+summary: "A SEBI-regulated broker's site must publish registration details, investor charters, complaint data, risk disclosures and escalation contacts that change monthly, so they live in a compliance module in the admin with versioned entries and a public page that renders the current set."
+faq:
+  - q: "What must a stock broker's website publish?"
+    a: "SEBI registration and contact details, the investor charter, monthly complaint statistics, standard risk disclosures and the grievance escalation matrix, among others."
+  - q: "Why build this into the admin rather than editing HTML?"
+    a: "The figures change monthly and must be exact. A form with validation and a history is faster and safer than editing markup."
+  - q: "How is history kept?"
+    a: "Each update creates a new version with an effective date; the public page shows the current one and older ones remain for audit."
 ---
 
 A broker's website is not a brochure. SEBI and the exchanges expect certain information to be on it, kept current, and easy to find. Some of it changes every month. When I took over the Growth Avenues website, those pages were static HTML that someone had to edit by hand, which meant they were sometimes late and occasionally wrong.

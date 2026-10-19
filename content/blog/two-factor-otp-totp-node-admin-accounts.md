@@ -10,6 +10,14 @@ imageAlt: "Fingerprint scanner device on a desk"
 imageCredit: "Harrison Keely"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:A_fingerprint_scanner_at_a_prison_or_jail_in_the_United_States.jpg"
 imageLicense: "CC BY 4.0"
+summary: "Add TOTP with any authenticator app as the default second factor, SMS OTP as a fallback for staff without smartphones, hashed recovery codes shown once, and a trusted-device cookie so people are not asked every login. Login becomes two steps with a short-lived pre-auth token between them."
+faq:
+  - q: "Is SMS OTP good enough for admin accounts?"
+    a: "It is weaker than an authenticator app because of SIM swaps, so roles that can see salaries or client money are TOTP-only; SMS is a fallback for lower roles."
+  - q: "What happens if someone loses their phone and recovery codes?"
+    a: "A higher-role admin resets their second factor after verifying identity out of band, and the audit log records it. There is no self-service bypass on purpose."
+  - q: "How do I stop the same TOTP code being replayed?"
+    a: "Store the time step of the last accepted code and reject a code from the same step within its 30-second window."
 ---
 
 A password alone protects an HR admin account about as well as the weakest password any admin has ever reused. A second factor makes a leaked password insufficient. The HRMS requires it for every role that can see salaries, and the implementation is smaller than people expect.

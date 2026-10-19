@@ -10,6 +10,14 @@ imageAlt: "Close-up of blade servers in a rack"
 imageCredit: "NOIRLab/NSF/AURA/T. Slovinský"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:NOIRLab_HQ_Server_Racks_(6V6A0404-CC).jpg"
 imageLicense: "CC BY 4.0"
+summary: "Fetch on the server with React server components for screens that do not change while someone looks at them, and use a client-side query library for live screens such as boards and inboxes that other people change. The deciding question is how long the page stays open and who else edits the data."
+faq:
+  - q: "Did server components make React Query unnecessary?"
+    a: "No. Server components win for read-and-leave pages; a query library wins for long-lived screens that need refetching, optimistic updates and rollback."
+  - q: "Can both be used in one Next.js app?"
+    a: "Yes. The shell page is a server component that handles layout and permissions, and only the live region mounts a client component driven by queries."
+  - q: "Should I hydrate the client cache with server data?"
+    a: "Only where a spinner on first load matters, such as an inbox. For a board people keep open all day it adds complexity for little gain."
 ---
 
 For a while there was a camp that said server components made client-side data libraries obsolete, and a camp that said server components were a step back. Having shipped a CRM with both, the honest answer is that they solve different problems and the right question is about the screen, not the stack.

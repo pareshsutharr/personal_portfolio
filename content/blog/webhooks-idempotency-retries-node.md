@@ -10,6 +10,14 @@ imageAlt: "Rows of server racks lit blue in a data centre"
 imageCredit: "NOIRLab/NSF/AURA/P. Horálek"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:NOIRLab_HQ_Server_Racks_(OK_upr_IMG_0225-CC).jpg"
 imageLicense: "CC BY 4.0"
+summary: "Verify the webhook signature over the raw body, store the event keyed by the provider's event id, acknowledge with 200 immediately, and process from the stored copy in a worker. The unique id makes retries harmless and the atomic status update means each event is processed once."
+faq:
+  - q: "Why was my webhook handler called four times for one payment?"
+    a: "It took longer than the provider's timeout, so the provider retried. Return 200 before doing the work and process the event afterwards."
+  - q: "Why does signature verification fail after express.json?"
+    a: "Signatures cover the exact bytes sent. Parsing and re-stringifying changes them. Use express.raw on the webhook route and verify the raw buffer."
+  - q: "How do I make the business logic safe to run twice?"
+    a: "Update with a filter on the prior state, such as status pending_payment, so a second run matches nothing and does nothing."
 ---
 
 The payment gateway sent the same `payment.captured` event four times in one minute because the handler took six seconds and the gateway's timeout was five. The handler credited the account four times. The fix was not "make it faster". The fix was to change what a webhook handler does.

@@ -89,10 +89,48 @@ export default async function ServicesPage() {
         ]}
       />
       <JsonLd
-        data={breadcrumbJsonLd([
-          { name: "Home", path: "/" },
-          { name: "Services", path: "/services" },
-        ])}
+        data={[
+          {
+            "@context": "https://schema.org",
+            "@type": "ProfessionalService",
+            "@id": absoluteUrl("/services#business"),
+            name: "Paresh Suthar, Full Stack Developer",
+            description: DESCRIPTION,
+            url: absoluteUrl("/services"),
+            ...(profile?.email ? { email: profile.email } : {}),
+            founder: { "@type": "Person", name: "Paresh Suthar", url: siteUrl() },
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Surat",
+              addressRegion: "Gujarat",
+              addressCountry: "IN",
+            },
+            areaServed: [
+              { "@type": "City", name: "Surat" },
+              { "@type": "State", name: "Gujarat" },
+              { "@type": "Country", name: "India" },
+              "Remote",
+            ],
+            serviceType: services.map((s) => s.title),
+            priceRange: "₹₹",
+            knowsAbout: [
+              "React",
+              "Next.js",
+              "Node.js",
+              "Express",
+              "MongoDB",
+              "PostgreSQL",
+              "Supabase",
+              "Capacitor",
+              "Linux",
+              "Nginx",
+            ],
+          },
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Services", path: "/services" },
+          ]),
+        ]}
       />
       <PageHeader
         backdrop={{ src: "/images/sunrise-from-the-edge.webp", position: "50% 36%" }}
@@ -186,6 +224,33 @@ export default async function ServicesPage() {
             ) : (
               <EmptyState title="Services will be published soon." />
             )}
+
+            <section
+              aria-labelledby="local-heading"
+              className="mt-20 border-t border-line-800 pt-12"
+            >
+              <p className="label-mono">Surat, Gujarat</p>
+              <h2
+                id="local-heading"
+                className="mt-4 font-display text-display-sm font-semibold tracking-tight text-fg-50"
+              >
+                A web developer in Surat you can meet in person.
+              </h2>
+              <div className="mt-6 max-w-2xl space-y-4 text-base leading-relaxed text-fg-300">
+                <p>
+                  I am based in Surat and work with businesses across Gujarat: textile and diamond
+                  firms, brokers and advisors, clinics, schools and shops that need a website, a
+                  back office, an HR or CRM tool, or an app for their staff and customers. For
+                  Surat, Navsari, Bharuch, Vadodara and Ahmedabad clients I can meet at your office
+                  for the first conversation and the handover; everything else works over calls.
+                </p>
+                <p>
+                  Most of what I build for local clients is on this site as a case study, and the
+                  blog records how each system was put together, so you can see the actual work
+                  before you write.
+                </p>
+              </div>
+            </section>
 
             <section aria-labelledby="faq-heading" className="mt-20 border-t border-line-800 pt-12">
               <p className="label-mono">Questions</p>

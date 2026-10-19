@@ -10,6 +10,14 @@ imageAlt: "Group of people texting on smartphones"
 imageCredit: "Tomwsulcer"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Young_people_texting_on_smartphones_using_thumbs.JPG"
 imageLicense: "CC0"
+summary: "A wa.me link with a prefilled message that names the product and the page it came from turns a WhatsApp button into a tracked enquiry channel. More enquiries arrive this way than through the form on a manufacturing site, and the prefilled text is what makes them useful."
+faq:
+  - q: "How do I make a WhatsApp link with a prefilled message?"
+    a: "https://wa.me/<number>?text=<URL-encoded message>. Include the product name and the page so the reply has context."
+  - q: "How do I know which page a WhatsApp enquiry came from?"
+    a: "Put a short page reference in the prefilled text and record the click with your analytics before the link opens."
+  - q: "Where should the button go?"
+    a: "Fixed in a corner on mobile and next to each product's call to action on desktop, with the product-specific message on the product pages."
 ---
 
 For a B2B manufacturer in Gujarat, WhatsApp is where business happens. Bhaavya Ecopack's site has a contact form, and it gets used, but the WhatsApp button next to every product gets used more. The whole feature is a link. The details are what turn a tap into a conversation the sales team can act on.

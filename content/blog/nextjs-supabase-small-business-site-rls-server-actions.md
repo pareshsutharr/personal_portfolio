@@ -10,6 +10,14 @@ imageAlt: "Rusted hasp and padlock on a red wooden door"
 imageCredit: "Estormiz"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Padlock_Valimokatu_Oulu_20250307_03.jpg"
 imageLicense: "CC0"
+summary: "Postgres with row-level security makes the public key safe in the browser, server actions handle writes with the service role on the server, and a storage bucket with next/image serves uploaded photos. The same setup runs this portfolio's admin and a food-ordering site."
+faq:
+  - q: "Is it safe to put the Supabase anon key in the browser?"
+    a: "Yes when every table has row-level security policies that only allow what anonymous users should read. The key is public by design; the policies are the security."
+  - q: "Where do writes happen?"
+    a: "In server actions using the service-role key, which never reaches the browser, after checking the admin session and validating the input."
+  - q: "How are images served?"
+    a: "From a public storage bucket through next/image with the bucket host in remotePatterns, so they are resized and cached on request."
 ---
 
 For anything that needs a database, an admin login and image uploads, but does not need a separate backend, I reach for Next.js with Supabase. This portfolio's admin runs on it. So does a food e-commerce site I built. The combination is cheap, fast to build, and secure if you respect one rule: the database decides who can read what, not your JavaScript.

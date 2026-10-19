@@ -10,6 +10,14 @@ imageAlt: "Alarm clock on a dark desk"
 imageCredit: "Raul Petri raulpetri"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Alarm_Clock_(Unsplash).jpg"
 imageLicense: "CC0"
+summary: "Run frequent, light jobs that need the app's code inside a dedicated single-instance Node worker with node-cron, and run rare or heavy jobs such as backups as systemd timers outside the app. Guard against overlap, set a time zone, and ping a heartbeat URL on success."
+faq:
+  - q: "Why did my cron job run twice?"
+    a: "PM2 cluster mode runs module-level code, including cron.schedule, in every instance. Move jobs to a separate single-instance process or guard on NODE_APP_INSTANCE."
+  - q: "Why prefer a systemd timer over a crontab line?"
+    a: "Timers log to the journal, can run a missed job after a reboot with Persistent=true, and survive the app being redeployed."
+  - q: "How do I know a scheduled job actually ran?"
+    a: "Each job pings a free heartbeat monitor on success; the monitor alerts when a ping is late. Reading logs every morning does not scale."
 ---
 
 The Growth Avenues platform has about a dozen scheduled jobs. Some live inside the API as `node-cron` schedules; some are separate scripts run by systemd timers. Neither is wrong, but each was wrong for the other's jobs, and finding that out cost a duplicated report and a backup that silently stopped.

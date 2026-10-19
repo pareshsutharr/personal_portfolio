@@ -10,6 +10,14 @@ imageAlt: "Taking a photo with a smartphone"
 imageCredit: "James Sutton jamessutton_photography"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Smartphone_photographer_(Unsplash).jpg"
 imageLicense: "CC0"
+summary: "Authenticate the socket on connection, join one room per conversation, save each message to MongoDB before broadcasting it, and let the client re-join rooms and fetch missed messages on reconnect. The first version lost messages when a socket dropped mid-send."
+faq:
+  - q: "How do I authenticate a Socket.IO connection?"
+    a: "Send the access token in the handshake auth field and verify it in a connection middleware; reject the socket if it fails."
+  - q: "Why save before broadcasting?"
+    a: "If the broadcast happens first and the save fails, people saw a message that does not exist. Save, then emit with the stored id."
+  - q: "What happens when the phone loses connection?"
+    a: "Socket.IO reconnects; the client re-joins its rooms and requests messages after the last id it has, so nothing is missed."
 ---
 
 Just Rent It is a rental marketplace: you list a camera, someone nearby wants it for the weekend, you talk, you agree. The "you talk" part was a Socket.IO chat between the owner and the renter. My first version worked in a demo and fell apart with two real phones on mobile data. Messages arrived twice, or not at all, and anyone who guessed a conversation id could read it.

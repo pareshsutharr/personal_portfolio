@@ -10,6 +10,14 @@ imageAlt: "Star trails photographed from orbit"
 imageCredit: "NASA/Don Pettit"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:International_Space_Station_star_trails_-_JSC2012E039800.jpg"
 imageLicense: "Public domain"
+summary: "Use a cache-aside helper with explicit keys, short TTLs chosen by how wrong stale data can be, deletion on write for things that must be fresh after an edit, and a short lock to stop stampedes. Never cache permission checks, and never let Redis be the only copy of anything."
+faq:
+  - q: "What should a Redis cache key contain?"
+    a: "An app prefix, a version segment, the thing, its scope and every input that changes the result, so one org's dashboard is never served to another."
+  - q: "Should I update the cache on write or delete it?"
+    a: "Delete it. The next read recomputes from the real query, so two code paths never have to agree on the cached shape."
+  - q: "What should never be cached?"
+    a: "Permission checks, because a removed user keeps access until the TTL expires, and anything read back in the same request that wrote it."
 ---
 
 The dashboard everyone opens first thing in the morning computed totals across clients, leads, tasks and revenue, and took 1.8 seconds. The numbers change a few times an hour. Computing them on every load was waste, and Redis fixed it in an afternoon. The afternoon was mostly spent deciding what *not* to cache.

@@ -10,6 +10,14 @@ imageAlt: "Laptop showing a code editor"
 imageCredit: "Tirza van Dijk tirzavandijk"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Laptop_coding_programs_(Unsplash).jpg"
 imageLicense: "CC0"
+summary: "Let the browser upload straight to object storage with a presigned URL the API signs for one key, one method and a few minutes. The API verifies the object with a HEAD request afterwards and only then records it, so credentials never leave the server and large files never pass through Node."
+faq:
+  - q: "Does this work with Cloudflare R2 or DigitalOcean Spaces?"
+    a: "Yes. They speak the S3 API, so the same AWS SDK code works; only the endpoint and credentials change."
+  - q: "Why does the server pick the object key instead of the client?"
+    a: "A server-chosen key under the user's own prefix with a random name means a client cannot overwrite another user's file or guess its path."
+  - q: "What stops someone claiming an upload finished when it did not?"
+    a: "The complete endpoint issues a HEAD request to storage and checks that size and content type match what was signed before marking the upload ready."
 ---
 
 A client uploading a 20 MB bank statement through the API ties up a Node process for the duration and doubles the bandwidth, once in and once out to storage. Multiply by a busy onboarding week and the API slows for everyone. Presigned URLs remove the API from the path: it signs a permission, the browser uploads directly to storage, and the API only hears about it when the file is there.

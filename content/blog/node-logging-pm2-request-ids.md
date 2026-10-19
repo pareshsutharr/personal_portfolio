@@ -10,6 +10,14 @@ imageAlt: "Server racks with cabling in a small computer room"
 imageCredit: "Jemimus"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:DHL_Netherlands_local_site_computer_room_server_racks_(2)_-_IMG_3299.jpg"
 imageLicense: "CC BY 2.0"
+summary: "Attach a request id to every request, log JSON lines that include it, pass it to downstream calls and error reports, and know where PM2 writes its files. Then finding every line for one user's one request is a single grep."
+faq:
+  - q: "Where are PM2 logs stored?"
+    a: "Under ~/.pm2/logs by default, one out and one error file per process, rotated by the pm2-logrotate module."
+  - q: "Why log JSON instead of plain text?"
+    a: "Fields such as request id, user id and route can be filtered reliably with jq or shipped to a log service without a parsing step."
+  - q: "How does the request id reach the client?"
+    a: "It is set as an X-Request-Id response header, so a support ticket can quote it and the log search starts from there."
 ---
 
 A support message says "the client list did not load for Ramesh around 11". Without the right logging, that is an hour of guessing. With it, it is one command. The difference is three decisions made before the problem: one id per request, one line per event in JSON, and log files that do not fill the disk.

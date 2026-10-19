@@ -9,6 +9,14 @@ imageAlt: "Notebook and pen on a desk next to a laptop"
 imageCredit: "Shixart1985"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Person_writing_in_a_notebook_while_sitting_at_a_desk.jpg"
 imageLicense: "CC BY 2.0"
+summary: "Six schema types that match the pages: Person with sameAs, WebSite, Service list, FAQPage, BlogPosting and BreadcrumbList, each emitted as JSON-LD from the page's real data. Validate with the Rich Results Test and the Schema Markup Validator; the missing field was usually a URL."
+faq:
+  - q: "Which structured data matters for a developer portfolio?"
+    a: "Person with sameAs links to your profiles, BlogPosting on posts, BreadcrumbList, and FAQPage where there are real questions. The rest is decoration."
+  - q: "How do I test structured data?"
+    a: "Google's Rich Results Test shows what is eligible for rich results; the Schema Markup Validator checks the JSON-LD itself."
+  - q: "Why did Google not read my Person schema?"
+    a: "It had no url field and the name differed from the page. Match the name and give every entity its canonical URL."
 ---
 
 Structured data is the part of SEO where you can be exactly right or silently wrong, with nothing visible on the page either way. This site emits six schema.org types, each chosen because a page is actually that thing. Here is what each one carries and how I verify it.

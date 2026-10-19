@@ -9,6 +9,14 @@ imageAlt: "Clipboards with paper checklists"
 imageCredit: "Unknown"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:USMC-100914-M-0646Q-45.jpg"
 imageLicense: "Public domain"
+summary: "Intl with the en-IN locale gives lakh and crore grouping and rupee symbols without a library, and pinning timeZone to Asia/Kolkata in every date formatter makes a server in Virginia and a phone in Surat print the same string. Build formatters once at module level."
+faq:
+  - q: "How do I format numbers in lakhs and crores in JavaScript?"
+    a: "new Intl.NumberFormat(\"en-IN\").format(1234567) returns 12,34,567. Add style currency and currency INR for the rupee symbol."
+  - q: "Why does the same date show differently on server and client?"
+    a: "Each formats in its own time zone. Pass timeZone: \"Asia/Kolkata\" to Intl.DateTimeFormat on both sides."
+  - q: "What are the three common mistakes?"
+    a: "Using toLocaleString without a locale, formatting dates without a time zone, and storing date-only values as midnight local time."
 ---
 
 Every finance screen I have built for an Indian company has had the same two bugs at some point: numbers grouped in thousands instead of lakhs, and dates that shifted by a day on the server. Both are solved by `Intl`, the built-in internationalisation API, as long as you pass it two things explicitly: the locale `en-IN` and the time zone `Asia/Kolkata`.

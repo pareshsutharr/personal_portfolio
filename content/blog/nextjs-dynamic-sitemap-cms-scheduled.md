@@ -9,6 +9,14 @@ imageAlt: "Old alarm clock on a bookshelf"
 imageCredit: "Nenad Stojkovic"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Old_alarm_clock_on_the_bookshelf_-_50233824038.jpg"
 imageLicense: "CC BY 2.0"
+summary: "Generate the sitemap from the database and the blog loader so drafts and future-dated posts are excluded, set lastmod from the real updated time, and revalidate it on a schedule and on write. Google reads lastmod and the URL list; priority and changefreq barely matter."
+faq:
+  - q: "Should drafts or scheduled posts be in the sitemap?"
+    a: "No. Listing a URL that returns 404 or a draft wastes crawl budget and can get a thin page indexed. Use the same published-only filter as the pages."
+  - q: "What should lastmod be?"
+    a: "The time the content actually changed, from the updated_at column or the post's updated field. A lastmod that is always now is ignored."
+  - q: "Does Google use priority and changefreq?"
+    a: "Google has said it ignores both. lastmod and an accurate URL list are what count."
 ---
 
 Google uses a sitemap for two things: discovering URLs it has not seen, and deciding which known URLs to recrawl, based on `lastmod`. It mostly ignores `priority` and `changefreq`. So a good sitemap for a CMS-driven site is simple: every public URL, none of the private ones, with an honest last-modified date.

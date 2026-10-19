@@ -10,6 +10,14 @@ imageAlt: "Hard disk drive internals"
 imageCredit: "Shams948"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Hard_drive_08.jpg"
 imageLicense: "CC0"
+summary: "Once a quarter, rent a fresh VPS and rebuild the whole platform from the repository and last night's backups with a stopwatch. The first drill took six hours and found the encryption key only existed on the dead server; the fourth took 74 minutes. Write the recovery objectives down."
+faq:
+  - q: "Why run a recovery drill if backups succeed every night?"
+    a: "Because a backup that has never been restored is a hope. The drills found a key stored only on the server, Nginx config not in git and a vendor IP allow-list."
+  - q: "What are RPO and RTO in plain terms?"
+    a: "RPO is how much data you can lose, here 24 hours from the nightly dump. RTO is how long until you are back, here four hours with 90 minutes of real work."
+  - q: "Who should be able to run the restore?"
+    a: "Someone other than the person who built it. Once a year the client's IT person follows the runbook unaided, which finds the steps that assumed knowledge."
 ---
 
 The backups post set up nightly dumps to object storage. This post is about the question that post did not answer: if the VPS disappeared tonight, how long until the platform is back, and does anyone actually know the steps? The only way to know is to do it. So every quarter, it gets done.

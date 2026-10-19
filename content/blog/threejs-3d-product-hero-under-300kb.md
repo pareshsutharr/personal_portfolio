@@ -10,6 +10,14 @@ imageAlt: "Star trails photographed from orbit"
 imageCredit: "NASA/Don Pettit"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:International_Space_Station_star_trails_-_JSC2012E039800.jpg"
 imageLicense: "Public domain"
+summary: "A rotatable corrugated box on a manufacturing company's home page loads in under a second on 4G: a decimated glTF model compressed with Draco, a renderer loaded only after the page is interactive, a poster image until then, and no post-processing. Under 300 KB total."
+faq:
+  - q: "How big should a 3D model be for a website hero?"
+    a: "Under 100 KB after Draco compression for a simple product. Reduce polygons and texture sizes before anything else."
+  - q: "Does Three.js hurt page speed scores?"
+    a: "Only if it loads before the page is usable. Show a poster image, load the renderer after interaction or idle, and keep the bundle split."
+  - q: "Is 3D worth it on a corporate site?"
+    a: "For a product that benefits from being rotated, yes, if it stays light. The box demonstrates the product in a way a photo cannot."
 ---
 
 A packaging manufacturer wanted visitors to see their product. A photo would have done. A box you can turn with your finger does more, as long as it does not cost the page its load time. The Bhaavya Ecopack hero ships a 3D box at about 280 KB total, including the renderer, and renders the first frame before the text has finished its entrance animation.

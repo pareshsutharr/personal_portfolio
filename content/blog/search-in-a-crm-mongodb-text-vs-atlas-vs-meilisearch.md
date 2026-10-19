@@ -10,6 +10,14 @@ imageAlt: "Magnifying glass over a postage stamp"
 imageCredit: "Heptagon"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Magnifying_glass2.jpg"
 imageLicense: "Public domain"
+summary: "MongoDB's text index is free but has no typo tolerance or prefix matching; Atlas Search adds both if you are on Atlas; for self-hosted MongoDB a small engine such as Meilisearch next to the database gives typo-tolerant, ranked search kept in sync by hooks plus a nightly re-index."
+faq:
+  - q: "Why does MongoDB text search not find partial words?"
+    a: "It matches whole stemmed words, so Rah does not match Rahul and phone fragments tokenise unpredictably. A dedicated engine supports prefix and typo matching."
+  - q: "How do I keep Meilisearch in sync with MongoDB?"
+    a: "Push changed documents from Mongoose save and update hooks through a queue, delete on delete, and re-index everything nightly to catch anything missed."
+  - q: "Which search option should a small team pick?"
+    a: "Text index if exact-ish matches are fine, Atlas Search if already on Atlas, Meilisearch or Typesense on the VPS if people expect typo-tolerant results."
 ---
 
 The first search box in the CRM did `{ name: { $regex: q, $options: "i" } }`. It scanned the whole collection, found nothing for "Raul" when the record said "Rahul", and could not look at phone numbers, cities and notes at the same time. Every version since has been about closing those three gaps.

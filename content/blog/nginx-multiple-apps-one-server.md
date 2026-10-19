@@ -10,6 +10,14 @@ imageAlt: "Rows of server racks lit blue in a data centre"
 imageCredit: "NOIRLab/NSF/AURA/P. Horálek"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:NOIRLab_HQ_Server_Racks_(OK_upr_IMG_0225-CC).jpg"
 imageLicense: "CC BY 4.0"
+summary: "One Nginx terminates TLS for every subdomain and proxies each to its own PM2 process on a localhost port: public site, client portal, back office and API. Nothing listens on a public interface except Nginx, and one certificate request covers all hosts."
+faq:
+  - q: "Can several Node apps share one server and one Nginx?"
+    a: "Yes. Each app binds to 127.0.0.1 on its own port and Nginx routes by server_name to the right one."
+  - q: "How do I get SSL for multiple subdomains?"
+    a: "One Certbot request with several -d flags, or a wildcard certificate with DNS validation. Renewal is automatic either way."
+  - q: "What if one app is busy?"
+    a: "Each app is a separate PM2 process, so a slow back office does not block the API. Memory limits per process stop one from starving the others."
 ---
 
 Growth Avenues is not one app. There is the public website, the client portal people log into, the back office the operations team uses, and the API all three talk to. Early on they were spread across servers that each needed patching. Today the pattern is one Nginx per server, one server block per hostname, one PM2 process per app, and every app bound to localhost.

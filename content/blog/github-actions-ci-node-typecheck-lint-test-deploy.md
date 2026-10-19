@@ -10,6 +10,14 @@ imageAlt: "Gate of a container terminal"
 imageCredit: "Jim.henderson"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:New_York_container_terminal_(Staten_Island)_north_gate.jpg"
 imageLicense: "CC0"
+summary: "One GitHub Actions workflow runs typecheck, lint, tests against a real MongoDB service container and the build on every pull request, then deploys to the VPS over SSH when main is green. Caching the pnpm store and cancelling superseded runs keep it at about three minutes."
+faq:
+  - q: "How do I run integration tests against MongoDB in GitHub Actions?"
+    a: "Declare a mongo service container in the job; it is up before the steps start and discarded afterwards, so tests use a real database."
+  - q: "How is the deploy SSH key kept safe?"
+    a: "It is a dedicated keypair stored as an environment secret, and the server's authorized_keys restricts it with a command= option so it can only run the deploy script."
+  - q: "Why do pull requests from forks not deploy?"
+    a: "The deploy job runs only on push to main after checks pass, and environment secrets are not exposed to fork pull requests."
 ---
 
 Before CI, "did you run the tests?" was a question in chat. After CI, it is a green tick on the pull request, and a red one blocks the merge button. The whole setup is one YAML file and three repository secrets.

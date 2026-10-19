@@ -10,6 +10,14 @@ imageAlt: "Investor display boards in an office lobby"
 imageCredit: "Raysonho @ Open Grid Scheduler / Grid Engine"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:ScotiaPlaza.JPG"
 imageLicense: "CC0"
+summary: "An IPO dashboard lives or dies on data freshness, so the hard parts were sources, fetch frequency and honesty: cache each source with its own TTL, show the fetched-at time on every table, and display the last good data with a warning when a source fails instead of an empty page."
+faq:
+  - q: "Where does IPO data come from?"
+    a: "Exchange pages and public filings, fetched on a schedule and normalised into one shape; subscription figures refresh more often than the calendar."
+  - q: "What should the page show when a source is down?"
+    a: "The last successful data with a visible fetched-at time and a notice, never a blank table or silently stale numbers."
+  - q: "How often should the data refresh?"
+    a: "Open-issue subscription numbers every few minutes during market hours, the calendar a few times a day, and listed-issue history once a day."
 ---
 
 BEIPOREADY's dashboard answers one question for a small business owner: what is happening in the IPO market right now. Open issues, upcoming ones, those waiting to list, and recent listings, split by Mainboard and SME. The table is a table. Everything interesting is upstream of it.

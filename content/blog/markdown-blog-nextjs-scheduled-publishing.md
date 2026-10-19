@@ -9,6 +9,14 @@ imageAlt: "Classic twin-bell alarm clock"
 imageCredit: "Santeri Viinamäki"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Classic_alarm_clock_20180513.jpg"
 imageLicense: "CC BY-SA 4.0"
+summary: "A folder of Markdown files with frontmatter, a loader that only returns posts whose date has passed, and hourly revalidation on the list and post pages give scheduled publishing with no database, CMS, cron or deploy. About 150 lines in total."
+faq:
+  - q: "How does a post publish itself on a future date without a cron job?"
+    a: "The loader filters out posts dated in the future, and the pages revalidate hourly, so the first request after the date renders the post."
+  - q: "Why Markdown files instead of a CMS?"
+    a: "Posts are code-reviewed, versioned and diffable, there is nothing to back up, and the editor is the same one used for everything else."
+  - q: "How does the sitemap know about a newly published post?"
+    a: "It is generated from the same loader and revalidates on the same schedule, so the post appears there within the hour."
 ---
 
 You are reading a Markdown file. It sits in `content/blog/` in the site's repository, has a `date` in its frontmatter, and became public when that date passed. No database row, no publish button, no cron job. The mechanism is small enough to show in full.

@@ -10,6 +10,14 @@ imageAlt: "Source code on a dark monitor"
 imageCredit: "luis gomes"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Pexels-luis-gomes-546819.jpg"
 imageLicense: "CC0"
+summary: "Wire Sentry into Express and Next.js with a release tag and low sample rates, scrub cookies, auth headers and sensitive body fields before events leave the server, filter 4xx, bots and browser-extension noise, and alert only on new issues, regressions and spikes."
+faq:
+  - q: "Why not alert on every error?"
+    a: "The first week produced forty alerts a day and almost none were actionable. New issues, regressions of resolved ones and spikes are the three that deserve a notification."
+  - q: "How do I keep salaries and passwords out of Sentry?"
+    a: "A beforeSend hook deletes cookies and auth headers and redacts named body fields, in addition to Sentry's own server-side scrubbing."
+  - q: "Is there a self-hosted alternative?"
+    a: "GlitchTip is open source, Sentry-compatible and runs on a VPS with the same SDKs, which suits clients with data-residency requirements."
 ---
 
 The monitoring post covered uptime and disk. This one covers the thing in between: the app is up and a particular request is failing for a particular user, and nobody knows until they complain. Sentry, or any of the comparable tools, closes that gap. The setup is half an hour; tuning it so it is useful took a few weeks.

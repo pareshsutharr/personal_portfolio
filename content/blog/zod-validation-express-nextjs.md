@@ -9,6 +9,14 @@ imageAlt: "Backlit laptop keyboard close-up"
 imageCredit: "Bike756"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Close_up_of_IBM_Laptop_Keyboard.JPG"
 imageLicense: "Public domain"
+summary: "Describe each input once as a Zod schema in a shared module, validate it on the server in an Express middleware or a Next.js server action, and reuse the same schema in the browser for instant field errors. Zod also strips unknown keys, which closes mass-assignment holes."
+faq:
+  - q: "Can the same Zod schema run in the browser and on the server?"
+    a: "Yes. Put it in a shared module with no server imports. The client uses it for live field errors; the server remains the authority because anyone can skip the client."
+  - q: "How do I attach a cross-field error to one field?"
+    a: "Use refine with a path option, for example path: [\"to\"], so the end-date rule shows under the end-date input rather than as a floating message."
+  - q: "Why validate dates as strings instead of z.date()?"
+    a: "Form data arrives as strings, and a YYYY-MM-DD string compares correctly and never shifts by a day across time zones. Parse to a Date only where arithmetic is needed."
 ---
 
 Validation is the part of an app that is boring to write and expensive to skip. A leave request with an end date before the start date, a PAN number in lowercase, an amount with a comma in it: each got into a database of mine once. Now every input passes through a Zod schema, and the same schema runs in the browser so the person sees the error before they submit.

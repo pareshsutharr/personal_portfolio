@@ -10,6 +10,14 @@ imageAlt: "Fingerprint scanner device on a desk"
 imageCredit: "Harrison Keely"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:A_fingerprint_scanner_at_a_prison_or_jail_in_the_United_States.jpg"
 imageLicense: "CC BY 4.0"
+summary: "Poll each fingerprint device from a checkpoint of the last punch seen, write punches idempotently keyed by device, user and timestamp, correct for device clock drift, and run a nightly reconciliation that re-pulls the day. Power cuts and drift are normal, not exceptions."
+faq:
+  - q: "How do I avoid losing punches when the device loses power?"
+    a: "Devices store punches locally. Poll from a saved checkpoint rather than from now, so everything logged while the link was down is fetched afterwards."
+  - q: "Why do the same punches appear twice?"
+    a: "Overlapping polls or retries. Make writes idempotent with a unique index on device, user id and punch time so duplicates are ignored."
+  - q: "What if the device clock is wrong?"
+    a: "Record the device's reported time and the server time on each poll, compute the offset, and correct punches; alert when drift passes a threshold."
 ---
 
 The biometric devices on office walls are small computers with a fingerprint sensor and a log. Most of them, from the common vendors, expose that log over the local network, either through a vendor SDK, a push protocol, or a plain HTTP or TCP interface. The HRMS needs those punches. The design below has survived two years, a device replacement and several power cuts.

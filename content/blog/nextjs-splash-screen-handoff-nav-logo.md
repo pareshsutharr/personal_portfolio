@@ -9,6 +9,14 @@ imageAlt: "Light trails on a road at night"
 imageCredit: "Piviso"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Krzeszowice_by_night_long_exposure_photo,_Poland.jpg"
 imageLicense: "CC0"
+summary: "On the first visit a black screen shows the logo assembling in the centre, then it glides to the exact position of the nav logo measured live, while the page loads underneath; a session flag prevents repeats and a click skips it. Reduced-motion users get a short fade."
+faq:
+  - q: "How does the splash logo land exactly on the nav logo?"
+    a: "The nav logo element is measured with getBoundingClientRect after layout and the splash animates its transform to that position, so it is correct on any screen size."
+  - q: "Why only once per session?"
+    a: "A splash on every navigation is a delay with no purpose. A sessionStorage flag shows it on the first page load only."
+  - q: "Does the splash hurt performance scores?"
+    a: "Not if the real page renders underneath from the start. Lighthouse measures the real content's paint, not the overlay."
 ---
 
 The intro on this site is a three-second splash: the logo assembles in the middle of a black screen, then shrinks and travels into the top-left corner where the nav logo sits, and the page content fades up under it. It looks like a layout animation, but it is simpler and more robust than that: measure where the target is, animate to that delta, swap.

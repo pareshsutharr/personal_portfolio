@@ -10,6 +10,14 @@ imageAlt: "Clipboards with paper checklists"
 imageCredit: "Unknown"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:USMC-100914-M-0646Q-45.jpg"
 imageLicense: "Public domain"
+summary: "Model approvals as a small state machine with named transitions, check who may perform each transition, and append every change to an immutable history on the request. A status field plus if statements breaks the first time a second approval level is added."
+faq:
+  - q: "Why is a status string and an if statement not enough for approvals?"
+    a: "Rules multiply: who can approve, in which order, what reopening means. A transition table makes each rule explicit and testable."
+  - q: "How should the approval history be stored?"
+    a: "As an append-only array on the request with actor, from, to, time and comment. It is bounded, always read with the request and never edited."
+  - q: "What happens when an approver leaves the company?"
+    a: "Pending items are reassigned by a job that walks reportsTo, and the history records the reassignment so the trail stays complete."
 ---
 
 An expense claim goes: submitted, reviewed by the manager, approved or sent back, paid by accounts. A leave request is similar with fewer steps. The first version of each was a `status` string and handlers that set it. Within months there were claims in impossible states and nobody could say who approved what. The fix was to name the transitions and record every one.

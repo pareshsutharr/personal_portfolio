@@ -10,6 +10,14 @@ imageAlt: "Old iron latch on weathered wooden boards"
 imageCredit: "Estormiz"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Padlock_Valimokatu_Oulu_20250307_01.jpg"
 imageLicense: "CC0"
+summary: "Each OWASP Top 10 category maps to a concrete place in a MongoDB, Express, React and Node app, from unscoped findById queries and NoSQL injection through $gt to missing rate limits and unverified webhooks. Run the ten as a checklist before every handover and write one line per item."
+faq:
+  - q: "What does NoSQL injection look like in Express and MongoDB?"
+    a: "A login that passes req.body straight into findOne, so a password of { \"$gt\": \"\" } matches any user. Validate every input with a schema so strings cannot arrive as objects."
+  - q: "What is the most common OWASP issue in MERN code reviews?"
+    a: "Broken access control: queries that check the user is logged in but not that they own the record. Scope every tenant query to the caller."
+  - q: "How do I keep dependencies from becoming the weak point?"
+    a: "Audit in CI, let a bot open weekly update pull requests, commit the lockfile and install with frozen-lockfile in production."
 ---
 
 The OWASP Top 10 is the list everyone cites and few map to their actual stack. Here is the mapping for the stack I use most, with the place each category turned up in real code. Nothing here is theoretical.

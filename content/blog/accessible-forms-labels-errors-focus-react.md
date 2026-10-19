@@ -10,6 +10,14 @@ imageAlt: "Laptop keyboard in low light"
 imageCredit: "Markus Petritz petritzdesigns"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Backlit_laptop_keyboard_(Unsplash).jpg"
 imageLicense: "CC0"
+summary: "Every form needs a real label per input, errors connected with aria-describedby and aria-invalid, focus moved to the first invalid field on submit, a live region for the outcome, full keyboard support and visible focus. Ten minutes with VoiceOver or NVDA catches what automated tools miss."
+faq:
+  - q: "Is placeholder text an acceptable label?"
+    a: "No. It disappears when typing and screen readers do not treat it as a label. Use a label element, visually hidden if the design requires."
+  - q: "How do I make an error message get read out?"
+    a: "Reference it from the input with aria-describedby and give the message role=alert so it is announced the moment it appears."
+  - q: "What should happen after a failed submit?"
+    a: "Move focus to the first invalid field and announce the overall result in a live region, so nobody has to hunt for the red text."
 ---
 
 The HRMS has an employee who uses a screen reader. The first version of the leave form had placeholder text instead of labels, red borders instead of error messages, and a submit button that did nothing announceable when it failed. He could not use it. Fixing it took an afternoon and produced a checklist that every form since has followed.

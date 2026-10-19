@@ -10,6 +10,14 @@ imageAlt: "Magnifying glass over a postage stamp"
 imageCredit: "Heptagon"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Magnifying_glass2.jpg"
 imageLicense: "Public domain"
+summary: "A small server endpoint records page views with a daily salted hash instead of a user id, stores only day, path, referrer host, country and device, aggregates into a summary table and purges raw rows after 90 days. No cookies, no third-party script, no consent banner."
+faq:
+  - q: "How can analytics work without cookies?"
+    a: "Hash the IP and user agent with a salt that is replaced every midnight. The same device counts once per day and nothing links one day to the next."
+  - q: "Does this need a cookie consent banner?"
+    a: "Nothing is stored on the device and the hash is not reversible to a person, which several regulators accept as aggregate measurement without consent. Check your own jurisdiction."
+  - q: "What can this analytics not tell me?"
+    a: "Returning visitors across days, session duration, funnels or clicks. For a product that needs those, use a consented analytics platform."
 ---
 
 The analytics snippet removed during the performance work was never replaced with another one. Instead the site counts its own page views, in a way that stores nothing about individuals, which is why there is no cookie banner. Here is what it does and does not do.

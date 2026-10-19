@@ -10,6 +10,14 @@ imageAlt: "Notebook and pen on a desk next to a laptop"
 imageCredit: "Shixart1985"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Person_writing_in_a_notebook_while_sitting_at_a_desk.jpg"
 imageLicense: "CC BY 2.0"
+summary: "The built-in Intl API formats rupees with lakh grouping, dates, times, compact numbers and relative times without a library; build the formatters once at module level and pin a time zone so server and client render identical strings. Intl formats but does not compute, so a few date helpers remain."
+faq:
+  - q: "How do I format ₹12,34,567 in JavaScript?"
+    a: "new Intl.NumberFormat(\"en-IN\", { style: \"currency\", currency: \"INR\" }). The en-IN locale provides lakh grouping on its own."
+  - q: "Why does React report a hydration mismatch on dates?"
+    a: "The server in UTC and the browser in IST formatted the same instant differently. Pin timeZone in every DateTimeFormat so both produce the same text."
+  - q: "Can Intl do date arithmetic?"
+    a: "No. It formats only. Use a few small helpers over Date.UTC for adding days or finding week starts, or Temporal once it is widely available."
 ---
 
 This site has no date library. Neither does the CRM. `Intl` does everything they need, is in every browser and Node version in use, and adds nothing to the bundle. The only trick is to create the formatters once, pin the time zone, and use them everywhere.

@@ -10,6 +10,14 @@ imageAlt: "A row of colourful mailboxes"
 imageCredit: "Bernard Spragg. NZ from Christchurch, New Zealand"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Postmans_delight._(23143602121).jpg"
 imageLicense: "CC0"
+summary: "Transactional email reaches the inbox when the sending domain has an SPF record, DKIM signatures and a DMARC policy, and when hard bounces and complaints stop further sends. Send from a dedicated subdomain and test with a mail-tester before going live."
+faq:
+  - q: "Why are my password reset emails going to spam?"
+    a: "Usually the domain has no SPF, DKIM or DMARC records, so receivers have no reason to trust it. Add the three records your provider gives you and re-test."
+  - q: "Should I start DMARC with p=reject?"
+    a: "No. Start with p=none to collect reports for a week, move to quarantine, then reject once the reports show only your legitimate senders."
+  - q: "What should happen when an address hard-bounces?"
+    a: "Record it from the provider's webhook and stop sending to it. Continuing to send to dead addresses damages your reputation for every recipient."
 ---
 
 The Gmail-SMTP post was for email to yourself. This is for email to your users: account verification, password resets, order confirmations. The code for those is trivial. Whether they arrive is decided by DNS records on your domain and by how you handle the replies you never see.

@@ -7,7 +7,14 @@ import { CtaBand } from "@/components/portfolio/cta-band";
 import { Section } from "@/components/portfolio/section";
 import { Reveal } from "@/components/motion/reveal";
 import { JsonLd } from "@/components/seo/json-ld";
-import { getPost, getPosts, getRelatedPosts, postCoverPath, postImagePath } from "@/lib/blog";
+import {
+  getPost,
+  getPosts,
+  getRelatedPosts,
+  postCoverPath,
+  postImagePath,
+  tagLabel,
+} from "@/lib/blog";
 import { getProfile, getSiteSettings } from "@/lib/queries/public";
 import { absoluteUrl, breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 import { formatDate } from "@/lib/utils/format";
@@ -39,6 +46,10 @@ export async function generateMetadata({
     // Post titles stand on their own; the site name is already in the Open Graph site_name.
     title: { absolute: post.title },
     keywords: [...post.tags, ...post.keywords],
+    alternates: {
+      ...meta.alternates,
+      types: { "text/markdown": absoluteUrl(`/blog/${post.slug}.md`) },
+    },
     openGraph: {
       ...meta.openGraph,
       type: "article",
@@ -76,6 +87,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             keywords: [...post.tags, ...post.keywords].join(", "),
             wordCount: post.text.split(" ").length,
             inLanguage: "en",
+            ...(post.summary ? { abstract: post.summary } : {}),
+            articleSection: post.tags.map(tagLabel),
+            isAccessibleForFree: true,
             author: {
               "@type": "Person",
               name: "Paresh Suthar",
@@ -90,6 +104,19 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             { name: "Blog", path: "/blog" },
             { name: post.title, path: `/blog/${post.slug}` },
           ]),
+          ...(post.faq.length
+            ? [
+                {
+                  "@context": "https://schema.org",
+                  "@type": "FAQPage",
+                  mainEntity: post.faq.map((f) => ({
+                    "@type": "Question",
+                    name: f.q,
+                    acceptedAnswer: { "@type": "Answer", text: f.a },
+                  })),
+                },
+              ]
+            : []),
         ]}
       />
 
@@ -117,7 +144,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 {post.updated ? (
                   <span className="text-fg-500">Updated {formatDate(post.updated)}</span>
                 ) : null}
-                <span className="text-fg-500">By Paresh Suthar</span>
+                <Link
+                  href={"/about" as Route}
+                  rel="author"
+                  className="text-fg-500 transition-colors hover:text-fg-50"
+                >
+                  By Paresh Suthar
+                </Link>
               </p>
             </div>
           </div>
@@ -159,9 +192,48 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                   ) : null}
                 </figure>
               </Reveal>
+              {post.summary ? (
+                <Reveal className="mb-10">
+                  <div className="rounded-md border border-line-800 bg-surface-900 p-5 sm:p-6">
+                    <p className="label-mono">In short</p>
+                    <p className="mt-3 text-base leading-relaxed text-fg-100">{post.summary}</p>
+                  </div>
+                </Reveal>
+              ) : null}
               <Reveal>
                 <div className="prose-blog" dangerouslySetInnerHTML={{ __html: post.html }} />
               </Reveal>
+              {post.faq.length ? (
+                <Reveal>
+                  <section
+                    aria-labelledby="post-faq"
+                    className="mt-14 border-t border-line-800 pt-10"
+                  >
+                    <p className="label-mono">Questions</p>
+                    <h2
+                      id="post-faq"
+                      className="mt-3 font-display text-2xl font-semibold tracking-tight text-fg-50"
+                    >
+                      Questions people ask
+                    </h2>
+                    <dl className="mt-6 divide-y divide-line-800 border-b border-line-800">
+                      {post.faq.map((f) => (
+                        <div key={f.q} className="py-5">
+                          <dt className="font-display text-lg font-semibold tracking-tight text-fg-50">
+                            {f.q}
+                          </dt>
+                          <dd className="mt-2 text-base leading-relaxed text-fg-300">{f.a}</dd>
+                        </div>
+                      ))}
+                    </dl>
+                  </section>
+                </Reveal>
+              ) : null}
+              <p className="mt-10 label-mono text-fg-500">
+                <a href={`/blog/${post.slug}.md`} className="transition-colors hover:text-fg-100">
+                  Read as Markdown
+                </a>
+              </p>
             </div>
             <aside className="lg:col-span-4">
               <div className="lg:sticky lg:top-28">
@@ -170,12 +242,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                     <p className="label-mono">Topics</p>
                     <p className="mt-4 flex flex-wrap gap-2">
                       {post.tags.map((t) => (
-                        <span
+                        <Link
                           key={t}
-                          className="rounded-sm border border-line-700 px-2.5 py-1 text-xs text-fg-300"
+                          href={`/blog/tag/${t}` as Route}
+                          className="hover:border-line-500 rounded-sm border border-line-700 px-2.5 py-1 text-xs text-fg-300 transition-colors hover:text-fg-50"
                         >
-                          {t}
-                        </span>
+                          {tagLabel(t)}
+                        </Link>
                       ))}
                     </p>
                   </>

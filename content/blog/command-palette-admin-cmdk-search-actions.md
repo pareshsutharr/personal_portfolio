@@ -10,6 +10,14 @@ imageAlt: "Magnifying glass over a postage stamp"
 imageCredit: "Heptagon"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Magnifying_glass2.jpg"
 imageLicense: "Public domain"
+summary: "cmdk provides the filterable, keyboard-navigable list; pages come from a static list, records from the search index, and actions from a registry that each page populates for its record type. Focus returns on close, dangerous actions still confirm, and recent picks show on an empty input."
+faq:
+  - q: "How do actions get into the command palette without a central list?"
+    a: "Each page registers the actions for its record kind in its own module. The palette asks the registry by kind and filters by the user's permissions."
+  - q: "Why set shouldFilter to false in cmdk?"
+    a: "Results come from the server already ranked; cmdk's own filtering would reorder them."
+  - q: "What is the most common command-palette bug?"
+    a: "Focus falling to the body when the dialog closes. Return it to whatever had focus before the palette opened."
 ---
 
 Every tool people use all day grows a Ctrl+K. Code editors, Slack, Linear, Notion. The HRMS admin got one after watching an HR executive navigate to an employee's leave balance: sidebar, Employees, search, click, Leave tab. Now: Ctrl+K, type the name, Enter, type "leave", Enter. It took two days and has been the most-mentioned feature since.

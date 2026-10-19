@@ -10,6 +10,14 @@ imageAlt: "Car speedometer dial"
 imageCredit: "www.Pixel.la Free Stock Photos"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Car-vehicle-measure-fast_(23698208123).jpg"
 imageLicense: "CC0"
+summary: "Cache hashed static assets in Nginx for a year with immutable headers, micro-cache a few public API endpoints for ten seconds with stale-while-updating, and never cache HTML. Confirm with an X-Cache header and check upstream Cache-Control headers when a rule seems to do nothing."
+faq:
+  - q: "Is it safe to cache assets for a year?"
+    a: "Yes when the filename contains a content hash, because a changed file gets a new name. Add Cache-Control immutable so browsers skip revalidation."
+  - q: "Why is Nginx not caching even though proxy_cache is set?"
+    a: "The upstream is sending Cache-Control private or no-store, which Nginx honours. Use proxy_ignore_headers on the static block and fix the upstream middleware."
+  - q: "Why not cache HTML in Nginx?"
+    a: "HTML carries sessions, CSRF tokens and personalised content, and Next.js already sets its own caching for static and ISR pages."
 ---
 
 Node is fine at serving files and fine at answering the same request twice. Nginx is better at both, and it is already in front of the app. Three cache rules, each with a different lifetime, took most of the repeated work off the Node processes.

@@ -10,6 +10,14 @@ imageAlt: "Keyboard keys close-up"
 imageCredit: "Alexander-design"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Keyboard_Close_Up.jpg"
 imageLicense: "CC0"
+summary: "dnd-kit handles the dragging with keyboard support built in; fractional indexing gives each card a position string so a drop changes one document and two people can move cards at once; versioned updates and a socket broadcast keep boards converged. Memoised cards and a drag overlay keep large boards smooth."
+faq:
+  - q: "Why not renumber the cards in a column after each drop?"
+    a: "Every drop then writes every card, and two people dropping at once overwrite each other. A fractional position between the neighbours writes one document."
+  - q: "How do two users see each other's moves?"
+    a: "The server broadcasts accepted moves with a version number to a team room; clients patch their lists and ignore anything older than what they have."
+  - q: "Why does dragging get slow with hundreds of cards?"
+    a: "Every card re-renders on every mouse move. Memoise cards by id, render the moving card in a DragOverlay, and virtualise long columns."
 ---
 
 Sales teams think in boards. The lead desk in the CRM is one: columns for stages, cards for leads, dragged from New to Contacted to Qualified to Won or Lost. The first version used a popular drag library and renumbered every card in a column on every drop. With two salespeople moving cards at once, the orders fought each other and cards jumped. The current version fixes that with a different idea of what "position" means.

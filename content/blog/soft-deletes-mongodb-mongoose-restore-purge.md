@@ -10,6 +10,14 @@ imageAlt: "Network cables patched into a switch"
 imageCredit: "Inisheer"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:CERN-20060225-01.jpg"
 imageLicense: "CC BY-SA 3.0"
+summary: "Mark records deleted with a deletedAt field instead of removing them, hide them from every query with a Mongoose plugin, make unique indexes partial so codes can be reused, offer a restore within 30 days, and hard-delete after the retention period with a purge job."
+faq:
+  - q: "How do I keep deleted rows out of every query automatically?"
+    a: "A Mongoose plugin adds deletedAt: null to find, count, update and aggregate hooks unless the query opts out, so developers cannot forget the filter."
+  - q: "Why does inserting a reused employee code fail after a soft delete?"
+    a: "The deleted document still holds the code in the unique index. Use a partial unique index with partialFilterExpression deletedAt null."
+  - q: "Should attendance be deleted when an employee is deleted?"
+    a: "No. Leave children attached and hidden by the parent's status; they come back intact on restore and are removed by the purge job at retention end."
 ---
 
 "Delete" in an HR system should mean "hide, and keep the option to bring back". The employee a manager removed by accident had attendance, leave, salary slips and audit entries hanging off her record, and a hard delete had left half of them orphaned. After the restore, every collection with human-entered data got soft deletes.

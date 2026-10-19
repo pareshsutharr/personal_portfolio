@@ -10,6 +10,14 @@ imageAlt: "Container cranes at dusk"
 imageCredit: "Syced"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Container_cranes_in_Tokyo_Bay.jpg"
 imageLicense: "CC0"
+summary: "Run staging next to production on one VPS by separating Linux users, ports, databases, env files and subdomains, with basic auth and noindex on the staging host and scrubbed data refreshed from a production dump. The deploy script takes an environment argument so CI deploys each branch to the right one."
+faq:
+  - q: "Is it safe to run staging on the production server?"
+    a: "Safe enough for a small product if each environment has its own Linux user, database user, ports and env file, and staging's external integrations all use sandbox keys."
+  - q: "How do I stop staging from sending real emails or payments?"
+    a: "Staging's env points every provider at its test mode, and the email helper refuses non-company addresses when APP_ENV is staging."
+  - q: "How does a client review a change before it goes live?"
+    a: "They click through it on the staging subdomain, and promoting it is a merge from the staging branch to main."
 ---
 
 "Can I see it before it goes live?" is a reasonable thing for a client to ask, and "no, we only have one server" is a bad answer. The Growth Avenues VPS has run a staging copy next to production for two years. The isolation is not perfect, a shared kernel and shared RAM cannot be, but no staging mistake has ever reached production data, and that is the bar.

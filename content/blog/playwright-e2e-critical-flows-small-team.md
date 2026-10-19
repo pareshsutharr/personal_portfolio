@@ -10,6 +10,14 @@ imageAlt: "Clipboards with paper checklists"
 imageCredit: "Unknown"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:USMC-100914-M-0646Q-45.jpg"
 imageLicense: "Public domain"
+summary: "Nine Playwright tests cover the five flows whose failure means a phone call: login with TOTP, leave submission and approval, payroll, exports and biometric status. Role-based locators, auto-waiting assertions, per-test seeding and reused auth state keep them stable, and they run only when relevant files change."
+faq:
+  - q: "How many end-to-end tests should a small team have?"
+    a: "Enough to cover the flows whose breakage gets you called. For the HRMS that is nine tests in about four minutes; hundreds would be a maintenance job of their own."
+  - q: "How do I avoid logging in with TOTP in every test?"
+    a: "A setup project logs in once per role with fixed test secrets and saves storage state; fixtures create pages from that state."
+  - q: "What causes most flaky Playwright tests?"
+    a: "Clicking during an animation and seeded dates landing on weekends. Wait for the end state rather than sleeping, and seed explicit dates."
 ---
 
 Unit tests cover functions and the API tests cover routes. What neither covers is "an HR executive can approve a leave request in the browser and the balance updates". That is what end-to-end tests are for, and the mistake is writing hundreds of them. The HRMS has nine, chosen by asking: if this breaks on a Monday morning, does someone call me?

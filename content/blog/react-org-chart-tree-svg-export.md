@@ -10,6 +10,14 @@ imageAlt: "Notebook and pen on a desk next to a laptop"
 imageCredit: "Shixart1985"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Person_writing_in_a_notebook_while_sitting_at_a_desk.jpg"
 imageLicense: "CC BY 2.0"
+summary: "Turn the flat employee list into a tree by reportsTo, lay it out with a simple recursive width calculation, draw connectors in SVG and export to PDF through the same HTML. No charting library, and it handles a few hundred nodes with collapsing branches."
+faq:
+  - q: "How do I build a tree from a flat list with parent ids?"
+    a: "Index by id, then attach each node to its parent's children array; nodes whose parent is missing become roots."
+  - q: "How are the connector lines drawn?"
+    a: "An SVG overlay with a path from each parent's bottom centre to each child's top centre, computed from the laid-out positions."
+  - q: "How is the chart exported for HR?"
+    a: "The same HTML is rendered server-side and printed to PDF, with page breaks avoided inside a node."
 ---
 
 HR asked for an org chart. The employee table already had a `reportsTo` field on every row, so the data existed; it just needed to become a picture. I looked at charting libraries, found them either huge or inflexible about styling, and wrote the layout in about 150 lines. Here is the shape of it.

@@ -10,6 +10,14 @@ imageAlt: "Man working at a laptop in an office"
 imageCredit: "Bench Accounting benchaccounting"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Man_at_a_laptop_in_an_office_(Unsplash).jpg"
 imageLicense: "CC0"
+summary: "A flags collection with a global switch, a percentage, allow and deny lists, read through a sixty-second cache and a stable per-user hash, gives gradual rollouts and ten-second kill switches in both Express and Next.js server components. Delete a flag within weeks of reaching 100 percent."
+faq:
+  - q: "How does a percentage rollout stay consistent per user?"
+    a: "Hash the flag key with the user id into a 0 to 99 bucket. A user at 30 percent is reliably in or out rather than flickering between requests."
+  - q: "Where should a flag be evaluated in Next.js?"
+    a: "In the server component, so the client never receives code for the variant it does not get and the flag cannot be flipped from dev tools."
+  - q: "When is a hosted flag service worth it?"
+    a: "Several apps sharing flags, non-engineers needing scheduling and experiments, or flags that must evaluate in the browser without a round trip."
 ---
 
 Deploying code and releasing a feature should be two different events. The HRMS learned that the hard way when a new approval flow went to everyone at once and a rule nobody had tested on multi-level approvals stalled forty requests. The flow is now behind a flag, and so is every change that touches a workflow people depend on.

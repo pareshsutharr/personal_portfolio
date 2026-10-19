@@ -9,6 +9,14 @@ imageAlt: "Writing in a notebook with a coffee"
 imageCredit: "Shixart1985"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Writing_in_a_notebook_with_a_feather_pen_while_enjoying_coffee_at_a_desk_surrounded_by_flowers.jpg"
 imageLicense: "CC BY 2.0"
+summary: "Add the domain in Vercel, set the DNS records, update the site URL so canonicals and the sitemap change, redirect the old subdomain with 308s to the same paths, submit the new domain in Search Console and file a change of address. In the right order it is an hour's work."
+faq:
+  - q: "Will I lose rankings when moving from a Vercel subdomain to a custom domain?"
+    a: "Not if every old URL redirects permanently to the same path on the new domain and Search Console's change of address is filed."
+  - q: "What DNS records does Vercel need?"
+    a: "An A record for the apex and a CNAME for www, as shown in the project's domain settings, with one of them redirecting to the other."
+  - q: "Which redirect code should I use?"
+    a: "308 or 301, permanent. Vercel's domain redirect uses 308 and search engines treat it as a permanent move."
 ---
 
 A `.vercel.app` address is fine to launch on and a handicap to rank on. The domain is shared with every other Vercel project, and search engines treat it accordingly. Moving to your own domain is the single biggest SEO change available to a portfolio, and it is a short job as long as the old URLs redirect cleanly.

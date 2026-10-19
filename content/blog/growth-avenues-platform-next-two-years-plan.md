@@ -10,6 +10,14 @@ imageAlt: "Man working at a laptop in an office"
 imageCredit: "Bench Accounting benchaccounting"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Man_at_a_laptop_in_an_office_(Unsplash).jpg"
 imageLicense: "CC0"
+summary: "Two years in, the public site, client portal, CRM and HRMS serve about 2,700 people from one VPS and a few managed services for under ₹8,000 a month, with four short outages and no data loss. The next two years: one codebase, a reporting layer, then a second server with managed MongoDB."
+faq:
+  - q: "What does it cost to run software for a 300-person company?"
+    a: "Under ₹8,000 a month in infrastructure for this platform, plus a maintenance retainer, which paid back the build cost against the SaaS subscriptions it replaced within eighteen months."
+  - q: "When does a single VPS stop being enough?"
+    a: "When the MongoDB working set outgrows RAM, when year-end PDF and export volumes need a worker box, and when a real standby is required. The trend says about a year."
+  - q: "What did the client ask for that was declined?"
+    a: "A chatbot, real-time NAV and a move to fully managed cloud, each with reasons recorded so the question can be revisited when the facts change."
 ---
 
 Most of the posts in this series come from one platform: the systems built for Growth Avenues, a financial services firm in Surat. Two years after the first module went live, this is the review the client and I did together, with the parts that are useful to anyone running software for a business of a few hundred people.

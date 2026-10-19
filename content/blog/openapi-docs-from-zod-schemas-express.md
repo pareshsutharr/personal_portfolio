@@ -10,6 +10,14 @@ imageAlt: "Stack of paper documents"
 imageCredit: "Niklas Bildhauer (who also is User gerolsteiner91."
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:FileStack.jpg"
 imageLicense: "CC BY-SA 2.0"
+summary: "Register each route with the Zod schemas it already validates, generate the OpenAPI document from the registry, serve it with a browsable UI, and fail CI if any mounted route is undocumented or the committed document differs. The mobile team generates a typed client from it."
+faq:
+  - q: "How do I keep API docs from going stale?"
+    a: "Generate them from the same schemas that validate requests, and add a test that fails the build when a route is mounted without going through the documented helper."
+  - q: "Can I validate responses against the OpenAPI schema?"
+    a: "Yes, in development and test only, so a handler that returns a shape not matching its declared schema fails before it ships."
+  - q: "How does the mobile team consume the document?"
+    a: "openapi-typescript generates types for every path and response, and openapi-fetch makes calls typed end to end, so a wrong field is a compile error."
 ---
 
 Documentation that is written separately from the code is a second implementation of the API, and it drifts. The validation post put a Zod schema on every route. That schema already says what the route accepts and returns. Turning it into OpenAPI means the docs are a build artefact, and a wrong doc is a build failure.

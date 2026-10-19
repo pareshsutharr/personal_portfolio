@@ -9,6 +9,14 @@ imageAlt: "Laptop showing a code editor"
 imageCredit: "Tirza van Dijk tirzavandijk"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Laptop_coding_programs_(Unsplash).jpg"
 imageLicense: "CC0"
+summary: "A counter's initial state depended on useReducedMotion, which is false on the server and true for visitors with Reduce Motion on, so the server and client rendered different numbers. Make the first render identical regardless of the preference and apply motion differences after mount."
+faq:
+  - q: "What causes React hydration error 418?"
+    a: "The server-rendered HTML differs from the client's first render. Anything that reads browser-only state during the initial render, such as media queries, can cause it."
+  - q: "How did you find a bug that only phones with Reduce Motion showed?"
+    a: "Headless Chrome with the prefers-reduced-motion media feature emulated reproduced it, and the console pointed at the component."
+  - q: "What is the fix pattern?"
+    a: "Initial state equals the final value; the animation, if any, starts in an effect after hydration."
 ---
 
 A visitor told me the logo animation on this portfolio "wasn't working" on their iPhone. It was working on mine. The difference turned out to be a setting most developers never test with: Accessibility, Motion, Reduce Motion.

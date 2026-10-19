@@ -10,6 +10,14 @@ imageAlt: "Fingerprint scan illustration in blue"
 imageCredit: "mikemacmarketing"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Fingerprint_Scanner.jpg"
 imageLicense: "CC BY 2.0"
+summary: "A safe reset emails a random token whose hash alone is stored, expires in fifteen minutes, works once through an atomic update, gives the same response whether or not the email exists, invalidates every session on success and notifies the account. Password rules are length plus a common-password blocklist."
+faq:
+  - q: "Why store only the hash of the reset token?"
+    a: "If the database leaks, attackers get hashes that cannot be turned back into usable links. SHA-256 is fine here because the token is 256 random bits."
+  - q: "Why respond the same way for unknown emails?"
+    a: "A different message lets anyone discover which addresses have accounts. Say the link was sent if the address is registered, and keep timing similar."
+  - q: "Why log out every session after a reset?"
+    a: "The reset is often prompted by a stolen device, and the thief's existing session must die. Bumping a session version on the user does that."
 ---
 
 I inherited a codebase once where "forgot password" emailed the user their current password in plain text. It had been live for two years. The replacement flow is below, and it is the one I now use everywhere, because the differences between a safe reset and an unsafe one are all small and all matter.

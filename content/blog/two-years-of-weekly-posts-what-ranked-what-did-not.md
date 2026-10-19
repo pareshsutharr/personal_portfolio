@@ -10,6 +10,14 @@ imageAlt: "Person writing in a notebook beside a laptop"
 imageCredit: "Shixart1985"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Person_writing_in_notebook_while_using_laptop_at_a_modern_workspace.jpg"
 imageLicense: "CC BY 2.0"
+summary: "After 104 weekly posts, search clicks grew from about 1,900 to 6,400 a month and seven paid projects came from the blog. Specific how-to posts rank; business-problem posts bring enquiries; posts without search demand or too similar to earlier ones did nothing. The custom domain mattered more than any single post."
+faq:
+  - q: "Does a technical blog actually bring freelance work?"
+    a: "Seventeen enquiries in year two mentioned a post and five became paid projects. The posts that convert describe a business problem, not a technology."
+  - q: "How long does a new post take to rank?"
+    a: "On an established domain about a week to appear and two to four months to settle. In the blog's first six months it took four to eight months."
+  - q: "What single change helped most?"
+    a: "Moving from the Vercel subdomain to a custom domain with proper redirects. Impressions rose more in three months than the previous six months of posts had achieved."
 ---
 
 The first post in this series went out on 19 October 2026. This is the hundred and third. The numbers below come from Search Console, the cookie-free analytics on this site, and the contact form's own records, and they are the honest version, including the posts that did nothing.

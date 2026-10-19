@@ -10,6 +10,14 @@ imageAlt: "City skyline with light trails"
 imageCredit: "Davide Cantelli cant89"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:New_York_skyline_with_light_trails_(Unsplash).jpg"
 imageLicense: "CC0"
+summary: "Eight changes took this site from 61 to 100 on mobile: optimised images, priority on the LCP image, self-hosted fonts, reserved space for images and embeds, lazy-loaded motion code, YouTube facades, a non-blocking splash screen and removing third-party scripts. Minifying further and swapping scroll libraries did nothing."
+faq:
+  - q: "What moved Largest Contentful Paint the most?"
+    a: "Running images through a pipeline and giving the hero image fetchpriority high. Everything else combined mattered less."
+  - q: "How do YouTube embeds hurt the score?"
+    a: "Each iframe loads about 500 KB of JavaScript before anyone presses play. Show a thumbnail with a play button and load the iframe on click."
+  - q: "How should I measure changes without chasing noise?"
+    a: "Three Lighthouse runs per change in a private window with mobile throttling, take the median, and treat moves under three points as noise."
 ---
 
 The first mobile audit of this site, after the animations and backdrops went in, scored 61. Two weeks of changes, each measured on its own, brought it to 100. The useful part is not the number; it is which changes mattered, because they are the same ones that matter on client sites.

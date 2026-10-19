@@ -10,6 +10,14 @@ imageAlt: "Fingerprint scan illustration in blue"
 imageCredit: "mikemacmarketing"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Fingerprint_Scanner.jpg"
 imageLicense: "CC BY 2.0"
+summary: "Verify the Google ID token on the server, find or create the account by verified email, then issue exactly the same session as the password path: a short access token and a refresh token in an HttpOnly cookie. Account linking happens by email, with a one-time confirmation when a password account already exists."
+faq:
+  - q: "Should I trust the user info from the Google client library?"
+    a: "No. Send the ID token to the server and verify it with Google's library against your client id. Everything else comes from the verified payload."
+  - q: "How do Google and password logins share one account?"
+    a: "Match on the verified email. If a password account exists, ask the person to confirm the link once, then both paths lead to the same user."
+  - q: "Why does the session disappear on reload?"
+    a: "The refresh token was stored in memory. Put it in an HttpOnly cookie and call the refresh endpoint on app start."
 ---
 
 "Sign in with Google" is one button for the user and three decisions for you: where the Google token is verified, how a Google user becomes a user in your database, and what session they get afterwards. Just Rent It got the first decision wrong initially, trusting the browser's claim about who had signed in. This is the corrected flow.

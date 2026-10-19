@@ -9,6 +9,14 @@ imageAlt: "City skyline with light trails"
 imageCredit: "Davide Cantelli cant89"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:New_York_skyline_with_light_trails_(Unsplash).jpg"
 imageLicense: "CC0"
+summary: "A splash screen, smooth scrolling, scroll-linked effects and 3D tilts can coexist with mobile scores in the 90s if images are sized, motion code loads lazily, layout space is reserved and nothing animates layout properties. Six Lighthouse findings cost real points; each had a specific fix."
+faq:
+  - q: "Does smooth scrolling hurt Core Web Vitals?"
+    a: "Not by itself. What hurts is animating layout properties and running several scroll listeners. Transform and opacity only, with one consolidated listener."
+  - q: "How do I keep a splash screen from delaying Largest Contentful Paint?"
+    a: "Render the page content underneath from the start and overlay the splash, so the browser paints the real hero immediately."
+  - q: "Which finding did you choose not to fix?"
+    a: "One remaining unused CSS warning from the animation library, because removing it would have meant forking the library for a few kilobytes."
 ---
 
 "Animated sites are slow" is only true when the animation is paid for in the wrong place. This site runs most of its effects on the compositor after hydration, and its Core Web Vitals held up. These are the Lighthouse findings that were real, in the order I fixed them.

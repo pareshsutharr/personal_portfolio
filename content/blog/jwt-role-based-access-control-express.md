@@ -10,6 +10,14 @@ imageAlt: "Padlock on a wooden door"
 imageCredit: "Quim Gil"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Abloy_padlock_in_Oulu.jpg"
 imageLicense: "CC0"
+summary: "Short-lived access tokens with the user's role inside, a refresh token in an HttpOnly cookie, and two small middlewares: one that verifies the token and one that checks the role. Every protected route goes through both; tenant data is scoped to the caller in the query itself."
+faq:
+  - q: "Where should the refresh token live?"
+    a: "In an HttpOnly, Secure, SameSite cookie so scripts cannot read it. The access token can live in memory."
+  - q: "How do I check roles in Express?"
+    a: "A requireRole middleware that reads the role from the verified token and returns 403 if it is not in the allowed list for that route."
+  - q: "Is checking the role enough?"
+    a: "No. A distributor must also only see their own clients, so every query filters by the caller's id, not just the role."
 ---
 
 On the Growth Avenues platform there are three kinds of people hitting the same API: distributors who should only ever see their own clients, operations staff who see everyone's but cannot change settings, and admins who can. Getting that wrong on a financial product is not a bug, it is a complaint to a regulator.

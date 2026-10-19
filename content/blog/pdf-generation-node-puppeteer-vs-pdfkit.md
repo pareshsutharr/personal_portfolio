@@ -10,6 +10,14 @@ imageAlt: "Clipboards with paper checklists"
 imageCredit: "Unknown"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:USMC-100914-M-0646Q-45.jpg"
 imageLicense: "Public domain"
+summary: "Use Puppeteer when the PDF should match a web page, reusing one browser with a concurrency limit and timeouts; use pdfkit for text-and-table documents that must be generated in bulk without a browser. Store anything that must be retrievable later in object storage behind a permission check."
+faq:
+  - q: "Why does Puppeteer take my VPS down?"
+    a: "Launching a browser per request. Keep one browser, open a page per document, close it in finally, limit concurrency to two and restart the browser every few hundred documents."
+  - q: "When is pdfkit the better choice?"
+    a: "For fixed-structure documents such as statements and acknowledgements that are mostly text and tables, especially in bulk, since it runs in a few megabytes with no browser."
+  - q: "How do I get page numbers like Page 3 of 12 in pdfkit?"
+    a: "Create the document with bufferPages true, then loop over bufferedPageRange at the end and write the footer on each page."
 ---
 
 A PDF is a document that cannot be argued with, which is why every HR and finance feature eventually needs one. The two serious options in Node take opposite approaches, and picking the wrong one costs either weeks of layout code or a server that falls over.

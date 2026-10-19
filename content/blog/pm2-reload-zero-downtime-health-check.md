@@ -10,6 +10,14 @@ imageAlt: "Close-up of blade servers in a rack"
 imageCredit: "NOIRLab/NSF/AURA/T. Slovinský"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:NOIRLab_HQ_Server_Racks_(6V6A0404-CC).jpg"
 imageLicense: "CC BY 4.0"
+summary: "pm2 reload starts the new version and only stops the old one when the new process signals ready, so no request is dropped; it needs a health endpoint, wait_ready with a process.send call, graceful shutdown on SIGINT, and a saved previous build for a ten-second rollback."
+faq:
+  - q: "What is the difference between pm2 restart and pm2 reload?"
+    a: "restart kills and starts, dropping in-flight requests. reload in cluster mode starts the new process first and swaps when it is ready."
+  - q: "How does PM2 know the new process is ready?"
+    a: "Set wait_ready in the ecosystem file and call process.send(\"ready\") after the server is listening and the database is connected."
+  - q: "How do I roll back a bad deploy quickly?"
+    a: "Keep the previous build directory, point the current symlink back at it and reload. Ten seconds, no rebuild."
 ---
 
 `pm2 restart` kills the process and starts a new one. For a second or two, requests fail. On a site where people are placing orders, that second is a support ticket. `pm2 reload` in cluster mode fixes it, but only if your app cooperates in two small ways: it tells PM2 when it is actually ready, and it finishes in-flight requests when told to stop.

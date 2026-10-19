@@ -10,6 +10,14 @@ imageAlt: "Close-up of a camera with a long lens"
 imageCredit: "Matthew Hamilton thatsmrbio"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Long-lens_camera_in_close-up_(Unsplash).jpg"
 imageLicense: "CC0"
+summary: "Check the real file type from its bytes, resize on the server with sharp, store WebP at a sane maximum width, keep the original in a private bucket, and never trust the filename, extension or size the client claims. Six megabyte phone photos become 150 KB images."
+faq:
+  - q: "How do I detect the real image type in Node?"
+    a: "Read the file's magic bytes with a library such as file-type rather than trusting the extension or the Content-Type header, which the client controls."
+  - q: "Why keep the original if WebP is served?"
+    a: "For the one time a larger crop or a different format is needed. It lives in a private bucket, not on the public path."
+  - q: "Should resizing happen in the request or in a job?"
+    a: "In the request for single uploads under a few megabytes; in a background job for bulk imports or very large files."
 ---
 
 Every photo the client uploaded to the Biryani Bazar admin came straight from a phone: 4000 by 3000 pixels, 5 to 7 MB, sometimes sideways because of EXIF rotation. Serving those to a menu page is how a site becomes slow without anyone changing code. The pipeline below fixed it, and the same one runs this portfolio's media library.

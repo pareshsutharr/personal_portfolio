@@ -10,6 +10,14 @@ imageAlt: "Tangle of blue network cables in a rack"
 imageCredit: "Unknown"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Cable_closet_bh.jpg"
 imageLicense: "Public domain"
+summary: "Run explain on the slow query, add the index the plan is missing in equality-sort-range order, project only the fields you need, use lean for read-only results, and check whether the time is really in the database or in the Node code around it. Endpoints went from seconds to milliseconds."
+faq:
+  - q: "How do I find which MongoDB query is slow?"
+    a: "Enable the profiler for operations over 100 ms or log query times in the API with request ids, then run the suspects with explain(\"executionStats\")."
+  - q: "What does a bad explain plan look like?"
+    a: "A COLLSCAN stage, or totalDocsExamined far higher than nReturned, meaning the index did not narrow the search."
+  - q: "When is the database not the problem?"
+    a: "When the query is fast in the shell but the endpoint is slow, which usually means N+1 queries in a loop or heavy work after the fetch in Node."
 ---
 
 When the distributor list on Growth Avenues started taking three to four seconds, the first guess from everyone was "the server is too small". It was not. The server was idle. The database was scanning every document in a collection for every request. Here is the order I check things in now, because it has found the problem every time since.

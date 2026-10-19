@@ -10,6 +10,14 @@ imageAlt: "Old iron latch on weathered wooden boards"
 imageCredit: "Estormiz"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Padlock_Valimokatu_Oulu_20250307_01.jpg"
 imageLicense: "CC0"
+summary: "Short access tokens limit the damage window, a Redis deny list keyed by token id makes sign-out-everywhere immediate, and a version number on the user invalidates every token issued before a role change. Together a revoked session is dead within seconds without a database read per request."
+faq:
+  - q: "How do I revoke a JWT before it expires?"
+    a: "Keep a deny list of token ids in Redis with a TTL equal to the token's remaining life, and check it in the auth middleware."
+  - q: "How does a role change take effect immediately?"
+    a: "Carry a user version in the token, bump it on role change, and reject tokens whose version is older than the cached current value."
+  - q: "Does this make JWTs stateful?"
+    a: "Slightly. One cached lookup per request is the price of being able to revoke, and it is still cheaper than a full session read."
 ---
 
 The convenient thing about JWTs is that the server does not need to look anything up to trust one. The inconvenient thing is the same sentence. When compliance removes someone's access at 3 pm, a token issued at 2:50 pm keeps working until it expires. The first post in this series used 15-minute access tokens to bound that window. This one closes it.

@@ -10,6 +10,14 @@ imageAlt: "Woman texting on a smartphone"
 imageCredit: "Kristin Hardwick"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Woman_texting_on_a_smartphone.jpg"
 imageLicense: "CC0"
+summary: "Keep the native shell thin and let it load the current web build from your server, within what the store rules allow for web content updates. Native plugin changes and permission changes still need a store release; everything in the web layer ships weekly without one."
+faq:
+  - q: "Is loading the web build from a server allowed by the app stores?"
+    a: "Yes for content and web code that does not change the app's core purpose or add native capabilities. Native plugins and permissions still go through review."
+  - q: "What happens if the server is down when the app opens?"
+    a: "The app keeps the last downloaded bundle and uses it, then checks again next launch. A first install ships with a bundle built in."
+  - q: "What still requires a store release?"
+    a: "New or updated native plugins, new permissions, and changes to the native shell such as the splash screen or deep-link configuration."
 ---
 
 An HRMS changes constantly: a new leave type, a fixed label, a report. Shipping each of those through app store review would mean a week between the fix and the phone. Because a Capacitor app is a web app in a native shell, there are two ways to update the web part on its own. One is trivial and limited; the other is a little more work and what Growth HR uses.

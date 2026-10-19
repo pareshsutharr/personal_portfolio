@@ -10,6 +10,14 @@ imageAlt: "Clipboards with paper checklists"
 imageCredit: "Unknown"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:USMC-100914-M-0646Q-45.jpg"
 imageLicense: "Public domain"
+summary: "Start an in-memory MongoDB per test file, seed a few documents, hit the routes with supertest and tear down, all in under ten seconds. No shared test database, no leftover rows and no mocking of the driver, so query bugs are caught."
+faq:
+  - q: "Why not mock Mongoose in API tests?"
+    a: "Most API bugs are in queries and indexes. A real in-memory MongoDB runs the real queries at almost no cost."
+  - q: "How do tests avoid interfering with each other?"
+    a: "Each test file gets its own in-memory server and clears collections between tests, so order does not matter and they can run in parallel."
+  - q: "How are authenticated routes tested?"
+    a: "A helper signs a token for a seeded user with the needed role and sets it on the supertest request."
 ---
 
 The tests I trust most are the ones that run the real route handler against a real database and check the HTTP response. Mocking Mongoose tests your mocks. A shared test database means tests that pass alone and fail together. `mongodb-memory-server` solves both: it downloads a real `mongod` binary once and starts a throwaway instance per test run, in memory.

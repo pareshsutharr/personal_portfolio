@@ -10,6 +10,14 @@ imageAlt: "Two people shaking hands"
 imageCredit: "Lucas"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Shake_hand.jpg"
 imageLicense: "Public domain"
+summary: "React's useOptimistic shows the hoped-for state inside a transition while a server action runs and reverts automatically if the action fails; return a result from the action and show a toast so the rollback is explained. Keep money, deletes and server-decided outcomes pessimistic."
+faq:
+  - q: "What happens to an optimistic update if the server action throws?"
+    a: "React discards the optimistic state and the real, server-rendered value shows again, which is the rollback. Add a toast so the flicker is explained."
+  - q: "Why must setOptimistic be called inside startTransition?"
+    a: "useOptimistic is tied to a pending transition; calling it outside one is an error and the optimistic value would have no lifetime."
+  - q: "When should I not use optimistic UI?"
+    a: "For payments, destructive actions and anything where the server computes the outcome, such as an approval that may be rejected for insufficient balance."
 ---
 
 The admin inbox on this site marks a message as read when it is opened. The first version waited for the server action to finish before updating the unread badge, which was about 400 ms on a cold function. It felt broken. The current version updates instantly and only shows a difference if the server disagrees. The code for that is small, and the rules around it matter more than the code.

@@ -10,6 +10,14 @@ imageAlt: "Server racks with cabling in a small computer room"
 imageCredit: "Jemimus"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:DHL_Netherlands_local_site_computer_room_server_racks_(2)_-_IMG_3299.jpg"
 imageLicense: "CC BY 2.0"
+summary: "One Ubuntu VPS with Nginx reverse-proxying to a Node process kept alive by PM2, a free Let's Encrypt certificate from Certbot, and a firewall that opens only 22, 80 and 443. About forty minutes the first time and the same setup serves every backend I run."
+faq:
+  - q: "Do I need Docker to deploy a Node app on a VPS?"
+    a: "No. Nginx plus PM2 on the host is simpler to operate for a single app and is what runs the Growth Avenues platform."
+  - q: "How does the app survive a reboot?"
+    a: "pm2 startup registers a systemd service and pm2 save records the process list, so PM2 restores the app after the server restarts."
+  - q: "How do I renew the SSL certificate?"
+    a: "Certbot installs a timer that renews automatically. Check it once with certbot renew --dry-run."
 ---
 
 Every backend I run in production sits behind the same setup: an Ubuntu VPS, Nginx taking the traffic on ports 80 and 443, PM2 keeping the Node.js process alive, and Let's Encrypt for the certificate. I have done this for the Growth Avenues platform, for client sites, and for side projects. It costs a few hundred rupees a month and it has never been the thing that broke.

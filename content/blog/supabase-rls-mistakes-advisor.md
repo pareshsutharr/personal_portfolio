@@ -9,6 +9,14 @@ imageAlt: "Fingerprint scan illustration in blue"
 imageCredit: "mikemacmarketing"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Fingerprint_Scanner.jpg"
 imageLicense: "CC BY 2.0"
+summary: "Four real row-level security mistakes: a table created with RLS off, a policy that allowed reading drafts, a function with a mutable search path, and a storage bucket anyone could write to. Supabase's advisor flags each; fix them before launch and re-run it after every migration."
+faq:
+  - q: "What happens if a Supabase table has RLS off?"
+    a: "The anon key in the browser can read and write every row. Enable RLS on every table in the public schema, even ones without policies yet."
+  - q: "How did a policy leak drafts?"
+    a: "The select policy was using true instead of status = published. Policies need the same conditions as the queries that are supposed to be public."
+  - q: "What is a mutable search path and why does it matter?"
+    a: "A security-definer function without a fixed search_path can be tricked into calling an attacker's function. Set search_path explicitly on every such function."
 ---
 
 Row level security is the reason a Supabase publishable key can be in the browser. It is also a place where a small mistake is a full data leak, with no error and no log line. The Supabase dashboard has an advisor that scans for the common ones. These are the four it caught on my projects, in the order I would check them on yours.

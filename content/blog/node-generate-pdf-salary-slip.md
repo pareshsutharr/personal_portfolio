@@ -10,6 +10,14 @@ imageAlt: "Stack of paper documents"
 imageCredit: "Niklas Bildhauer (who also is User gerolsteiner91."
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:FileStack.jpg"
 imageLicense: "CC BY-SA 2.0"
+summary: "A salary slip PDF needs a font with the rupee symbol, numbers formatted in lakhs with Intl, a template that handles long names and many earnings lines, and generation in a worker rather than the request. The version that holds up renders HTML with the app's CSS and prints it."
+faq:
+  - q: "Why does the rupee symbol show as a box in my PDF?"
+    a: "The default PDF font lacks the glyph. Embed a font that includes ₹, such as Inter or Noto Sans, and reference it from the template."
+  - q: "How do I format 1,23,456 in a PDF?"
+    a: "Format with Intl.NumberFormat en-IN before rendering; the PDF layer just prints strings."
+  - q: "Why generate slips in a worker?"
+    a: "Three hundred slips at month end would hold request connections for minutes. A queue generates them one at a time and emails links."
 ---
 
 A salary slip is the one document from an HRMS that employees keep, print and send to banks. It has to be right every time. The HRMS for Growth Avenues generates one per employee per month, and getting it right took three attempts. The decisions that mattered were which tool to render with, how to format money, and how to make the layout survive real data.

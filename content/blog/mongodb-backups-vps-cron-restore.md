@@ -10,6 +10,14 @@ imageAlt: "Open hard disk drive showing the platters"
 imageCredit: "Shams948"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Hard_drive_06.jpg"
 imageLicense: "CC0"
+summary: "A nightly mongodump compressed and encrypted, copied off-site to object storage, pruned by age with a script that cannot delete today's file, and a monthly restore into staging to prove it works. The commands, the cron line and the restore drill."
+faq:
+  - q: "How often should I back up MongoDB on a VPS?"
+    a: "Nightly for most small products, with the dump copied off the server. If a day of loss is too much for a collection, add hourly dumps of that collection."
+  - q: "How do I know a backup is restorable?"
+    a: "Restore it. A monthly restore into staging with a row-count check is the only proof; the restore drill post goes further and rebuilds a whole server."
+  - q: "How do I delete old backups safely?"
+    a: "Prune by age with a script that lists what it will remove and refuses to run if the newest file is older than a day."
 ---
 
 The database behind a broking platform holds client records, orders and the audit trail a regulator may ask for. Losing it is not an option, and "the host takes snapshots" is not a backup plan; it is a hope. Here is the plan that is actually in place, small enough to understand in full.

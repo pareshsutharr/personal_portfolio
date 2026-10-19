@@ -10,6 +10,14 @@ imageAlt: "Wall-mounted Ethernet patch panel"
 imageCredit: "Jacek Rużyczka"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Wall-Mount_6-Port_Cat_6A_Ethernet_Patchpanel.jpg"
 imageLicense: "CC BY-SA 4.0"
+summary: "Since MongoDB 4.2, index builds hold locks only briefly, so building an index on a busy collection slows writes but does not block them; schedule large builds off-peak, watch progress with currentOp, and verify the plan with explain. Hide an index before dropping it so you can undo instantly."
+faq:
+  - q: "Does creating an index still block writes in MongoDB?"
+    a: "Not on modern versions. The build takes an exclusive lock only at the start and end; reads and writes continue in between, at some cost in I/O."
+  - q: "How do I check whether a new index is actually used?"
+    a: "Run the query with explain(\"executionStats\") and confirm an IXSCAN stage with totalDocsExamined close to nReturned."
+  - q: "How do I remove an index safely?"
+    a: "Hide it with hideIndex, watch slow query logs for a week, then drop it. Unhiding is instant; a dropped index needs a full rebuild."
 ---
 
 A new "late arrivals by department" report needed an index on `{ department: 1, day: 1, status: 1 }` across the attendance collection. The collection was the busiest in the HRMS, with a write every few seconds from the biometric sync. The question was whether creating the index would stall those writes, and for how long.

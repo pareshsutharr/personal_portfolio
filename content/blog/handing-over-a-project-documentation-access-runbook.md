@@ -10,6 +10,14 @@ imageAlt: "Stack of paper documents"
 imageCredit: "Niklas Bildhauer (who also is User gerolsteiner91."
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:FileStack.jpg"
 imageLicense: "CC BY-SA 2.0"
+summary: "A handover package has a runbook organised by situation with tested restore steps, an access table where the client owns every account and all secrets are rotated, an .env.example, a recorded walkthrough with transcript, a known-issues list and a thirty-day warranty window."
+faq:
+  - q: "What goes in a project runbook?"
+    a: "Numbered steps for each situation: site down, bad deploy, restore the database, rotate a secret, email not delivered, certificate expired, plus a map of where every service lives."
+  - q: "Why rotate secrets at handover?"
+    a: "So nothing the developer ever held still works afterwards. It protects the client and the developer equally."
+  - q: "What did a later maintainer actually ask?"
+    a: "Where the backups are, how to deploy, and why a calculation works the way it does. The first two were in the runbook; the third was a blog post."
 ---
 
 A client once asked, six months after a project ended, "what happens if you are unreachable and the site goes down?" The honest answer at the time was "someone would have to figure it out". It is now "open the runbook, page 2". Everything below exists because of that question.
