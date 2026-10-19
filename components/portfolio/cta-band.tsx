@@ -24,14 +24,14 @@ export function CtaBand(props: {
       aria-labelledby="cta-heading"
       className="relative overflow-hidden border-t border-line-800 bg-bg-950"
     >
-      {/* Ridge walk at sunset, dimmed so the type stays readable */}
+      {/* Ridge walk at sunset, mirrored so the figure sits between the text and the button, dimmed for legibility */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <Image
           src="/images/ridge-sunset.webp"
           alt=""
           fill
           sizes="100vw"
-          className="object-cover object-[50%_40%] opacity-55 saturate-[0.9]"
+          className="-scale-x-100 object-cover object-[50%_40%] opacity-55 saturate-[0.9]"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-bg-950 via-bg-950/70 to-bg-950/90" />
         <div className="absolute inset-0 bg-gradient-to-r from-bg-950 via-bg-950/45 to-transparent" />
