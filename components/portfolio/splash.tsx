@@ -10,7 +10,7 @@ const SplashContext = React.createContext<Phase>("done");
 export const useSplashPhase = () => React.useContext(SplashContext);
 
 const SESSION_KEY = "ps-splash-shown";
-const ASSEMBLE_MS = 2100;
+const ASSEMBLE_MS = 3000;
 const TRAVEL_S = 0.9;
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -78,7 +78,7 @@ export function SplashProvider({ children }: { children: React.ReactNode }) {
             onClick={finish}
             initial={false}
             exit={{ opacity: 0, transition: { duration: 0.35, ease: "easeOut" } }}
-            className="fixed inset-0 z-[90] flex flex-col items-center justify-center bg-bg-950"
+            className="fixed inset-0 z-[90] flex flex-col items-center justify-center bg-black"
           >
             <motion.div
               ref={markRef}
@@ -104,6 +104,20 @@ export function SplashProvider({ children }: { children: React.ReactNode }) {
             >
               Paresh Suthar
             </motion.p>
+            <motion.span
+              aria-hidden
+              initial={{ opacity: 0 }}
+              animate={{ opacity: phase === "travel" ? 0 : 1 }}
+              transition={{ duration: 0.3, delay: phase === "travel" ? 0 : 0.2 }}
+              className="mt-5 block h-px w-28 overflow-hidden bg-line-700"
+            >
+              <motion.span
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: ASSEMBLE_MS / 1000, ease: "linear" }}
+                className="block h-full w-full origin-left bg-ember-500"
+              />
+            </motion.span>
           </motion.div>
         ) : null}
       </AnimatePresence>
