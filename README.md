@@ -84,3 +84,4 @@ lib/queries       public read layer · lib/actions server actions · lib/validat
 supabase/         migrations + seed · scripts/ db + auth helpers · types/ generated DB types
 ```
 # personal_portfolio
+# personal_portfolio
