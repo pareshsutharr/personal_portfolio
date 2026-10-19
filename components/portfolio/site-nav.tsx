@@ -13,6 +13,7 @@ import {
 import { ButtonLink } from "@/components/ui/button";
 import { cn } from "@/lib/utils/cn";
 import type { SocialLink } from "@/types";
+import { BrandMark } from "./brand-mark";
 import { NAV_LINKS, ROUTES } from "./routes";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
@@ -104,17 +105,7 @@ export function SiteNav({
             aria-label="Paresh Suthar — Home"
             className="flex min-h-11 items-center gap-3 font-display text-sm font-semibold tracking-tight text-fg-50 uppercase"
           >
-            <picture>
-              <source srcSet="/logo-mark.png" media="(prefers-reduced-motion: reduce)" />
-              <img
-                src="/logo-animated.gif"
-                alt=""
-                width={64}
-                height={64}
-                fetchPriority="high"
-                className="h-8 w-8 lg:h-9 lg:w-9"
-              />
-            </picture>
+            <BrandMark className="h-8 w-8 lg:h-9 lg:w-9" />
             <span>Paresh Suthar</span>
           </Link>
 

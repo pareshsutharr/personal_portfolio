@@ -14,7 +14,10 @@ export function Counter({ value, className }: { value: string; className?: strin
   const match = value.match(/^(\d+)(.*)$/);
   const target = match ? Number(match[1]) : null;
   const suffix = match ? match[2] : "";
-  const [display, setDisplay] = React.useState(target !== null && !reduce ? 0 : target);
+  // Server and client both render the final value, so hydration matches
+  // regardless of the user's reduced-motion setting; the count-up starts
+  // only once the element scrolls into view.
+  const [display, setDisplay] = React.useState(target);
 
   React.useEffect(() => {
     if (target === null || reduce || !inView) return;

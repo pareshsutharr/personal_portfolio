@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import type { Profile, SiteSettings, SocialLink } from "@/types";
 import { Parallax } from "@/components/motion/parallax";
 import { AvailabilityBadge } from "./availability-badge";
+import { BrandMark } from "./brand-mark";
 import { BackToTop } from "./back-to-top";
 import { FOOTER_LINKS } from "./routes";
 
@@ -39,17 +40,7 @@ export function SiteFooter({
       <div className="relative container-x">
         <div className="grid gap-12 py-16 sm:py-20 lg:grid-cols-12 lg:gap-8 lg:py-24">
           <div className="lg:col-span-6">
-            <picture>
-              <source srcSet="/logo-mark.png" media="(prefers-reduced-motion: reduce)" />
-              <img
-                src="/logo-animated.gif"
-                alt=""
-                width={64}
-                height={64}
-                loading="lazy"
-                className="mb-5 h-12 w-12"
-              />
-            </picture>
+            <BrandMark className="mb-5 h-12 w-12" />
             <p className="font-display text-lg font-semibold tracking-tight text-fg-50 uppercase">
               {name}
             </p>

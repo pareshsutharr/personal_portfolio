@@ -8,15 +8,17 @@ function Word({
   word,
   range,
   progress,
+  reduce,
 }: {
   word: string;
   range: [number, number];
   progress: MotionValue<number>;
+  reduce: boolean | null;
 }) {
   const opacity = useTransform(progress, range, [0.18, 1]);
   return (
     <span className="relative mr-[0.28em] inline-block">
-      <motion.span style={{ opacity }}>{word}</motion.span>
+      <motion.span style={reduce ? undefined : { opacity }}>{word}</motion.span>
     </span>
   );
 }
@@ -39,10 +41,8 @@ export function ScrollText({
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start 0.9", "end 0.45"] });
   const words = React.useMemo(() => text.split(/\s+/).filter(Boolean), [text]);
 
-  if (reduce) {
-    return <Tag className={cn(className)}>{text}</Tag>;
-  }
-
+  // Same markup on server and client (the reduced-motion flag is only known
+  // in the browser); reduced motion simply skips the per-word opacity.
   return (
     <Tag
       ref={ref as React.RefObject<HTMLParagraphElement>}
@@ -52,7 +52,15 @@ export function ScrollText({
       {words.map((w, i) => {
         const start = i / words.length;
         const end = start + 1 / words.length;
-        return <Word key={`${w}-${i}`} word={w} range={[start, end]} progress={scrollYProgress} />;
+        return (
+          <Word
+            key={`${w}-${i}`}
+            word={w}
+            range={[start, end]}
+            progress={scrollYProgress}
+            reduce={reduce}
+          />
+        );
       })}
     </Tag>
   );
