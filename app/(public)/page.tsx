@@ -8,6 +8,8 @@ import { Statement } from "@/components/portfolio/statement";
 import { WhatIBuild } from "@/components/portfolio/what-i-build";
 import { TravelGallery } from "@/components/portfolio/travel-gallery";
 import { VideosPreview } from "@/components/portfolio/videos-preview";
+import { WritingPreview } from "@/components/portfolio/writing-preview";
+import { getPosts } from "@/lib/blog";
 import { VelocityMarquee } from "@/components/motion/velocity-marquee";
 import {
   getCareerMap,
@@ -38,6 +40,7 @@ export default async function HomePage() {
     videos,
     socialLinks,
     travelPhotos,
+    posts,
   ] = await Promise.all([
     getSiteShell(),
     getFeaturedProjects(4),
@@ -51,6 +54,7 @@ export default async function HomePage() {
     getVideos(),
     getSocialLinks(),
     getMediaFolder("travel", 12),
+    getPosts(),
   ]);
   const youtube = socialLinks.find((l) => l.platform === "youtube") ?? null;
 
@@ -68,6 +72,7 @@ export default async function HomePage() {
   const showCredentials = education.length > 0 || certifications.length > 0;
   const showVideos = videos.length > 0;
   const showTravel = travelPhotos.length > 0;
+  const showWriting = posts.length > 0;
 
   return (
     <>
@@ -94,6 +99,8 @@ export default async function HomePage() {
       ) : null}
 
       {showVideos ? <VideosPreview videos={videos} youtube={youtube} index={next()} /> : null}
+
+      {showWriting ? <WritingPreview posts={posts} index={next()} /> : null}
 
       {showCredentials ? (
         <CredentialsPreview education={education} certifications={certifications} index={next()} />

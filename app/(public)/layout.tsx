@@ -41,7 +41,10 @@ export async function generateMetadata(): Promise<Metadata> {
     title: { absolute: title, template },
     description,
     keywords: seo?.keywords?.length ? seo.keywords : undefined,
-    alternates: seo?.canonical_url ? { canonical: seo.canonical_url } : undefined,
+    alternates: {
+      ...(seo?.canonical_url ? { canonical: seo.canonical_url } : {}),
+      types: { "application/rss+xml": "/feed.xml" },
+    },
     openGraph: {
       type: "website",
       siteName: settings?.site_name || profile?.full_name || "Paresh Suthar",

@@ -1,12 +1,26 @@
-const monthYear = new Intl.DateTimeFormat("en-IN", { month: "short", year: "numeric" });
-const full = new Intl.DateTimeFormat("en-IN", { day: "2-digit", month: "short", year: "numeric" });
+// Fixed time zone so the server (UTC on Vercel) and a visitor's browser render the
+// same day; otherwise dates near midnight differ and React reports a hydration mismatch.
+const TZ = "Asia/Kolkata";
+const monthYear = new Intl.DateTimeFormat("en-IN", {
+  month: "short",
+  year: "numeric",
+  timeZone: TZ,
+});
+const full = new Intl.DateTimeFormat("en-IN", {
+  day: "2-digit",
+  month: "short",
+  year: "numeric",
+  timeZone: TZ,
+});
 const dateTime = new Intl.DateTimeFormat("en-IN", {
   day: "2-digit",
   month: "short",
   year: "numeric",
   hour: "2-digit",
   minute: "2-digit",
+  timeZone: TZ,
 });
+const yearOnly = new Intl.DateTimeFormat("en-IN", { year: "numeric", timeZone: TZ });
 
 export function formatMonthYear(value: string | Date | null | undefined) {
   if (!value) return null;
@@ -29,7 +43,7 @@ export function formatDateTime(value: string | Date | null | undefined) {
 export function yearOf(value: string | Date | null | undefined) {
   if (!value) return null;
   const d = typeof value === "string" ? new Date(value) : value;
-  return Number.isNaN(d.getTime()) ? null : String(d.getFullYear());
+  return Number.isNaN(d.getTime()) ? null : yearOnly.format(d);
 }
 
 /**

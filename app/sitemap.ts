@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { absoluteUrl } from "@/lib/seo";
+import { getPosts } from "@/lib/blog";
 import { getNowPage, getProjectSlugs, getSiteSettings } from "@/lib/queries/public";
 
 const STATIC_ROUTES: { path: string; priority: number; changeFrequency: "weekly" | "monthly" }[] = [
@@ -12,13 +13,15 @@ const STATIC_ROUTES: { path: string; priority: number; changeFrequency: "weekly"
   { path: "/certifications", priority: 0.5, changeFrequency: "monthly" },
   { path: "/resume", priority: 0.5, changeFrequency: "monthly" },
   { path: "/contact", priority: 0.6, changeFrequency: "monthly" },
+  { path: "/blog", priority: 0.8, changeFrequency: "weekly" },
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [slugs, settings, now] = await Promise.all([
+  const [slugs, settings, now, posts] = await Promise.all([
     getProjectSlugs(),
     getSiteSettings(),
     getNowPage(),
+    getPosts(),
   ]);
 
   const entries: MetadataRoute.Sitemap = STATIC_ROUTES.map((r) => ({
@@ -41,6 +44,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: absoluteUrl(`/projects/${p.slug}`),
       lastModified: p.updated_at,
       priority: 0.8,
+      changeFrequency: "monthly",
+    });
+  }
+
+  for (const p of posts) {
+    entries.push({
+      url: absoluteUrl(`/blog/${p.slug}`),
+      lastModified: p.updated ?? p.date,
+      priority: 0.7,
       changeFrequency: "monthly",
     });
   }
