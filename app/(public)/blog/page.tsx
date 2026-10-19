@@ -8,7 +8,7 @@ import { Section } from "@/components/portfolio/section";
 import { Stagger, StaggerItem } from "@/components/motion/reveal";
 import { EmptyState } from "@/components/ui/empty-state";
 import { JsonLd } from "@/components/seo/json-ld";
-import { getPosts } from "@/lib/blog";
+import { getPosts, postCoverPath } from "@/lib/blog";
 import { getProfile, getSiteSettings } from "@/lib/queries/public";
 import { absoluteUrl, breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 import { formatDate } from "@/lib/utils/format";
@@ -78,13 +78,26 @@ export default async function BlogPage() {
               <StaggerItem key={p.slug} as="div">
                 <Link
                   href={`/blog/${p.slug}` as Route}
-                  className="group grid gap-4 py-8 sm:grid-cols-12 sm:gap-8 sm:py-10"
+                  className="group grid gap-5 py-8 sm:grid-cols-12 sm:gap-8 sm:py-10"
                 >
-                  <div className="flex flex-wrap items-center gap-x-4 gap-y-1 label-mono sm:col-span-3 sm:flex-col sm:items-start">
-                    <time dateTime={p.date}>{formatDate(p.date)}</time>
-                    <span className="text-fg-500">{p.readingMinutes} min read</span>
+                  <div className="sm:col-span-4">
+                    <div className="overflow-hidden rounded-sm border border-line-800 bg-surface-900">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={postCoverPath(p)}
+                        alt=""
+                        width={1200}
+                        height={630}
+                        loading="lazy"
+                        className="aspect-[1200/630] w-full object-cover transition-transform duration-700 ease-out-expo group-hover:scale-[1.03]"
+                      />
+                    </div>
+                    <p className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 label-mono">
+                      <time dateTime={p.date}>{formatDate(p.date)}</time>
+                      <span className="text-fg-500">{p.readingMinutes} min read</span>
+                    </p>
                   </div>
-                  <div className="min-w-0 sm:col-span-9">
+                  <div className="min-w-0 sm:col-span-8">
                     <h2 className="font-display text-2xl font-semibold tracking-tight text-balance text-fg-50 transition-colors group-hover:text-ember-300 sm:text-3xl">
                       {p.title}
                     </h2>

@@ -7,7 +7,7 @@ import { CtaBand } from "@/components/portfolio/cta-band";
 import { Section } from "@/components/portfolio/section";
 import { Reveal } from "@/components/motion/reveal";
 import { JsonLd } from "@/components/seo/json-ld";
-import { getPost, getPosts, getRelatedPosts } from "@/lib/blog";
+import { getPost, getPosts, getRelatedPosts, postCoverPath } from "@/lib/blog";
 import { getProfile, getSiteSettings } from "@/lib/queries/public";
 import { absoluteUrl, breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 import { formatDate } from "@/lib/utils/format";
@@ -32,6 +32,7 @@ export async function generateMetadata({
     description: post.description,
     path: `/blog/${post.slug}`,
     type: "article",
+    image: postCoverPath(post),
   });
   return {
     ...meta,
@@ -82,7 +83,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               jobTitle: "Full Stack Developer",
             },
             publisher: { "@type": "Person", name: "Paresh Suthar", url: absoluteUrl("/") },
-            image: absoluteUrl("/opengraph-image"),
+            image: absoluteUrl(postCoverPath(post)),
           },
           breadcrumbJsonLd([
             { name: "Home", path: "/" },
@@ -125,6 +126,18 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         <Section>
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="min-w-0 lg:col-span-8">
+              <Reveal className="mb-10">
+                <figure className="overflow-hidden rounded-md border border-line-800 bg-surface-900">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={postCoverPath(post)}
+                    alt=""
+                    width={1200}
+                    height={630}
+                    className="aspect-[1200/630] w-full object-cover"
+                  />
+                </figure>
+              </Reveal>
               <Reveal>
                 <div className="prose-blog" dangerouslySetInnerHTML={{ __html: post.html }} />
               </Reveal>

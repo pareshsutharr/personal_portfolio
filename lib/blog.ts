@@ -24,6 +24,8 @@ export type Post = {
   keywords: string[];
   /** Project slug this post relates to, if any. */
   project: string | null;
+  /** Optional real photo (URL or /public path) that replaces the generated cover. */
+  cover: string | null;
   readingMinutes: number;
   html: string;
   /** Plain-text body, for the RSS description and search snippets. */
@@ -68,6 +70,7 @@ async function readPost(file: string): Promise<Post | null> {
     tags: Array.isArray(data.tags) ? data.tags.map(String) : [],
     keywords: Array.isArray(data.keywords) ? data.keywords.map(String) : [],
     project: data.project ? String(data.project) : null,
+    cover: data.cover ? String(data.cover) : null,
     readingMinutes: Math.max(1, Math.round(words / WORDS_PER_MINUTE)),
     html: marked.parse(content, { async: false }) as string,
     text,
@@ -91,6 +94,11 @@ export async function getPosts(opts: { includeScheduled?: boolean } = {}): Promi
   }
   const now = new Date().toISOString();
   return opts.includeScheduled ? cache.posts : cache.posts.filter((p) => p.date <= now);
+}
+
+/** The image to show for a post: its own cover if set, else the generated one. */
+export function postCoverPath(post: Pick<Post, "slug" | "cover">) {
+  return post.cover ?? `/blog/${post.slug}/cover`;
 }
 
 export async function getPost(slug: string): Promise<Post | null> {

@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Route } from "next";
 import { ButtonLink } from "@/components/ui/button";
 import { Stagger, StaggerItem } from "@/components/motion/reveal";
-import type { Post } from "@/lib/blog";
+import { postCoverPath, type Post } from "@/lib/blog";
 import { formatDate } from "@/lib/utils/format";
 import { Section, SectionHeader } from "./section";
 
@@ -32,6 +32,17 @@ export function WritingPreview({ posts, index }: { posts: Post[]; index: number 
               className="group flex h-full flex-col justify-between p-6 transition-colors hover:bg-surface-900 sm:p-8"
             >
               <div>
+                <div className="mb-5 overflow-hidden rounded-sm border border-line-800 bg-surface-900">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={postCoverPath(p)}
+                    alt=""
+                    width={1200}
+                    height={630}
+                    loading="lazy"
+                    className="aspect-[1200/630] w-full object-cover transition-transform duration-700 ease-out-expo group-hover:scale-[1.03]"
+                  />
+                </div>
                 <p className="flex items-center gap-4 label-mono">
                   <time dateTime={p.date}>{formatDate(p.date)}</time>
                   <span className="text-fg-500">{p.readingMinutes} min</span>

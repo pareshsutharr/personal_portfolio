@@ -62,6 +62,7 @@ export const NAV_GROUPS: NavGroup[] = [
       { label: "Industries", href: "/admin/industries" as Route, icon: Building2 },
       { label: "Clients", href: "/admin/clients" as Route, icon: Handshake },
       { label: "Videos", href: "/admin/videos" as Route, icon: Clapperboard },
+      { label: "Blog", href: "/admin/blog" as Route, icon: FileText },
       { label: "Technologies", href: "/admin/technologies" as Route, icon: Cpu },
       { label: "Stats", href: "/admin/stats" as Route, icon: ChartColumn },
       { label: "Now page", href: "/admin/now" as Route, icon: Clock },
