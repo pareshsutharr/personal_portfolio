@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { ButtonLink } from "@/components/ui/button";
 import { Magnetic } from "@/components/motion/magnetic";
@@ -23,9 +24,21 @@ export function CtaBand(props: {
       aria-labelledby="cta-heading"
       className="relative overflow-hidden border-t border-line-800 bg-bg-950"
     >
+      {/* Ridge walk at sunset, dimmed so the type stays readable */}
+      <div aria-hidden className="pointer-events-none absolute inset-0">
+        <Image
+          src="/images/ridge-sunset.webp"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover object-[50%_40%] opacity-55 saturate-[0.9]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-bg-950 via-bg-950/70 to-bg-950/90" />
+        <div className="absolute inset-0 bg-gradient-to-r from-bg-950 via-bg-950/45 to-transparent" />
+      </div>
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 grid-lines [mask-image:radial-gradient(60%_80%_at_100%_100%,black,transparent)] opacity-70"
+        className="pointer-events-none absolute inset-0 grid-lines [mask-image:radial-gradient(60%_80%_at_100%_100%,black,transparent)] opacity-40"
       />
       <div
         aria-hidden

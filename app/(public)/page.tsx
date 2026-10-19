@@ -50,7 +50,7 @@ export default async function HomePage() {
     getEducation(),
     getVideos(),
     getSocialLinks(),
-    getMediaFolder("travel", 9),
+    getMediaFolder("travel", 12),
   ]);
   const youtube = socialLinks.find((l) => l.platform === "youtube") ?? null;
 
