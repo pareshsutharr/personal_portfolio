@@ -4,7 +4,7 @@ import type { Route } from "next";
 import { ArrowUpRight } from "lucide-react";
 import { AdminPageHeader } from "@/components/admin/page-header";
 import { Badge } from "@/components/ui/badge";
-import { getPosts } from "@/lib/blog";
+import { getPosts, postImagePath } from "@/lib/blog";
 import { formatDate } from "@/lib/utils/format";
 
 export const metadata: Metadata = { title: "Blog" };
@@ -46,6 +46,7 @@ export default async function AdminBlogPage() {
               <table className="w-full text-sm">
                 <thead className="bg-surface-900 text-left label-mono">
                   <tr>
+                    <th className="px-4 py-3">Image</th>
                     <th className="px-4 py-3">Date</th>
                     <th className="px-4 py-3">Title</th>
                     <th className="px-4 py-3">Tags</th>
@@ -57,6 +58,24 @@ export default async function AdminBlogPage() {
                 <tbody className="divide-y divide-line-800">
                   {list.map((p) => (
                     <tr key={p.slug} className="align-top">
+                      <td className="px-4 py-3">
+                        <div className="w-40 overflow-hidden rounded-sm border border-line-800 bg-surface-900">
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img
+                            src={postImagePath(p)}
+                            alt={p.image?.alt ?? ""}
+                            width={1280}
+                            height={720}
+                            loading="lazy"
+                            className="aspect-video w-full object-cover"
+                          />
+                        </div>
+                        <p className="mt-1 w-40 text-[11px] leading-snug text-fg-700">
+                          {p.image
+                            ? `${p.image.credit}${p.image.license ? ` · ${p.image.license}` : ""}`
+                            : "Generated cover"}
+                        </p>
+                      </td>
                       <td className="px-4 py-3 whitespace-nowrap text-fg-300">
                         {formatDate(p.date)}
                       </td>

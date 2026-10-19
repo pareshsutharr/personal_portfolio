@@ -4,6 +4,11 @@ description: "₹12,34,567 not ₹1,234,567. 19 Oct 2026 not 10/19/2026. 9:30 am
 date: 2027-06-07T03:30:00Z
 tags: [javascript, react, i18n, dates]
 keywords: [javascript indian number format lakh crore, intl numberformat en-IN, format rupees javascript, javascript date ist timezone, en-IN date format]
+image: /blog/stock/checklist-1.webp
+imageAlt: "Clipboards with paper checklists"
+imageCredit: "Unknown"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:USMC-100914-M-0646Q-45.jpg"
+imageLicense: "Public domain"
 ---
 
 Every finance screen I have built for an Indian company has had the same two bugs at some point: numbers grouped in thousands instead of lakhs, and dates that shifted by a day on the server. Both are solved by `Intl`, the built-in internationalisation API, as long as you pass it two things explicitly: the locale `en-IN` and the time zone `Asia/Kolkata`.

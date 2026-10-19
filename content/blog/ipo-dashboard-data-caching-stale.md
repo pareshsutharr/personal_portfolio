@@ -5,6 +5,11 @@ date: 2027-03-08T03:30:00Z
 tags: [react, nodejs, caching, fintech, data]
 keywords: [ipo dashboard react, cache third party api node, stale while revalidate api, show stale data ui, fintech dashboard data sources]
 project: beipoready
+image: /blog/stock/market-2.webp
+imageAlt: "Investor display boards in an office lobby"
+imageCredit: "Raysonho @ Open Grid Scheduler / Grid Engine"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:ScotiaPlaza.JPG"
+imageLicense: "CC0"
 ---
 
 BEIPOREADY's dashboard answers one question for a small business owner: what is happening in the IPO market right now. Open issues, upcoming ones, those waiting to list, and recent listings, split by Mainboard and SME. The table is a table. Everything interesting is upstream of it.

@@ -5,6 +5,11 @@ date: 2026-11-16T03:30:00Z
 tags: [capacitor, react, android, ios, firebase, mobile]
 keywords: [capacitor react app android ios, convert react web app to mobile app, capacitor push notifications firebase, capacitor vs react native, pwa to app store]
 project: growth-avenues-hrms
+image: /blog/stock/mobile-1.webp
+imageAlt: "Hands holding a smartphone and a coffee"
+imageCredit: "www.Pixel.la Free Stock Photos"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Hands-coffee-smartphone-technology_(23698591814).jpg"
+imageLicense: "CC0"
 ---
 
 The Growth Avenues HRMS started as a web portal: attendance, leave, expenses, salary slips. Then the team wanted it on their phones, with notifications when a leave request was approved. The obvious answer was "rewrite it in React Native". The right answer, for a working React app and a team of one, was Capacitor.

@@ -5,6 +5,11 @@ date: 2027-08-02T03:30:00Z
 tags: [workflow, hrms, mongodb, nodejs, design]
 keywords: [approval workflow design, state machine node.js, leave request approval system, audit trail mongodb, expense claim workflow]
 project: growth-avenues-hrms
+image: /blog/stock/checklist-1.webp
+imageAlt: "Clipboards with paper checklists"
+imageCredit: "Unknown"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:USMC-100914-M-0646Q-45.jpg"
+imageLicense: "Public domain"
 ---
 
 An expense claim goes: submitted, reviewed by the manager, approved or sent back, paid by accounts. A leave request is similar with fewer steps. The first version of each was a `status` string and handlers that set it. Within months there were claims in impossible states and nobody could say who approved what. The fix was to name the transitions and record every one.

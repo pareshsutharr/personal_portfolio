@@ -5,6 +5,11 @@ date: 2027-02-01T03:30:00Z
 tags: [express, nginx, security, nodejs]
 keywords: [express rate limit, express-rate-limit trust proxy, nginx limit_req, rate limiting behind reverse proxy, 429 retry-after header]
 project: growth-avenues
+image: /blog/stock/security-3.webp
+imageAlt: "Old iron latch on weathered wooden boards"
+imageCredit: "Estormiz"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Padlock_Valimokatu_Oulu_20250307_01.jpg"
+imageLicense: "CC0"
 ---
 
 The first rate limiter I added to the Growth Avenues API did nothing for a week and then blocked the whole office in one minute. Both failures had the same cause: behind Nginx, Express sees every request from `127.0.0.1`. Until you fix that, per-IP limiting is per-everyone limiting.

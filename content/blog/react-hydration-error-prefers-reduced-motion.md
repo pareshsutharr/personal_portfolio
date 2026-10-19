@@ -4,6 +4,11 @@ description: "A bug from this very site: a counter rendered one number on the se
 date: 2026-11-09T03:30:00Z
 tags: [react, nextjs, motion, accessibility, debugging]
 keywords: [react hydration error 418, text content does not match server-rendered html, useReducedMotion hydration mismatch, framer motion reduced motion ssr, next.js hydration mismatch]
+image: /blog/stock/code-1.webp
+imageAlt: "Laptop showing a code editor"
+imageCredit: "Tirza van Dijk tirzavandijk"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Laptop_coding_programs_(Unsplash).jpg"
+imageLicense: "CC0"
 ---
 
 A visitor told me the logo animation on this portfolio "wasn't working" on their iPhone. It was working on mine. The difference turned out to be a setting most developers never test with: Accessibility, Motion, Reduce Motion.

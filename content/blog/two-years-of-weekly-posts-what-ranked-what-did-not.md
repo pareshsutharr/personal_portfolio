@@ -5,6 +5,11 @@ date: 2028-10-02T03:30:00Z
 tags: [seo, blog, portfolio, writing, freelancing]
 keywords: [developer blog seo results two years, technical blog traffic analysis, does blogging get freelance clients, search console developer blog, writing weekly blog results]
 project: portfolio
+image: /blog/stock/writing-1.webp
+imageAlt: "Person writing in a notebook beside a laptop"
+imageCredit: "Shixart1985"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Person_writing_in_notebook_while_using_laptop_at_a_modern_workspace.jpg"
+imageLicense: "CC BY 2.0"
 ---
 
 The first post in this series went out on 19 October 2026. This is the hundred and third. The numbers below come from Search Console, the cookie-free analytics on this site, and the contact form's own records, and they are the honest version, including the posts that did nothing.

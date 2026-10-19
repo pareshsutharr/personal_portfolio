@@ -5,6 +5,11 @@ date: 2028-08-21T03:30:00Z
 tags: [testing, react, motion, vitest, frontend]
 keywords: [testing framer motion components, vitest jsdom framer motion, test prefers-reduced-motion react, testing animations react testing library, mock IntersectionObserver vitest]
 project: portfolio
+image: /blog/stock/keyboard-2.webp
+imageAlt: "Laptop keyboard in low light"
+imageCredit: "Markus Petritz petritzdesigns"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Backlit_laptop_keyboard_(Unsplash).jpg"
+imageLicense: "CC0"
 ---
 
 The splash screen on this site had a bug for a week: under "reduce motion" it never finished, so the site never appeared. No test caught it because there were no tests for anything animated. The reason there were none is a good one, badly applied: you should not test that things animate. You should test what the animation is for.

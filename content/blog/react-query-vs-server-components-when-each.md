@@ -5,6 +5,11 @@ date: 2028-01-24T03:30:00Z
 tags: [react, nextjs, react-query, data-fetching, frontend]
 keywords: [react query vs server components, when to use react query next.js app router, server components data fetching, tanstack query next.js, client side fetching next.js]
 project: growth-avenues-crm
+image: /blog/stock/servers-3.webp
+imageAlt: "Close-up of blade servers in a rack"
+imageCredit: "NOIRLab/NSF/AURA/T. Slovinský"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:NOIRLab_HQ_Server_Racks_(6V6A0404-CC).jpg"
+imageLicense: "CC BY 4.0"
 ---
 
 For a while there was a camp that said server components made client-side data libraries obsolete, and a camp that said server components were a step back. Having shipped a CRM with both, the honest answer is that they solve different problems and the right question is about the screen, not the stack.

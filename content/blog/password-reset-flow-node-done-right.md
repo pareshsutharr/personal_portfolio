@@ -5,6 +5,11 @@ date: 2028-03-27T03:30:00Z
 tags: [security, auth, nodejs, express, email]
 keywords: [password reset flow node.js, secure password reset token, forgot password express implementation, password reset token hash database, account enumeration prevention]
 project: growth-avenues
+image: /blog/stock/fingerprint-1.webp
+imageAlt: "Fingerprint scan illustration in blue"
+imageCredit: "mikemacmarketing"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Fingerprint_Scanner.jpg"
+imageLicense: "CC BY 2.0"
 ---
 
 I inherited a codebase once where "forgot password" emailed the user their current password in plain text. It had been live for two years. The replacement flow is below, and it is the one I now use everywhere, because the differences between a safe reset and an unsafe one are all small and all matter.

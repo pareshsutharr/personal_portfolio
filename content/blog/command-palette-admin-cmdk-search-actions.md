@@ -5,6 +5,11 @@ date: 2028-08-14T03:30:00Z
 tags: [react, ux, cmdk, admin, frontend]
 keywords: [command palette react cmdk, ctrl k search admin panel, command palette actions registry react, keyboard shortcuts admin dashboard, global search admin react]
 project: growth-avenues-hrms
+image: /blog/stock/search-1.webp
+imageAlt: "Magnifying glass over a postage stamp"
+imageCredit: "Heptagon"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Magnifying_glass2.jpg"
+imageLicense: "Public domain"
 ---
 
 Every tool people use all day grows a Ctrl+K. Code editors, Slack, Linear, Notion. The HRMS admin got one after watching an HR executive navigate to an employee's leave balance: sidebar, Employees, search, click, Leave tab. Now: Ctrl+K, type the name, Enter, type "leave", Enter. It took two days and has been the most-mentioned feature since.

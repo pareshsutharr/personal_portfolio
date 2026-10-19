@@ -4,6 +4,11 @@ description: "Schema.org markup on this site went from a token Person block to s
 date: 2027-04-19T03:30:00Z
 tags: [seo, structured-data, nextjs, json-ld]
 keywords: [schema.org faq json-ld next.js, person structured data portfolio, service schema markup, rich results test, json-ld react component]
+image: /blog/stock/writing-2.webp
+imageAlt: "Notebook and pen on a desk next to a laptop"
+imageCredit: "Shixart1985"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Person_writing_in_a_notebook_while_sitting_at_a_desk.jpg"
+imageLicense: "CC BY 2.0"
 ---
 
 Structured data is the part of SEO where you can be exactly right or silently wrong, with nothing visible on the page either way. This site emits six schema.org types, each chosen because a page is actually that thing. Here is what each one carries and how I verify it.

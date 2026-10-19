@@ -5,6 +5,11 @@ date: 2027-03-29T03:30:00Z
 tags: [firebase, nodejs, mobile, capacitor]
 keywords: [firebase admin push notifications node, fcm send to token node.js, firebase messaging invalid token cleanup, fcm topics vs tokens, push notification backend design]
 project: growth-avenues-hrms
+image: /blog/stock/mobile-3.webp
+imageAlt: "Smartphone held in one hand"
+imageCredit: "NeONBRAND neonbrand"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Smartphone_in_Hand_(Unsplash).jpg"
+imageLicense: "CC0"
 ---
 
 The Capacitor post covered the phone side of push notifications: asking permission, getting a token, saving it. This is the server side, where the HRMS decides who to notify, sends through Firebase Cloud Messaging, and deals with the tokens that stop working.

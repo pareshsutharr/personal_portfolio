@@ -5,6 +5,11 @@ date: 2028-09-25T03:30:00Z
 tags: [openapi, zod, express, api, documentation]
 keywords: [openapi from zod schemas, zod-to-openapi express, generate api docs express automatically, openapi typescript client generation, swagger ui express zod]
 project: growth-avenues
+image: /blog/stock/folders-1.webp
+imageAlt: "Stack of paper documents"
+imageCredit: "Niklas Bildhauer (who also is User gerolsteiner91."
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:FileStack.jpg"
+imageLicense: "CC BY-SA 2.0"
 ---
 
 Documentation that is written separately from the code is a second implementation of the API, and it drifts. The validation post put a Zod schema on every route. That schema already says what the route accepts and returns. Turning it into OpenAPI means the docs are a build artefact, and a wrong doc is a build failure.

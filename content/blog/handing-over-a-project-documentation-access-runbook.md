@@ -5,6 +5,11 @@ date: 2028-07-10T03:30:00Z
 tags: [freelancing, documentation, deployment, operations]
 keywords: [project handover checklist developer, software handover documentation, runbook template small project, developer offboarding client project, handover freelance web project]
 project: growth-avenues
+image: /blog/stock/folders-1.webp
+imageAlt: "Stack of paper documents"
+imageCredit: "Niklas Bildhauer (who also is User gerolsteiner91."
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:FileStack.jpg"
+imageLicense: "CC BY-SA 2.0"
 ---
 
 A client once asked, six months after a project ended, "what happens if you are unreachable and the site goes down?" The honest answer at the time was "someone would have to figure it out". It is now "open the runbook, page 2". Everything below exists because of that question.

@@ -5,6 +5,11 @@ date: 2028-03-06T03:30:00Z
 tags: [nginx, caching, performance, deployment, linux]
 keywords: [nginx proxy cache node.js, nginx cache static assets expires, nginx microcaching api, nginx cache-control immutable, nginx proxy_cache_valid]
 project: growth-avenues
+image: /blog/stock/speed-3.webp
+imageAlt: "Car speedometer dial"
+imageCredit: "www.Pixel.la Free Stock Photos"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Car-vehicle-measure-fast_(23698208123).jpg"
+imageLicense: "CC0"
 ---
 
 Node is fine at serving files and fine at answering the same request twice. Nginx is better at both, and it is already in front of the app. Three cache rules, each with a different lifetime, took most of the repeated work off the Node processes.

@@ -5,6 +5,11 @@ date: 2028-05-15T03:30:00Z
 tags: [supabase, realtime, nextjs, react, postgres]
 keywords: [supabase realtime postgres changes next.js, supabase realtime rls private channel, live notifications supabase, supabase realtime reconnect, admin inbox live updates]
 project: portfolio
+image: /blog/stock/mobile-2.webp
+imageAlt: "Taking a photo with a smartphone"
+imageCredit: "James Sutton jamessutton_photography"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Smartphone_photographer_(Unsplash).jpg"
+imageLicense: "CC0"
 ---
 
 The admin inbox is a server component that lists rows from `contact_messages`. Fine for reading; stale within seconds of a new message. Supabase Realtime subscribes the browser to row changes on that table, so the list and the unread badge update as messages arrive. It is about forty lines of client code and one database setting.

@@ -5,6 +5,11 @@ date: 2028-08-07T03:30:00Z
 tags: [react, dnd-kit, crm, frontend, ux]
 keywords: [react kanban dnd-kit, fractional indexing ordering, drag and drop persist order database, kanban board react performance, dnd-kit keyboard accessibility]
 project: growth-avenues-crm
+image: /blog/stock/keyboard-3.webp
+imageAlt: "Keyboard keys close-up"
+imageCredit: "Alexander-design"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Keyboard_Close_Up.jpg"
+imageLicense: "CC0"
 ---
 
 Sales teams think in boards. The lead desk in the CRM is one: columns for stages, cards for leads, dragged from New to Contacted to Qualified to Won or Lost. The first version used a popular drag library and renumbered every card in a column on every drop. With two salespeople moving cards at once, the orders fought each other and cards jumped. The current version fixes that with a different idea of what "position" means.

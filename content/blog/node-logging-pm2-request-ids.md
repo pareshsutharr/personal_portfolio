@@ -5,6 +5,11 @@ date: 2027-05-31T03:30:00Z
 tags: [nodejs, logging, pm2, debugging]
 keywords: [node logging best practices, pino express request id, pm2 logs rotate, structured logging json node, debug production api logs]
 project: growth-avenues
+image: /blog/stock/servers-1.webp
+imageAlt: "Server racks with cabling in a small computer room"
+imageCredit: "Jemimus"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:DHL_Netherlands_local_site_computer_room_server_racks_(2)_-_IMG_3299.jpg"
+imageLicense: "CC BY 2.0"
 ---
 
 A support message says "the client list did not load for Ramesh around 11". Without the right logging, that is an hour of guessing. With it, it is one command. The difference is three decisions made before the problem: one id per request, one line per event in JSON, and log files that do not fill the disk.

@@ -5,6 +5,11 @@ date: 2027-11-29T03:30:00Z
 tags: [tailwind, css, design-system, nextjs]
 keywords: [tailwind v4 theme variables, tailwind v4 dark mode, tailwind css design tokens, tailwind v4 no config file, tailwind v4 custom colors]
 project: portfolio
+image: /blog/stock/code-1.webp
+imageAlt: "Laptop showing a code editor"
+imageCredit: "Tirza van Dijk tirzavandijk"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Laptop_coding_programs_(Unsplash).jpg"
+imageLicense: "CC0"
 ---
 
 When I rebuilt this site on Tailwind v4 the `tailwind.config.js` file went away and did not come back. Everything it used to hold lives in `app/globals.css`, as CSS variables that Tailwind reads to generate utilities. The result is shorter, easier to read, and usable from plain CSS when a component needs it.

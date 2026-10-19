@@ -4,6 +4,11 @@ description: "This blog is a folder of Markdown files. Posts publish on a set da
 date: 2027-09-13T03:30:00Z
 tags: [nextjs, markdown, blog, react]
 keywords: [next.js markdown blog scheduled posts, gray-matter marked next.js, file based blog app router, schedule blog post without cron, next.js blog static generation]
+image: /blog/stock/alarm-3.webp
+imageAlt: "Classic twin-bell alarm clock"
+imageCredit: "Santeri Viinamäki"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Classic_alarm_clock_20180513.jpg"
+imageLicense: "CC BY-SA 4.0"
 ---
 
 You are reading a Markdown file. It sits in `content/blog/` in the site's repository, has a `date` in its frontmatter, and became public when that date passed. No database row, no publish button, no cron job. The mechanism is small enough to show in full.

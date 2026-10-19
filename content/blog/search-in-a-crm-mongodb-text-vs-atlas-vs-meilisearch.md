@@ -5,6 +5,11 @@ date: 2028-05-01T03:30:00Z
 tags: [search, mongodb, meilisearch, crm, nodejs]
 keywords: [mongodb text search vs atlas search, meilisearch node.js, crm search implementation, typo tolerant search mongodb, search indexing sync mongodb]
 project: growth-avenues-crm
+image: /blog/stock/search-1.webp
+imageAlt: "Magnifying glass over a postage stamp"
+imageCredit: "Heptagon"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Magnifying_glass2.jpg"
+imageLicense: "Public domain"
 ---
 
 The first search box in the CRM did `{ name: { $regex: q, $options: "i" } }`. It scanned the whole collection, found nothing for "Raul" when the record said "Rahul", and could not look at phone numbers, cities and notes at the same time. Every version since has been about closing those three gaps.

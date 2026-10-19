@@ -5,6 +5,11 @@ date: 2027-06-28T03:30:00Z
 tags: [capacitor, mobile, android, ios, deployment]
 keywords: [capacitor live update, update capacitor app without app store, capacitor remote web bundle, ota update hybrid app, capacitor server url]
 project: growth-avenues-hrms
+image: /blog/stock/chat-3.webp
+imageAlt: "Woman texting on a smartphone"
+imageCredit: "Kristin Hardwick"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Woman_texting_on_a_smartphone.jpg"
+imageLicense: "CC0"
 ---
 
 An HRMS changes constantly: a new leave type, a fixed label, a report. Shipping each of those through app store review would mean a week between the fix and the phone. Because a Capacitor app is a web app in a native shell, there are two ways to update the web part on its own. One is trivial and limited; the other is a little more work and what Growth HR uses.

@@ -4,6 +4,11 @@ description: "Four row level security mistakes from real projects: a table with 
 date: 2027-07-05T03:30:00Z
 tags: [supabase, postgres, rls, security]
 keywords: [supabase rls best practices, supabase security advisor, rls policy mistakes, supabase function search_path, supabase storage policy]
+image: /blog/stock/fingerprint-1.webp
+imageAlt: "Fingerprint scan illustration in blue"
+imageCredit: "mikemacmarketing"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Fingerprint_Scanner.jpg"
+imageLicense: "CC BY 2.0"
 ---
 
 Row level security is the reason a Supabase publishable key can be in the browser. It is also a place where a small mistake is a full data leak, with no error and no log line. The Supabase dashboard has an advisor that scans for the common ones. These are the four it caught on my projects, in the order I would check them on yours.

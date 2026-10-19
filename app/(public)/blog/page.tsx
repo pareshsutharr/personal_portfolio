@@ -8,7 +8,7 @@ import { Section } from "@/components/portfolio/section";
 import { Stagger, StaggerItem } from "@/components/motion/reveal";
 import { EmptyState } from "@/components/ui/empty-state";
 import { JsonLd } from "@/components/seo/json-ld";
-import { getPosts, postCoverPath } from "@/lib/blog";
+import { getPosts, postImagePath } from "@/lib/blog";
 import { getProfile, getSiteSettings } from "@/lib/queries/public";
 import { absoluteUrl, breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 import { formatDate } from "@/lib/utils/format";
@@ -84,12 +84,12 @@ export default async function BlogPage() {
                     <div className="overflow-hidden rounded-sm border border-line-800 bg-surface-900">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
-                        src={postCoverPath(p)}
-                        alt=""
-                        width={1200}
-                        height={630}
+                        src={postImagePath(p)}
+                        alt={p.image?.alt ?? ""}
+                        width={1280}
+                        height={720}
                         loading="lazy"
-                        className="aspect-[1200/630] w-full object-cover transition-transform duration-700 ease-out-expo group-hover:scale-[1.03]"
+                        className="aspect-video w-full object-cover transition-transform duration-700 ease-out-expo group-hover:scale-[1.03]"
                       />
                     </div>
                     <p className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 label-mono">

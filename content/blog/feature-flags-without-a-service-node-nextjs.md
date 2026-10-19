@@ -5,6 +5,11 @@ date: 2028-07-24T03:30:00Z
 tags: [feature-flags, nodejs, nextjs, deployment, product]
 keywords: [feature flags without launchdarkly, simple feature flag implementation node, gradual rollout feature flag database, feature flag next.js server component, kill switch feature flag]
 project: growth-avenues-hrms
+image: /blog/stock/team-1.webp
+imageAlt: "Man working at a laptop in an office"
+imageCredit: "Bench Accounting benchaccounting"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Man_at_a_laptop_in_an_office_(Unsplash).jpg"
+imageLicense: "CC0"
 ---
 
 Deploying code and releasing a feature should be two different events. The HRMS learned that the hard way when a new approval flow went to everyone at once and a rule nobody had tested on multi-level approvals stalled forty requests. The flow is now behind a flag, and so is every change that touches a workflow people depend on.

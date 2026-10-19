@@ -4,6 +4,11 @@ description: "This portfolio has a splash screen, smooth scrolling, scroll-linke
 date: 2027-07-19T03:30:00Z
 tags: [performance, web-vitals, nextjs, motion]
 keywords: [core web vitals animation, lighthouse performance next.js, largest contentful paint fix, cumulative layout shift animation, interaction to next paint react]
+image: /blog/stock/abstract-3.webp
+imageAlt: "City skyline with light trails"
+imageCredit: "Davide Cantelli cant89"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:New_York_skyline_with_light_trails_(Unsplash).jpg"
+imageLicense: "CC0"
 ---
 
 "Animated sites are slow" is only true when the animation is paid for in the wrong place. This site runs most of its effects on the compositor after hydration, and its Core Web Vitals held up. These are the Lighthouse findings that were real, in the order I fixed them.

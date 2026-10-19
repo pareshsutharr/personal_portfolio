@@ -5,6 +5,11 @@ date: 2027-10-18T03:30:00Z
 tags: [nodejs, s3, uploads, security, aws]
 keywords: [presigned url upload node, s3 presigned post browser upload, direct upload to s3 from browser, cloudflare r2 presigned url node, upload large files without server]
 project: growth-avenues
+image: /blog/stock/code-1.webp
+imageAlt: "Laptop showing a code editor"
+imageCredit: "Tirza van Dijk tirzavandijk"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Laptop_coding_programs_(Unsplash).jpg"
+imageLicense: "CC0"
 ---
 
 A client uploading a 20 MB bank statement through the API ties up a Node process for the duration and doubles the bandwidth, once in and once out to storage. Multiply by a busy onboarding week and the API slows for everyone. Presigned URLs remove the API from the path: it signs a permission, the browser uploads directly to storage, and the API only hears about it when the file is there.

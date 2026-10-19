@@ -5,6 +5,11 @@ date: 2028-02-14T03:30:00Z
 tags: [nodejs, pdf, puppeteer, reports]
 keywords: [puppeteer vs pdfkit, generate pdf node.js, html to pdf node puppeteer, pdfkit invoice node, puppeteer vps memory]
 project: growth-avenues-hrms
+image: /blog/stock/checklist-1.webp
+imageAlt: "Clipboards with paper checklists"
+imageCredit: "Unknown"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:USMC-100914-M-0646Q-45.jpg"
+imageLicense: "Public domain"
 ---
 
 A PDF is a document that cannot be argued with, which is why every HR and finance feature eventually needs one. The two serious options in Node take opposite approaches, and picking the wrong one costs either weeks of layout code or a server that falls over.

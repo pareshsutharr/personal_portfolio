@@ -5,6 +5,11 @@ date: 2026-11-02T03:30:00Z
 tags: [mongodb, mongoose, nodejs, performance]
 keywords: [slow mongodb query, mongodb explain executionStats, mongoose lean performance, mongodb compound index order, node api slow response]
 project: growth-avenues
+image: /blog/stock/network-1.webp
+imageAlt: "Tangle of blue network cables in a rack"
+imageCredit: "Unknown"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Cable_closet_bh.jpg"
+imageLicense: "Public domain"
 ---
 
 When the distributor list on Growth Avenues started taking three to four seconds, the first guess from everyone was "the server is too small". It was not. The server was idle. The database was scanning every document in a collection for every request. Here is the order I check things in now, because it has found the problem every time since.

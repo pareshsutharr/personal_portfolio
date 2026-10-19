@@ -5,6 +5,11 @@ date: 2027-04-05T03:30:00Z
 tags: [threejs, react, nextjs, performance]
 keywords: [three.js next.js hero, react three fiber product viewer, optimize glb model size, three.js bundle size, 3d website performance]
 project: bhavvya-ecopack
+image: /blog/stock/abstract-1.webp
+imageAlt: "Star trails photographed from orbit"
+imageCredit: "NASA/Don Pettit"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:International_Space_Station_star_trails_-_JSC2012E039800.jpg"
+imageLicense: "Public domain"
 ---
 
 A packaging manufacturer wanted visitors to see their product. A photo would have done. A box you can turn with your finger does more, as long as it does not cost the page its load time. The Bhaavya Ecopack hero ships a 3D box at about 280 KB total, including the renderer, and renders the first frame before the text has finished its entrance animation.

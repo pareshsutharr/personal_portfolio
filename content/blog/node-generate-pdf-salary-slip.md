@@ -5,6 +5,11 @@ date: 2027-01-25T03:30:00Z
 tags: [nodejs, pdf, hrms, javascript]
 keywords: [node generate pdf, pdfkit salary slip, puppeteer html to pdf node, indian rupee number format javascript, lakh crore format intl]
 project: growth-avenues-hrms
+image: /blog/stock/folders-1.webp
+imageAlt: "Stack of paper documents"
+imageCredit: "Niklas Bildhauer (who also is User gerolsteiner91."
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:FileStack.jpg"
+imageLicense: "CC BY-SA 2.0"
 ---
 
 A salary slip is the one document from an HRMS that employees keep, print and send to banks. It has to be right every time. The HRMS for Growth Avenues generates one per employee per month, and getting it right took three attempts. The decisions that mattered were which tool to render with, how to format money, and how to make the layout survive real data.

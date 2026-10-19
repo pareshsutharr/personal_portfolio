@@ -5,6 +5,11 @@ date: 2027-09-20T03:30:00Z
 tags: [capacitor, cors, express, mobile, security]
 keywords: [capacitor cors error, capacitor://localhost origin, express cors capacitor app, cors preflight options 401, cookies capacitor ios]
 project: growth-avenues-hrms
+image: /blog/stock/mobile-1.webp
+imageAlt: "Hands holding a smartphone and a coffee"
+imageCredit: "www.Pixel.la Free Stock Photos"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Hands-coffee-smartphone-technology_(23698591814).jpg"
+imageLicense: "CC0"
 ---
 
 The web build of Growth HR called the API from `https://hr.growthavenues.in` and everything worked. The same build inside the Android app failed every request with a CORS error, and the origin in the error was `http://localhost`. On iOS it was `capacitor://localhost`. Neither was in the API's allow list, because I had not known they existed.

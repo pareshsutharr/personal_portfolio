@@ -5,6 +5,11 @@ date: 2027-02-22T03:30:00Z
 tags: [nextjs, images, sharp, supabase, security]
 keywords: [next.js image upload server action, sharp resize webp node, validate image upload file type, next.js file upload supabase storage, image optimization pipeline]
 project: biryani-bazar
+image: /blog/stock/camera-1.webp
+imageAlt: "Close-up of a camera with a long lens"
+imageCredit: "Matthew Hamilton thatsmrbio"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Long-lens_camera_in_close-up_(Unsplash).jpg"
+imageLicense: "CC0"
 ---
 
 Every photo the client uploaded to the Biryani Bazar admin came straight from a phone: 4000 by 3000 pixels, 5 to 7 MB, sometimes sideways because of EXIF rotation. Serving those to a menu page is how a site becomes slow without anyone changing code. The pipeline below fixed it, and the same one runs this portfolio's media library.

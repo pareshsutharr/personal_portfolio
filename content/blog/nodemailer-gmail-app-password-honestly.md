@@ -4,6 +4,11 @@ description: "For a contact form that sends you ten emails a week, a transaction
 date: 2027-05-10T03:30:00Z
 tags: [email, nodejs, nodemailer, gmail]
 keywords: [nodemailer gmail app password, send email node.js gmail smtp, gmail smtp limits, contact form email node, nodemailer vs resend]
+image: /blog/stock/security-1.webp
+imageAlt: "Padlock on a wooden door"
+imageCredit: "Quim Gil"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Abloy_padlock_in_Oulu.jpg"
+imageLicense: "CC0"
 ---
 
 This site's contact form and feedback widget email me through Gmail. Not through a transactional email API with templates and dashboards, through SMTP with an app password, the same way an email client would. For a personal site that sends a few messages a day to one inbox, that is the right amount of infrastructure.

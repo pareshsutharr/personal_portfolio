@@ -7,7 +7,7 @@ import { CtaBand } from "@/components/portfolio/cta-band";
 import { Section } from "@/components/portfolio/section";
 import { Reveal } from "@/components/motion/reveal";
 import { JsonLd } from "@/components/seo/json-ld";
-import { getPost, getPosts, getRelatedPosts, postCoverPath } from "@/lib/blog";
+import { getPost, getPosts, getRelatedPosts, postCoverPath, postImagePath } from "@/lib/blog";
 import { getProfile, getSiteSettings } from "@/lib/queries/public";
 import { absoluteUrl, breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 import { formatDate } from "@/lib/utils/format";
@@ -130,12 +130,33 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 <figure className="overflow-hidden rounded-md border border-line-800 bg-surface-900">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src={postCoverPath(post)}
-                    alt=""
-                    width={1200}
-                    height={630}
-                    className="aspect-[1200/630] w-full object-cover"
+                    src={postImagePath(post)}
+                    alt={post.image?.alt ?? ""}
+                    width={1280}
+                    height={720}
+                    fetchPriority="high"
+                    className="aspect-video w-full object-cover"
                   />
+                  {post.image ? (
+                    <figcaption className="border-t border-line-800 px-4 py-2 text-xs text-fg-500">
+                      Photo: {post.image.credit}
+                      {post.image.license ? ` (${post.image.license})` : null}
+                      {post.image.creditUrl ? (
+                        <>
+                          {" "}
+                          ·{" "}
+                          <a
+                            href={post.image.creditUrl}
+                            rel="noopener noreferrer license"
+                            target="_blank"
+                            className="underline decoration-line-700 underline-offset-2 hover:text-fg-300"
+                          >
+                            source
+                          </a>
+                        </>
+                      ) : null}
+                    </figcaption>
+                  ) : null}
                 </figure>
               </Reveal>
               <Reveal>

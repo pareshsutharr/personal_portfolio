@@ -44,10 +44,18 @@ export async function GET(_request: Request, { params }: { params: Promise<{ slu
     timeZone: "Asia/Kolkata",
   });
   const fontSize = title.length > 70 ? 52 : title.length > 45 ? 62 : 74;
+  // The post's stock photo, dimmed behind the title, when it has one. Satori
+  // cannot decode WebP, so each photo also ships as a 1200x630 JPEG.
+  const photo = post.image?.src.startsWith("/")
+    ? await readFile(join(process.cwd(), "public", post.image.src.replace(/\.webp$/, ".jpg")))
+        .then((b) => `data:image/jpeg;base64,${b.toString("base64")}`)
+        .catch(() => null)
+    : null;
 
   return new ImageResponse(
     <div
       style={{
+        position: "relative",
         width: "100%",
         height: "100%",
         display: "flex",
@@ -61,6 +69,30 @@ export async function GET(_request: Request, { params }: { params: Promise<{ slu
         fontFamily: "sans-serif",
       }}
     >
+      {photo ? (
+        <>
+          {/* eslint-disable-next-line @next/next/no-img-element -- satori JSX, next/image does not apply */}
+          <img
+            src={photo}
+            width={size.width}
+            height={size.height}
+            alt=""
+            style={{ position: "absolute", top: 0, left: 0, objectFit: "cover", opacity: 0.55 }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: size.width,
+              height: size.height,
+              display: "flex",
+              backgroundImage:
+                "linear-gradient(to right, rgba(5,5,5,0.92) 0%, rgba(5,5,5,0.78) 55%, rgba(5,5,5,0.45) 100%), linear-gradient(to bottom, rgba(5,5,5,0.35) 0%, rgba(5,5,5,0.9) 100%)",
+            }}
+          />
+        </>
+      ) : null}
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
           {/* eslint-disable-next-line @next/next/no-img-element -- satori JSX, next/image does not apply */}

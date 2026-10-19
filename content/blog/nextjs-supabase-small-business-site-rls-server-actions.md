@@ -5,6 +5,11 @@ date: 2026-11-30T03:30:00Z
 tags: [nextjs, supabase, postgres, rls, react]
 keywords: [next.js supabase tutorial, supabase row level security next.js, supabase server actions, supabase storage next/image, supabase ssr cookies next.js app router]
 project: biryani-bazar
+image: /blog/stock/security-2.webp
+imageAlt: "Rusted hasp and padlock on a red wooden door"
+imageCredit: "Estormiz"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Padlock_Valimokatu_Oulu_20250307_03.jpg"
+imageLicense: "CC0"
 ---
 
 For anything that needs a database, an admin login and image uploads, but does not need a separate backend, I reach for Next.js with Supabase. This portfolio's admin runs on it. So does a food e-commerce site I built. The combination is cheap, fast to build, and secure if you respect one rule: the database decides who can read what, not your JavaScript.

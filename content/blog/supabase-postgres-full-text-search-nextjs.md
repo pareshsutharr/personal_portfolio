@@ -5,6 +5,11 @@ date: 2028-05-08T03:30:00Z
 tags: [supabase, postgres, search, nextjs, sql]
 keywords: [supabase full text search, postgres tsvector generated column, websearch_to_tsquery, postgres gin index search, next.js search supabase]
 project: portfolio
+image: /blog/stock/camera-1.webp
+imageAlt: "Close-up of a camera with a long lens"
+imageCredit: "Matthew Hamilton thatsmrbio"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Long-lens_camera_in_close-up_(Unsplash).jpg"
+imageLicense: "CC0"
 ---
 
 The last post looked at search for MongoDB apps, where the good options live outside the database. On Postgres the good option is inside it. This site's search across projects and posts is a few lines of SQL and a function the Next.js app calls through Supabase.

@@ -5,6 +5,11 @@ date: 2028-10-09T03:30:00Z
 tags: [case-study, architecture, planning, growth-avenues, operations]
 keywords: [small business software platform two years, hrms crm portal architecture review, vps running costs small business, technical roadmap small client, software maintenance retainer results]
 project: growth-avenues
+image: /blog/stock/team-1.webp
+imageAlt: "Man working at a laptop in an office"
+imageCredit: "Bench Accounting benchaccounting"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Man_at_a_laptop_in_an_office_(Unsplash).jpg"
+imageLicense: "CC0"
 ---
 
 Most of the posts in this series come from one platform: the systems built for Growth Avenues, a financial services firm in Surat. Two years after the first module went live, this is the review the client and I did together, with the parts that are useful to anyone running software for a business of a few hundred people.

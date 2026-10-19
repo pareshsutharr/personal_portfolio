@@ -5,6 +5,11 @@ date: 2027-08-16T03:30:00Z
 tags: [architecture, saas, hrms, mongodb, deployment]
 keywords: [multi tenant saas architecture, single tenant vs multi tenant, tenant id every row mongodb, saas architecture small team, hrms saas design]
 project: growth-avenues-hrms
+image: /blog/stock/hands-2.webp
+imageAlt: "Two people shaking hands"
+imageCredit: "Lucas"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Shake_hand.jpg"
+imageLicense: "Public domain"
 ---
 
 The HRMS was built for one company. When a related business asked to use it, the question was not whether to say yes but how. Multi-tenancy, one running system serving many customers with a tenant id on every record, is the default answer in every SaaS article. For a one-developer team with two customers, I chose the other answer, and I would again.

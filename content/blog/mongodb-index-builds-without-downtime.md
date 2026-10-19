@@ -5,6 +5,11 @@ date: 2028-01-03T03:30:00Z
 tags: [mongodb, performance, database, operations]
 keywords: [mongodb create index without downtime, mongodb background index build, mongodb index build progress, mongodb hidden index, mongodb drop index safely]
 project: growth-avenues-hrms
+image: /blog/stock/network-3.webp
+imageAlt: "Wall-mounted Ethernet patch panel"
+imageCredit: "Jacek Rużyczka"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Wall-Mount_6-Port_Cat_6A_Ethernet_Patchpanel.jpg"
+imageLicense: "CC BY-SA 4.0"
 ---
 
 A new "late arrivals by department" report needed an index on `{ department: 1, day: 1, status: 1 }` across the attendance collection. The collection was the busiest in the HRMS, with a write every few seconds from the biometric sync. The question was whether creating the index would stall those writes, and for how long.

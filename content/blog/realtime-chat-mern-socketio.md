@@ -5,6 +5,11 @@ date: 2026-11-23T03:30:00Z
 tags: [socketio, nodejs, react, mongodb, realtime]
 keywords: [socket.io chat mern, socket.io authentication jwt, socket.io rooms private chat, socket.io reconnect missed messages, react socket.io hook]
 project: justrentit
+image: /blog/stock/mobile-2.webp
+imageAlt: "Taking a photo with a smartphone"
+imageCredit: "James Sutton jamessutton_photography"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Smartphone_photographer_(Unsplash).jpg"
+imageLicense: "CC0"
 ---
 
 Just Rent It is a rental marketplace: you list a camera, someone nearby wants it for the weekend, you talk, you agree. The "you talk" part was a Socket.IO chat between the owner and the renter. My first version worked in a demo and fell apart with two real phones on mobile data. Messages arrived twice, or not at all, and anyone who guessed a conversation id could read it.

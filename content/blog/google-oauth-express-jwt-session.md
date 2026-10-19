@@ -5,6 +5,11 @@ date: 2027-02-08T03:30:00Z
 tags: [oauth, express, jwt, react, security]
 keywords: [google oauth express jwt, google sign in react node, verify google id token server, google oauth mern stack, link google account existing user]
 project: justrentit
+image: /blog/stock/fingerprint-1.webp
+imageAlt: "Fingerprint scan illustration in blue"
+imageCredit: "mikemacmarketing"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Fingerprint_Scanner.jpg"
+imageLicense: "CC BY 2.0"
 ---
 
 "Sign in with Google" is one button for the user and three decisions for you: where the Google token is verified, how a Google user becomes a user in your database, and what session they get afterwards. Just Rent It got the first decision wrong initially, trusting the browser's claim about who had signed in. This is the corrected flow.

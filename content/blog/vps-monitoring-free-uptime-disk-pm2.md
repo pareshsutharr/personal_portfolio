@@ -5,6 +5,11 @@ date: 2027-09-27T03:30:00Z
 tags: [linux, monitoring, pm2, deployment]
 keywords: [vps monitoring free, uptime monitoring free, disk space alert script linux, pm2 crash notification, server monitoring small project]
 project: growth-avenues
+image: /blog/stock/servers-2.webp
+imageAlt: "Rows of server racks lit blue in a data centre"
+imageCredit: "NOIRLab/NSF/AURA/P. Horálek"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:NOIRLab_HQ_Server_Racks_(OK_upr_IMG_0225-CC).jpg"
+imageLicense: "CC BY 4.0"
 ---
 
 For two years the monitoring on the Growth Avenues servers has cost nothing and has caught every outage before a user reported it. It is three pieces, none of them a monitoring product: an external uptime check, a cron script on the box, and a PM2 event hook. Here they are.

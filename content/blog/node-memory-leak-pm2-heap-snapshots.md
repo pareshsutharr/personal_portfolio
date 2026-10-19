@@ -5,6 +5,11 @@ date: 2028-09-04T03:30:00Z
 tags: [nodejs, performance, debugging, pm2, operations]
 keywords: [node.js memory leak production, heap snapshot node compare, pm2 memory restart leak, node --inspect heap snapshot, event listener leak node]
 project: growth-avenues
+image: /blog/stock/backup-2.webp
+imageAlt: "Hard disk drives opened side by side"
+imageCredit: "Shams948"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Hard_drive_07.jpg"
+imageLicense: "CC0"
 ---
 
 PM2's `max_memory_restart` is a safety net and a blindfold. The API had been restarting every eleven hours for a month before the monitoring dashboard from an earlier post showed a sawtooth and I went looking. Nothing had failed. Memory just climbed until PM2 killed and restarted the process. That is a leak, and the method for finding one is the same every time.

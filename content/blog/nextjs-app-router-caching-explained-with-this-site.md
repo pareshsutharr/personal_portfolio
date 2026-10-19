@@ -5,6 +5,11 @@ date: 2028-05-22T03:30:00Z
 tags: [nextjs, caching, performance, react]
 keywords: [next.js app router caching explained, revalidatePath vs revalidateTag, next.js force-dynamic, next.js ISR revalidate, next.js stale data debugging]
 project: portfolio
+image: /blog/stock/abstract-2.webp
+imageAlt: "Light trails on a road at night"
+imageCredit: "Piviso"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Krzeszowice_by_night_long_exposure_photo,_Poland.jpg"
+imageLicense: "CC0"
 ---
 
 The App Router's caching has a reputation for being confusing, and most of the confusion comes from four separate mechanisms being described as one. Looked at page by page on a real site, each one is simple. Here is every kind of page this site has and the caching it uses.

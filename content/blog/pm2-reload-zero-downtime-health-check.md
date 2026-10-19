@@ -5,6 +5,11 @@ date: 2027-01-11T03:30:00Z
 tags: [pm2, nodejs, deployment, linux]
 keywords: [pm2 reload zero downtime, pm2 cluster mode graceful shutdown, node health check endpoint, deploy without downtime single server, pm2 wait_ready]
 project: growth-avenues
+image: /blog/stock/servers-3.webp
+imageAlt: "Close-up of blade servers in a rack"
+imageCredit: "NOIRLab/NSF/AURA/T. Slovinský"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:NOIRLab_HQ_Server_Racks_(6V6A0404-CC).jpg"
+imageLicense: "CC BY 4.0"
 ---
 
 `pm2 restart` kills the process and starts a new one. For a second or two, requests fail. On a site where people are placing orders, that second is a support ticket. `pm2 reload` in cluster mode fixes it, but only if your app cooperates in two small ways: it tells PM2 when it is actually ready, and it finishes in-flight requests when told to stop.

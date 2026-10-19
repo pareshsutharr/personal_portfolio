@@ -4,6 +4,11 @@ description: "A floating button, a five-star rating, an optional note, an inbox 
 date: 2027-08-30T03:30:00Z
 tags: [react, nextjs, product, forms]
 keywords: [website feedback widget react, floating feedback button, server action form react, rating widget react, ship small feature fast]
+image: /blog/stock/team-1.webp
+imageAlt: "Man working at a laptop in an office"
+imageCredit: "Bench Accounting benchaccounting"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Man_at_a_laptop_in_an_office_(Unsplash).jpg"
+imageLicense: "CC0"
 ---
 
 The bottom-right corner of this site has an ember button. Tap it and you get "How was this portfolio?", five stars, an optional note, optional name and email, and a Send button. I built it between lunch and dinner. Nothing about it is clever, which is why it took an afternoon rather than a week.

@@ -5,6 +5,11 @@ date: 2026-12-07T03:30:00Z
 tags: [fintech, compliance, admin, react, nodejs]
 keywords: [sebi stock broker website requirements, broker website disclosures, investor complaints data website, escalation matrix broker website, fintech compliance cms]
 project: growth-avenues-admin
+image: /blog/stock/market-3.webp
+imageAlt: "Electronic stock price board in Tokyo"
+imageCredit: "nappa"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Electronic_stock_board_in_Yaesu,_Tokyo_2007.jpg"
+imageLicense: "CC BY 2.0"
 ---
 
 A broker's website is not a brochure. SEBI and the exchanges expect certain information to be on it, kept current, and easy to find. Some of it changes every month. When I took over the Growth Avenues website, those pages were static HTML that someone had to edit by hand, which meant they were sometimes late and occasionally wrong.

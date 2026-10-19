@@ -5,6 +5,11 @@ date: 2026-10-19T03:30:00Z
 tags: [nodejs, nginx, pm2, linux, deployment]
 keywords: [deploy node.js app on vps, nginx reverse proxy node, pm2 production, ubuntu ssl certbot, deploy express app ubuntu]
 project: growth-avenues
+image: /blog/stock/servers-1.webp
+imageAlt: "Server racks with cabling in a small computer room"
+imageCredit: "Jemimus"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:DHL_Netherlands_local_site_computer_room_server_racks_(2)_-_IMG_3299.jpg"
+imageLicense: "CC BY 2.0"
 ---
 
 Every backend I run in production sits behind the same setup: an Ubuntu VPS, Nginx taking the traffic on ports 80 and 443, PM2 keeping the Node.js process alive, and Let's Encrypt for the certificate. I have done this for the Growth Avenues platform, for client sites, and for side projects. It costs a few hundred rupees a month and it has never been the thing that broke.

@@ -4,6 +4,11 @@ description: "Moving a site from yourname.vercel.app to yourname.dev is a one-ho
 date: 2027-07-12T03:30:00Z
 tags: [vercel, dns, seo, deployment]
 keywords: [vercel custom domain seo, move site to new domain seo, vercel add domain dns, 301 redirect vercel.app to custom domain, search console change of address]
+image: /blog/stock/writing-3.webp
+imageAlt: "Writing in a notebook with a coffee"
+imageCredit: "Shixart1985"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Writing_in_a_notebook_with_a_feather_pen_while_enjoying_coffee_at_a_desk_surrounded_by_flowers.jpg"
+imageLicense: "CC BY 2.0"
 ---
 
 A `.vercel.app` address is fine to launch on and a handicap to rank on. The domain is shared with every other Vercel project, and search engines treat it accordingly. Moving to your own domain is the single biggest SEO change available to a portfolio, and it is a short job as long as the old URLs redirect cleanly.

@@ -5,6 +5,11 @@ date: 2027-08-23T03:30:00Z
 tags: [testing, nodejs, mongodb, express]
 keywords: [mongodb memory server jest, test express api supertest, node api integration tests, test mongoose without database, vitest mongodb]
 project: growth-avenues
+image: /blog/stock/checklist-1.webp
+imageAlt: "Clipboards with paper checklists"
+imageCredit: "Unknown"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:USMC-100914-M-0646Q-45.jpg"
+imageLicense: "Public domain"
 ---
 
 The tests I trust most are the ones that run the real route handler against a real database and check the HTTP response. Mocking Mongoose tests your mocks. A shared test database means tests that pass alone and fail together. `mongodb-memory-server` solves both: it downloads a real `mongod` binary once and starts a throwaway instance per test run, in memory.

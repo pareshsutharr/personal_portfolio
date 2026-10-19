@@ -5,6 +5,11 @@ date: 2027-10-25T03:30:00Z
 tags: [nodejs, linux, cron, systemd, deployment]
 keywords: [node-cron vs cron, systemd timer node script, scheduled jobs node.js production, pm2 cluster cron duplicate, run cron job vps]
 project: growth-avenues
+image: /blog/stock/alarm-1.webp
+imageAlt: "Alarm clock on a dark desk"
+imageCredit: "Raul Petri raulpetri"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Alarm_Clock_(Unsplash).jpg"
+imageLicense: "CC0"
 ---
 
 The Growth Avenues platform has about a dozen scheduled jobs. Some live inside the API as `node-cron` schedules; some are separate scripts run by systemd timers. Neither is wrong, but each was wrong for the other's jobs, and finding that out cost a duplicated report and a backup that silently stopped.

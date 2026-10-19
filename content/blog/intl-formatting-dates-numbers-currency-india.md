@@ -5,6 +5,11 @@ date: 2028-02-21T03:30:00Z
 tags: [javascript, intl, i18n, react, frontend]
 keywords: [intl numberformat indian rupees, intl datetimeformat timezone, react hydration mismatch date, format currency javascript india, relativetimeformat javascript]
 project: portfolio
+image: /blog/stock/writing-2.webp
+imageAlt: "Notebook and pen on a desk next to a laptop"
+imageCredit: "Shixart1985"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Person_writing_in_a_notebook_while_sitting_at_a_desk.jpg"
+imageLicense: "CC BY 2.0"
 ---
 
 This site has no date library. Neither does the CRM. `Intl` does everything they need, is in every browser and Node version in use, and adds nothing to the bundle. The only trick is to create the formatters once, pin the time zone, and use them everywhere.

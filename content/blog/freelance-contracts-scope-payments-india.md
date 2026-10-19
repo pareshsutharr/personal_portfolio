@@ -5,6 +5,11 @@ date: 2028-07-03T03:30:00Z
 tags: [freelancing, contracts, business, india]
 keywords: [freelance developer contract india, software development agreement freelancer, ip ownership freelance contract, payment terms freelance developer, freelance contract template clauses]
 project: portfolio
+image: /blog/stock/payments-2.webp
+imageAlt: "Self-service payment kiosk"
+imageCredit: "Nicbou"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Payment_terminal_at_the_Berlin_immigration_office.jpg"
+imageLicense: "CC0"
 ---
 
 The first project I did without a written agreement went fine. The second one did not, and the issue was not bad faith; it was two people remembering a call differently. Since then every engagement has a short agreement, and the version below is what it has become. Have a lawyer check yours; what follows is what has proven useful, in plain language, with the reason each clause is there.

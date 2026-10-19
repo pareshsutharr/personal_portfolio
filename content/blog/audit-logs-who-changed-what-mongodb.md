@@ -5,6 +5,11 @@ date: 2027-11-15T03:30:00Z
 tags: [mongodb, mongoose, security, hrms, audit]
 keywords: [audit log mongodb, mongoose audit trail plugin, track changes who edited record, audit log design node.js, hrms audit trail]
 project: growth-avenues-hrms
+image: /blog/stock/fingerprint-2.webp
+imageAlt: "Fingerprint scanner device on a desk"
+imageCredit: "Harrison Keely"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:A_fingerprint_scanner_at_a_prison_or_jail_in_the_United_States.jpg"
+imageLicense: "CC BY 4.0"
 ---
 
 The question arrived as "who changed Rahul's basic salary?" and the honest answer was "the database does not know". Mongoose `timestamps` records *when* a document last changed, not *what* or *by whom*. For an HRMS that is not acceptable, so the next sprint added an audit log. It has answered that question every time since.

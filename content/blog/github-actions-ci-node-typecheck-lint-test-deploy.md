@@ -5,6 +5,11 @@ date: 2027-12-20T03:30:00Z
 tags: [github-actions, ci, nodejs, deployment, devops]
 keywords: [github actions node.js ci, github actions pnpm cache, github actions deploy ssh vps, github actions typecheck lint test, ci pipeline node project]
 project: growth-avenues
+image: /blog/stock/containers-2.webp
+imageAlt: "Gate of a container terminal"
+imageCredit: "Jim.henderson"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:New_York_container_terminal_(Staten_Island)_north_gate.jpg"
+imageLicense: "CC0"
 ---
 
 Before CI, "did you run the tests?" was a question in chat. After CI, it is a green tick on the pull request, and a red one blocks the merge button. The whole setup is one YAML file and three repository secrets.

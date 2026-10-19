@@ -5,6 +5,11 @@ date: 2027-03-01T03:30:00Z
 tags: [crm, admin, mongodb, react, product]
 keywords: [build crm lead management, lead pipeline statuses, lead assignment admin panel, contact form leads database, simple crm node react]
 project: growth-avenues-admin
+image: /blog/stock/team-1.webp
+imageAlt: "Man working at a laptop in an office"
+imageCredit: "Bench Accounting benchaccounting"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Man_at_a_laptop_in_an_office_(Unsplash).jpg"
+imageLicense: "CC0"
 ---
 
 Before the lead desk existed, an "Open your account" form on the Growth Avenues site sent an email. Three people received it. Each assumed another would reply. Some leads waited a week; a few were never answered. The fix was not a bigger CRM. It was a table with a status, an owner, and a nagging dashboard.

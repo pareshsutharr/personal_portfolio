@@ -5,6 +5,11 @@ date: 2027-05-24T03:30:00Z
 tags: [mongodb, linux, backups, deployment]
 keywords: [mongodb backup cron vps, mongodump restore, mongodb backup to s3, automated mongodb backup script, test database restore]
 project: growth-avenues
+image: /blog/stock/backup-1.webp
+imageAlt: "Open hard disk drive showing the platters"
+imageCredit: "Shams948"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Hard_drive_06.jpg"
+imageLicense: "CC0"
 ---
 
 The database behind a broking platform holds client records, orders and the audit trail a regulator may ask for. Losing it is not an option, and "the host takes snapshots" is not a backup plan; it is a hope. Here is the plan that is actually in place, small enough to understand in full.

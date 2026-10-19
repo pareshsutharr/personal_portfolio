@@ -5,6 +5,11 @@ date: 2028-04-17T03:30:00Z
 tags: [mongodb, migrations, nodejs, database, operations]
 keywords: [mongodb migration script node, migrate-mongo alternative, mongodb rename field all documents, mongodb batch update large collection, mongoose schema migration]
 project: growth-avenues-hrms
+image: /blog/stock/network-1.webp
+imageAlt: "Tangle of blue network cables in a rack"
+imageCredit: "Unknown"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Cable_closet_bh.jpg"
+imageLicense: "Public domain"
 ---
 
 The HRMS stored employee names as one `name` field for a year. Then the payroll export needed first and last names separately. That is a migration: a one-time, versioned, tested change to the data's shape. Running `db.employees.find().forEach(...)` in a production shell at 4 pm is how a colleague once turned every name into `undefined undefined`. Hence the runner.

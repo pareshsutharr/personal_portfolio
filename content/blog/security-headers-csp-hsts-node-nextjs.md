@@ -5,6 +5,11 @@ date: 2028-03-13T03:30:00Z
 tags: [security, nextjs, express, http, headers]
 keywords: [security headers next.js, content security policy nonce next.js, helmet express headers, hsts preload, x-frame-options clickjacking]
 project: growth-avenues
+image: /blog/stock/security-2.webp
+imageAlt: "Rusted hasp and padlock on a red wooden door"
+imageCredit: "Estormiz"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Padlock_Valimokatu_Oulu_20250307_03.jpg"
+imageLicense: "CC0"
 ---
 
 A client's auditor ran an online scanner against the portal and sent a screenshot with a D grade. Nothing was exploited; the headers that tell browsers how to behave were simply absent. Most of them are a line. One of them is a project.

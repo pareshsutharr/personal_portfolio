@@ -4,6 +4,11 @@ description: "This site uses Lenis for inertia scrolling and Motion for scroll-l
 date: 2026-12-21T03:30:00Z
 tags: [react, motion, lenis, performance, nextjs]
 keywords: [lenis react smooth scroll, lenis next.js, motion useScroll performance, scroll animation performance react, framer motion scroll linked]
+image: /blog/stock/speed-3.webp
+imageAlt: "Car speedometer dial"
+imageCredit: "www.Pixel.la Free Stock Photos"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Car-vehicle-measure-fast_(23698208123).jpg"
+imageLicense: "CC0"
 ---
 
 Smooth scrolling libraries have a reputation for making sites feel heavy. Most of that comes from the old approach, where the library hijacked scrolling and moved the whole page with transforms. Lenis does not do that. It keeps native scrolling and smooths the wheel and touch input, so everything that reads the scroll position, including Motion's `useScroll` and the browser's own `IntersectionObserver`, keeps working.

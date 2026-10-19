@@ -5,6 +5,11 @@ date: 2028-02-07T03:30:00Z
 tags: [nodejs, excel, exports, express, performance]
 keywords: [exceljs streaming export node, export large data to excel node.js, excel export express stream response, exceljs number format indian rupees, generate xlsx node]
 project: growth-avenues-hrms
+image: /blog/stock/folders-1.webp
+imageAlt: "Stack of paper documents"
+imageCredit: "Niklas Bildhauer (who also is User gerolsteiner91."
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:FileStack.jpg"
+imageLicense: "CC BY-SA 2.0"
 ---
 
 The accounts team at a client exports the salary register every month, the attendance report every week, and the expense claims whenever someone asks. The export is where the HRMS data meets the rest of the company, so it has to work, and work for a year's worth of rows.

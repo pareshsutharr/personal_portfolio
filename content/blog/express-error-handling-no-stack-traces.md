@@ -5,6 +5,11 @@ date: 2027-10-04T03:30:00Z
 tags: [express, nodejs, security, api]
 keywords: [express error handling middleware, express async errors, custom error class node, hide stack trace production express, api error response format]
 project: growth-avenues
+image: /blog/stock/code-2.webp
+imageAlt: "Source code on a dark monitor"
+imageCredit: "luis gomes"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Pexels-luis-gomes-546819.jpg"
+imageLicense: "CC0"
 ---
 
 Early on, a failed MongoDB query in the Growth Avenues API returned a 500 with the full stack trace, including file paths and the query, to whoever made the request. A client saw it once. That was enough to write the error handling properly, which turned out to be about forty lines.

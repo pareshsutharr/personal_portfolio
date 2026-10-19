@@ -5,6 +5,11 @@ date: 2027-11-08T03:30:00Z
 tags: [mongodb, mongoose, schema, hrms, data-modeling]
 keywords: [mongodb schema design embed vs reference, mongoose schema hrms, mongodb data modeling one to many, mongodb unbounded array, document database design]
 project: growth-avenues-hrms
+image: /blog/stock/checklist-1.webp
+imageAlt: "Clipboards with paper checklists"
+imageCredit: "Unknown"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:USMC-100914-M-0646Q-45.jpg"
+imageLicense: "Public domain"
 ---
 
 The question in every MongoDB schema is the same: put this inside that document, or in its own collection with a reference? The HRMS has a dozen entity types, and I got about ten of them right the first time. The two I got wrong were the two that grow without bound. Here is the shape it settled into and why.

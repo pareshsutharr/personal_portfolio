@@ -5,6 +5,11 @@ date: 2028-09-11T03:30:00Z
 tags: [operations, backups, deployment, linux, reliability]
 keywords: [disaster recovery drill small business, restore vps from backup test, rebuild server from scratch checklist, mongodb restore drill, recovery time objective small project]
 project: growth-avenues
+image: /blog/stock/backup-3.webp
+imageAlt: "Hard disk drive internals"
+imageCredit: "Shams948"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Hard_drive_08.jpg"
+imageLicense: "CC0"
 ---
 
 The backups post set up nightly dumps to object storage. This post is about the question that post did not answer: if the VPS disappeared tonight, how long until the platform is back, and does anyone actually know the steps? The only way to know is to do it. So every quarter, it gets done.

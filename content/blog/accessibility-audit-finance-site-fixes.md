@@ -5,6 +5,11 @@ date: 2027-03-22T03:30:00Z
 tags: [accessibility, react, html, compliance]
 keywords: [website accessibility audit india, wcag fixes react, accessible forms react, keyboard navigation website, screen reader testing]
 project: growth-avenues
+image: /blog/stock/keyboard-1.webp
+imageAlt: "Backlit laptop keyboard close-up"
+imageCredit: "Bike756"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Close_up_of_IBM_Laptop_Keyboard.JPG"
+imageLicense: "Public domain"
 ---
 
 Accessibility for a broker's website is not a nice-to-have; it is part of the review a regulated site goes through. When the Growth Avenues site was audited, the list of findings looked long and turned out to be mostly a day of mechanical fixes. These are the twelve that came up, in the order I would check them on any site.

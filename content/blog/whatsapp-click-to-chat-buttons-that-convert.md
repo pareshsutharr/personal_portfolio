@@ -5,6 +5,11 @@ date: 2027-04-12T03:30:00Z
 tags: [whatsapp, marketing, nextjs, analytics]
 keywords: [whatsapp click to chat website, wa.me link prefilled message, whatsapp button next.js, track whatsapp clicks google analytics, b2b website enquiry whatsapp india]
 project: bhavvya-ecopack
+image: /blog/stock/chat-2.webp
+imageAlt: "Group of people texting on smartphones"
+imageCredit: "Tomwsulcer"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Young_people_texting_on_smartphones_using_thumbs.JPG"
+imageLicense: "CC0"
 ---
 
 For a B2B manufacturer in Gujarat, WhatsApp is where business happens. Bhaavya Ecopack's site has a contact form, and it gets used, but the WhatsApp button next to every product gets used more. The whole feature is a link. The details are what turn a tap into a conversation the sales team can act on.

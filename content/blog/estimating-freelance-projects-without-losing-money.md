@@ -5,6 +5,11 @@ date: 2028-06-26T03:30:00Z
 tags: [freelancing, estimation, business, career]
 keywords: [how to estimate freelance development project, software project estimation freelance, fixed price vs hourly freelance developer, scope creep freelance contract, discovery phase freelance]
 project: portfolio
+image: /blog/stock/contract-1.webp
+imageAlt: "Hand signing a document with a pen"
+imageCredit: "Pfc. Franklin E. Mercado"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:USMC-110310-M-5396M-008.jpg"
+imageLicense: "Public domain"
 ---
 
 Estimation is the skill that decides whether freelance work is a living or a hobby that pays. I got it wrong in three different ways before finding a method that has held for two years. The method is not clever; it is a sequence that stops me from quoting before I know what I am quoting.

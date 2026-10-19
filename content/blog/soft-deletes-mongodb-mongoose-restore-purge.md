@@ -5,6 +5,11 @@ date: 2028-04-24T03:30:00Z
 tags: [mongodb, mongoose, data, hrms, reliability]
 keywords: [soft delete mongoose plugin, mongodb deletedAt pattern, soft delete unique index partial, restore deleted record, data retention purge job]
 project: growth-avenues-hrms
+image: /blog/stock/network-2.webp
+imageAlt: "Network cables patched into a switch"
+imageCredit: "Inisheer"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:CERN-20060225-01.jpg"
+imageLicense: "CC BY-SA 3.0"
 ---
 
 "Delete" in an HR system should mean "hide, and keep the option to bring back". The employee a manager removed by accident had attendance, leave, salary slips and audit entries hanging off her record, and a hard delete had left half of them orphaned. After the restore, every collection with human-entered data got soft deletes.

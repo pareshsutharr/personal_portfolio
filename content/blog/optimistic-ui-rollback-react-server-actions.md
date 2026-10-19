@@ -5,6 +5,11 @@ date: 2028-01-31T03:30:00Z
 tags: [react, nextjs, ux, frontend, server-actions]
 keywords: [useOptimistic react, optimistic update server action next.js, optimistic ui rollback, react optimistic update pattern, useTransition server action]
 project: portfolio
+image: /blog/stock/hands-2.webp
+imageAlt: "Two people shaking hands"
+imageCredit: "Lucas"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Shake_hand.jpg"
+imageLicense: "Public domain"
 ---
 
 The admin inbox on this site marks a message as read when it is opened. The first version waited for the server action to finish before updating the unread badge, which was about 400 ms on a cold function. It felt broken. The current version updates instantly and only shows a difference if the server disagrees. The code for that is small, and the rules around it matter more than the code.

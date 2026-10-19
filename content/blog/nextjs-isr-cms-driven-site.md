@@ -4,6 +4,11 @@ description: "This portfolio's content lives in a database and changes from an a
 date: 2027-03-15T03:30:00Z
 tags: [nextjs, caching, performance, supabase]
 keywords: [next.js isr revalidate, next.js revalidatePath revalidateTag, incremental static regeneration cms, next.js app router caching, static site with admin panel]
+image: /blog/stock/code-2.webp
+imageAlt: "Source code on a dark monitor"
+imageCredit: "luis gomes"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Pexels-luis-gomes-546819.jpg"
+imageLicense: "CC0"
 ---
 
 Every page on this site is served as static HTML from a CDN, and every piece of text on it can be changed from an admin panel without a deploy. Those two facts are compatible because of incremental static regeneration: pages are built once, cached, and rebuilt in the background when they are stale or when the admin says so.

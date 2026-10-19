@@ -4,6 +4,11 @@ description: "No team, no secrets manager, five projects with database keys. The
 date: 2027-05-03T03:30:00Z
 tags: [security, git, deployment, process]
 keywords: [keep secrets out of git, env file gitignore, rotate leaked api key, git secret scanning, environment variables vercel vps]
+image: /blog/stock/fingerprint-2.webp
+imageAlt: "Fingerprint scanner device on a desk"
+imageCredit: "Harrison Keely"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:A_fingerprint_scanner_at_a_prison_or_jail_in_the_United_States.jpg"
+imageLicense: "CC BY 4.0"
 ---
 
 Every project I run has a handful of secrets: a database connection string, an email password, a service account for push notifications. A solo developer has no one to review the commit that would leak one. These habits are what stand in for that reviewer.

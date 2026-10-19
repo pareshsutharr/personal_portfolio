@@ -5,6 +5,11 @@ date: 2027-12-27T03:30:00Z
 tags: [deployment, linux, nginx, pm2, devops]
 keywords: [staging environment same server, staging and production one vps, nginx staging subdomain, pm2 multiple environments, staging environment small project]
 project: growth-avenues
+image: /blog/stock/containers-3.webp
+imageAlt: "Container cranes at dusk"
+imageCredit: "Syced"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Container_cranes_in_Tokyo_Bay.jpg"
+imageLicense: "CC0"
 ---
 
 "Can I see it before it goes live?" is a reasonable thing for a client to ask, and "no, we only have one server" is a bad answer. The Growth Avenues VPS has run a staging copy next to production for two years. The isolation is not perfect, a shared kernel and shared RAM cannot be, but no staging mistake has ever reached production data, and that is the bar.

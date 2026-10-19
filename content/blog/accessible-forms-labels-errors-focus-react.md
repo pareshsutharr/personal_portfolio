@@ -5,6 +5,11 @@ date: 2027-12-06T03:30:00Z
 tags: [accessibility, react, forms, frontend]
 keywords: [accessible form react, aria-describedby error message, focus first invalid field, screen reader form testing, accessible form validation]
 project: growth-avenues-hrms
+image: /blog/stock/keyboard-2.webp
+imageAlt: "Laptop keyboard in low light"
+imageCredit: "Markus Petritz petritzdesigns"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Backlit_laptop_keyboard_(Unsplash).jpg"
+imageLicense: "CC0"
 ---
 
 The HRMS has an employee who uses a screen reader. The first version of the leave form had placeholder text instead of labels, red borders instead of error messages, and a submit button that did nothing announceable when it failed. He could not use it. Fixing it took an afternoon and produced a checklist that every form since has followed.

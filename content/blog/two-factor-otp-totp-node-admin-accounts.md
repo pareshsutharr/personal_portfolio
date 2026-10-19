@@ -5,6 +5,11 @@ date: 2028-04-03T03:30:00Z
 tags: [security, auth, nodejs, totp, otp]
 keywords: [totp two factor node.js, otpauth authenticator app express, sms otp login node, 2fa recovery codes, trusted device cookie 2fa]
 project: growth-avenues-hrms
+image: /blog/stock/fingerprint-2.webp
+imageAlt: "Fingerprint scanner device on a desk"
+imageCredit: "Harrison Keely"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:A_fingerprint_scanner_at_a_prison_or_jail_in_the_United_States.jpg"
+imageLicense: "CC BY 4.0"
 ---
 
 A password alone protects an HR admin account about as well as the weakest password any admin has ever reused. A second factor makes a leaked password insufficient. The HRMS requires it for every role that can see salaries, and the implementation is smaller than people expect.

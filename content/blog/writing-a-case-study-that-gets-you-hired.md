@@ -5,6 +5,11 @@ date: 2028-06-19T03:30:00Z
 tags: [portfolio, writing, freelancing, career]
 keywords: [how to write a project case study developer, portfolio case study structure, developer portfolio writing, case study nda project, freelance portfolio projects]
 project: portfolio
+image: /blog/stock/hands-2.webp
+imageAlt: "Two people shaking hands"
+imageCredit: "Lucas"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Shake_hand.jpg"
+imageLicense: "Public domain"
 ---
 
 The projects on this site used to be screenshots with a tech-stack list underneath. They got views and no messages. Rewriting them as case studies, each answering the questions a client actually has, is the change that made the contact form start working. The structure is below, and it is the same for a two-week landing page and a two-year HRMS.

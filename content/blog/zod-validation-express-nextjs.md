@@ -4,6 +4,11 @@ description: "Every form and API body I ship is described once as a Zod schema. 
 date: 2027-10-11T03:30:00Z
 tags: [zod, validation, express, nextjs, typescript]
 keywords: [zod validation express middleware, zod server action next.js, share validation schema client server, zod error flatten, typescript api validation]
+image: /blog/stock/keyboard-1.webp
+imageAlt: "Backlit laptop keyboard close-up"
+imageCredit: "Bike756"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Close_up_of_IBM_Laptop_Keyboard.JPG"
+imageLicense: "Public domain"
 ---
 
 Validation is the part of an app that is boring to write and expensive to skip. A leave request with an end date before the start date, a PAN number in lowercase, an amount with a comma in it: each got into a database of mine once. Now every input passes through a Zod schema, and the same schema runs in the browser so the person sees the error before they submit.

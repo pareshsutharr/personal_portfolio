@@ -5,6 +5,11 @@ date: 2027-01-04T03:30:00Z
 tags: [nginx, pm2, linux, deployment, architecture]
 keywords: [nginx multiple apps same server, nginx subdomain reverse proxy, host multiple node apps one vps, nginx server blocks subdomains, pm2 multiple apps]
 project: growth-avenues
+image: /blog/stock/servers-2.webp
+imageAlt: "Rows of server racks lit blue in a data centre"
+imageCredit: "NOIRLab/NSF/AURA/P. Horálek"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:NOIRLab_HQ_Server_Racks_(OK_upr_IMG_0225-CC).jpg"
+imageLicense: "CC BY 4.0"
 ---
 
 Growth Avenues is not one app. There is the public website, the client portal people log into, the back office the operations team uses, and the API all three talk to. Early on they were spread across servers that each needed patching. Today the pattern is one Nginx per server, one server block per hostname, one PM2 process per app, and every app bound to localhost.

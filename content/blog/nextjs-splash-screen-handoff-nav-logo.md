@@ -4,6 +4,11 @@ description: "First visit: black screen, logo assembles in the centre, then glid
 date: 2026-12-28T03:30:00Z
 tags: [react, nextjs, motion, animation]
 keywords: [next.js splash screen, react intro animation, motion layout animation logo, loading screen react, animate element to another position]
+image: /blog/stock/abstract-2.webp
+imageAlt: "Light trails on a road at night"
+imageCredit: "Piviso"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Krzeszowice_by_night_long_exposure_photo,_Poland.jpg"
+imageLicense: "CC0"
 ---
 
 The intro on this site is a three-second splash: the logo assembles in the middle of a black screen, then shrinks and travels into the top-left corner where the nav logo sits, and the page content fades up under it. It looks like a layout animation, but it is simpler and more robust than that: measure where the target is, animate to that delta, swap.

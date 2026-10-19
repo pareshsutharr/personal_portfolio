@@ -5,6 +5,11 @@ date: 2028-02-28T03:30:00Z
 tags: [redis, nodejs, caching, performance, mongodb]
 keywords: [redis cache node.js api, cache invalidation strategy, cache aside pattern node, redis ttl keys design, ioredis express caching]
 project: growth-avenues-crm
+image: /blog/stock/abstract-1.webp
+imageAlt: "Star trails photographed from orbit"
+imageCredit: "NASA/Don Pettit"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:International_Space_Station_star_trails_-_JSC2012E039800.jpg"
+imageLicense: "Public domain"
 ---
 
 The dashboard everyone opens first thing in the morning computed totals across clients, leads, tasks and revenue, and took 1.8 seconds. The numbers change a few times an hour. Computing them on every load was waste, and Redis fixed it in an afternoon. The afternoon was mostly spent deciding what *not* to cache.

@@ -5,6 +5,11 @@ date: 2028-04-10T03:30:00Z
 tags: [auth, security, nodejs, express, jwt]
 keywords: [jwt vs session authentication, express session store redis, refresh token rotation node, jwt logout invalidate, httponly cookie auth next.js]
 project: growth-avenues
+image: /blog/stock/security-1.webp
+imageAlt: "Padlock on a wooden door"
+imageCredit: "Quim Gil"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Abloy_padlock_in_Oulu.jpg"
+imageLicense: "CC0"
 ---
 
 The question "JWT or sessions?" has a tribal answer on every forum and a practical answer in every codebase that has had to revoke access in a hurry. Here is what I run now and why, after having been bitten by the wrong choice on both sides.

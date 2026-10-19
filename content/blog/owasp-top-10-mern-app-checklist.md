@@ -5,6 +5,11 @@ date: 2028-03-20T03:30:00Z
 tags: [security, owasp, express, mongodb, react]
 keywords: [owasp top 10 node.js, mern stack security checklist, express security best practices, nosql injection mongodb express, react xss prevention]
 project: growth-avenues
+image: /blog/stock/security-3.webp
+imageAlt: "Old iron latch on weathered wooden boards"
+imageCredit: "Estormiz"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Padlock_Valimokatu_Oulu_20250307_01.jpg"
+imageLicense: "CC0"
 ---
 
 The OWASP Top 10 is the list everyone cites and few map to their actual stack. Here is the mapping for the stack I use most, with the place each category turned up in real code. Nothing here is theoretical.

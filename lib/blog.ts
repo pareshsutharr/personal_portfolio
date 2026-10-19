@@ -12,6 +12,15 @@ import { marked } from "marked";
  * posts revalidate hourly, so a post dated next Monday 09:00 IST appears that
  * morning without a deploy or a cron job.
  */
+/** A real photograph shown with the post, with the attribution its licence asks for. */
+export type PostImage = {
+  src: string;
+  alt: string;
+  credit: string;
+  creditUrl: string | null;
+  license: string | null;
+};
+
 export type Post = {
   slug: string;
   title: string;
@@ -26,6 +35,8 @@ export type Post = {
   project: string | null;
   /** Optional real photo (URL or /public path) that replaces the generated cover. */
   cover: string | null;
+  /** Stock photo for the post page, lists and admin. Falls back to the generated cover. */
+  image: PostImage | null;
   readingMinutes: number;
   html: string;
   /** Plain-text body, for the RSS description and search snippets. */
@@ -71,6 +82,15 @@ async function readPost(file: string): Promise<Post | null> {
     keywords: Array.isArray(data.keywords) ? data.keywords.map(String) : [],
     project: data.project ? String(data.project) : null,
     cover: data.cover ? String(data.cover) : null,
+    image: data.image
+      ? {
+          src: String(data.image),
+          alt: String(data.imageAlt ?? ""),
+          credit: String(data.imageCredit ?? "Unknown"),
+          creditUrl: data.imageCreditUrl ? String(data.imageCreditUrl) : null,
+          license: data.imageLicense ? String(data.imageLicense) : null,
+        }
+      : null,
     readingMinutes: Math.max(1, Math.round(words / WORDS_PER_MINUTE)),
     html: marked.parse(content, { async: false }) as string,
     text,
@@ -99,6 +119,11 @@ export async function getPosts(opts: { includeScheduled?: boolean } = {}): Promi
 /** The image to show for a post: its own cover if set, else the generated one. */
 export function postCoverPath(post: Pick<Post, "slug" | "cover">) {
   return post.cover ?? `/blog/${post.slug}/cover`;
+}
+
+/** The photo to show in lists and at the top of a post: the stock image, else the generated cover. */
+export function postImagePath(post: Pick<Post, "slug" | "cover" | "image">) {
+  return post.image?.src ?? postCoverPath(post);
 }
 
 export async function getPost(slug: string): Promise<Post | null> {

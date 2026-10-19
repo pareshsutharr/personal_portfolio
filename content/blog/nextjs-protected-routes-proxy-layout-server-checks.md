@@ -5,6 +5,11 @@ date: 2027-11-22T03:30:00Z
 tags: [nextjs, auth, security, supabase]
 keywords: [next.js protect routes app router, next.js middleware auth redirect, server action authorization, next.js layout auth check, supabase auth next.js admin]
 project: portfolio
+image: /blog/stock/security-1.webp
+imageAlt: "Padlock on a wooden door"
+imageCredit: "Quim Gil"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Abloy_padlock_in_Oulu.jpg"
+imageLicense: "CC0"
 ---
 
 The admin pages of this site live under `/admin`. Three layers decide who gets in, and when I review other people's Next.js projects, the usual mistake is having only the first one.

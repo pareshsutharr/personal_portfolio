@@ -5,6 +5,11 @@ date: 2028-06-12T03:30:00Z
 tags: [analytics, privacy, nextjs, supabase, seo]
 keywords: [privacy friendly analytics self hosted, analytics without cookies no consent banner, next.js server side analytics, plausible alternative diy, page view tracking supabase]
 project: portfolio
+image: /blog/stock/search-1.webp
+imageAlt: "Magnifying glass over a postage stamp"
+imageCredit: "Heptagon"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Magnifying_glass2.jpg"
+imageLicense: "Public domain"
 ---
 
 The analytics snippet removed during the performance work was never replaced with another one. Instead the site counts its own page views, in a way that stores nothing about individuals, which is why there is no cookie banner. Here is what it does and does not do.

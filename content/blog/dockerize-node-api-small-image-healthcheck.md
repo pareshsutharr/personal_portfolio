@@ -5,6 +5,11 @@ date: 2027-12-13T03:30:00Z
 tags: [docker, nodejs, deployment, devops]
 keywords: [dockerfile node.js production, docker multi-stage build node, docker non-root user node, docker healthcheck node api, reduce docker image size node]
 project: growth-avenues
+image: /blog/stock/containers-1.webp
+imageAlt: "Container cranes at a port"
+imageCredit: "Garitzko"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Container_cranes_Bremerhaven.jpg"
+imageLicense: "Public domain"
 ---
 
 Docker was not the first way I deployed Node, and the VPS posts on this blog still run PM2 directly for most things. But two clients wanted containers, and getting a Node API into a container that is small, safe and honest about its health took a few iterations. This is the Dockerfile that came out of them.

@@ -5,6 +5,11 @@ date: 2028-06-05T03:30:00Z
 tags: [performance, lighthouse, nextjs, core-web-vitals, frontend]
 keywords: [lighthouse 100 next.js, improve largest contentful paint next.js, core web vitals portfolio, reduce javascript bundle next.js, lighthouse mobile score]
 project: portfolio
+image: /blog/stock/abstract-3.webp
+imageAlt: "City skyline with light trails"
+imageCredit: "Davide Cantelli cant89"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:New_York_skyline_with_light_trails_(Unsplash).jpg"
+imageLicense: "CC0"
 ---
 
 The first mobile audit of this site, after the animations and backdrops went in, scored 61. Two weeks of changes, each measured on its own, brought it to 100. The useful part is not the number; it is which changes mattered, because they are the same ones that matter on client sites.

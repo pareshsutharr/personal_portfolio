@@ -5,6 +5,11 @@ date: 2027-04-26T03:30:00Z
 tags: [php, legacy, process, deployment]
 keywords: [take over legacy php project, legacy codebase checklist, inherit website from another developer, php project no version control, legacy code first steps]
 project: 8th-sense-production-house
+image: /blog/stock/surat-1.webp
+imageAlt: "Painting of the harbour at Surat, Gujarat"
+imageCredit: "Rijksmuseum"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Gezicht_op_de_haven_van_S%C5%ABrat_(Gujar%C4%81t),_SK-A-4778.jpg"
+imageLicense: "CC0"
 ---
 
 The first codebase I was paid to take over was a multimedia site with a custom PHP CMS. The previous developer had moved on. There was a cPanel login, an FTP password, and a folder with 600 files. The client wanted a new section added "this week". Here is what I did instead, in the order I would do it again.

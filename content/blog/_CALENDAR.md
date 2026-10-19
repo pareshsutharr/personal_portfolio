@@ -8,7 +8,12 @@ To publish a post: write `content/blog/<slug>.md` with the frontmatter used by t
 existing posts, set `date` to a Monday at `03:30:00Z`, commit and push. Nothing else.
 
 To check the schedule: the admin at `/admin/blog` lists every post as Scheduled or
-Published with its date. Cover images are generated at `/blog/<slug>/cover`.
+Published with its date, each with its photo. Cover images are generated at `/blog/<slug>/cover`.
+
+Every post has a stock photo (`image`, `imageAlt`, `imageCredit`, `imageCreditUrl`, `imageLicense`
+in its frontmatter). The photos are CC0, public domain or CC BY/BY-SA from Wikimedia Commons,
+cropped to 1280x720 WebP in `public/blog/stock/` with a 1200x630 JPEG twin used by the cover
+renderer; `public/blog/stock/credits.json` lists every photo's source and licence.
 
 ## Schedule (all written, 104 posts, 2026-10-19 to 2028-10-09)
 

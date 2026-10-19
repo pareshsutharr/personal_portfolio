@@ -5,6 +5,11 @@ date: 2028-07-17T03:30:00Z
 tags: [sentry, monitoring, nodejs, nextjs, operations]
 keywords: [sentry node.js express setup, sentry next.js app router, sentry alert rules noise, error tracking small project, sentry scrub sensitive data]
 project: growth-avenues
+image: /blog/stock/code-2.webp
+imageAlt: "Source code on a dark monitor"
+imageCredit: "luis gomes"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Pexels-luis-gomes-546819.jpg"
+imageLicense: "CC0"
 ---
 
 The monitoring post covered uptime and disk. This one covers the thing in between: the app is up and a particular request is failing for a particular user, and nobody knows until they complain. Sentry, or any of the comparable tools, closes that gap. The setup is half an hour; tuning it so it is useful took a few weeks.

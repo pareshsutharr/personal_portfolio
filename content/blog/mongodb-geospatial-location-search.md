@@ -5,6 +5,11 @@ date: 2027-02-15T03:30:00Z
 tags: [mongodb, mongoose, geospatial, nodejs]
 keywords: [mongodb geospatial query near, 2dsphere index mongoose, mongodb $geoNear distance, find nearby locations mongodb, geojson point mongoose schema]
 project: justrentit
+image: /blog/stock/map-1.webp
+imageAlt: "Old printed city map"
+imageCredit: "AnonymousUnknown author"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Canton1920_d006_map_of_the_city.jpg"
+imageLicense: "Public domain"
 ---
 
 "Show me cameras available within 10 km" is the whole point of a local rental marketplace. My first implementation fetched every active listing and sorted by a Haversine distance computed in Node. It worked for 200 listings and would have died at 20,000. MongoDB does this natively, and the query is faster than the JavaScript loop even at small sizes.

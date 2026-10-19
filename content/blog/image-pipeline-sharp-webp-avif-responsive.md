@@ -5,6 +5,11 @@ date: 2028-05-29T03:30:00Z
 tags: [images, performance, sharp, nextjs, frontend]
 keywords: [sharp resize webp avif node, responsive images srcset sizes, blur placeholder sharp, next.js image optimization, reduce image size website]
 project: portfolio
+image: /blog/stock/abstract-3.webp
+imageAlt: "City skyline with light trails"
+imageCredit: "Davide Cantelli cant89"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:New_York_skyline_with_light_trails_(Unsplash).jpg"
+imageLicense: "CC0"
 ---
 
 Images are most of the bytes on most pages, and this site was no exception until the photos went through a pipeline. The pipeline is one script, run once per new image, that produces everything the page needs.

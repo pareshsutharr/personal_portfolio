@@ -4,6 +4,11 @@ description: "A sitemap that lists a draft, or misses a page that went live an h
 date: 2027-09-06T03:30:00Z
 tags: [seo, nextjs, sitemap]
 keywords: [next.js dynamic sitemap, sitemap.ts app router, sitemap lastmod, exclude drafts from sitemap, sitemap scheduled posts]
+image: /blog/stock/alarm-2.webp
+imageAlt: "Old alarm clock on a bookshelf"
+imageCredit: "Nenad Stojkovic"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Old_alarm_clock_on_the_bookshelf_-_50233824038.jpg"
+imageLicense: "CC BY 2.0"
 ---
 
 Google uses a sitemap for two things: discovering URLs it has not seen, and deciding which known URLs to recrawl, based on `lastmod`. It mostly ignores `priority` and `changefreq`. So a good sitemap for a CMS-driven site is simple: every public URL, none of the private ones, with an honest last-modified date.

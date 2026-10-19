@@ -5,6 +5,11 @@ date: 2027-06-14T03:30:00Z
 tags: [mongodb, react, performance, api]
 keywords: [cursor pagination mongodb, keyset pagination node, react infinite scroll intersection observer, mongodb pagination without skip, load more api design]
 project: growth-avenues-admin
+image: /blog/stock/network-2.webp
+imageAlt: "Network cables patched into a switch"
+imageCredit: "Inisheer"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:CERN-20060225-01.jpg"
+imageLicense: "CC BY-SA 3.0"
 ---
 
 The audit log in the Growth Avenues back office grows by a few thousand rows a day. Paginating it with `skip` and `limit` worked for a month, then page 200 took two seconds because MongoDB walked 10,000 index entries to throw them away. Cursor pagination makes every page cost the same. This is the whole thing: the query, the API shape, and the React side.

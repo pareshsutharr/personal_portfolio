@@ -5,6 +5,11 @@ date: 2027-01-18T03:30:00Z
 tags: [react, hrms, dates, mongodb, javascript]
 keywords: [react attendance calendar, hrms attendance system, javascript date timezone bug, store dates mongodb timezone, react month calendar component]
 project: growth-avenues-hrms
+image: /blog/stock/alarm-1.webp
+imageAlt: "Alarm clock on a dark desk"
+imageCredit: "Raul Petri raulpetri"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Alarm_Clock_(Unsplash).jpg"
+imageLicense: "CC0"
 ---
 
 Everyone who builds an attendance system makes the same mistake once: storing the punch time as a JavaScript `Date`, then grouping by `getDate()`. It works on the developer's laptop and breaks on the server, because the server's clock is in UTC and a punch at 11:50 pm IST is 6:20 pm UTC, which is a different day in one place and the same day in the other.

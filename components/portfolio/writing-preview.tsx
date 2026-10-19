@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Route } from "next";
 import { ButtonLink } from "@/components/ui/button";
 import { Stagger, StaggerItem } from "@/components/motion/reveal";
-import { postCoverPath, type Post } from "@/lib/blog";
+import { postImagePath, type Post } from "@/lib/blog";
 import { formatDate } from "@/lib/utils/format";
 import { Section, SectionHeader } from "./section";
 
@@ -35,12 +35,12 @@ export function WritingPreview({ posts, index }: { posts: Post[]; index: number 
                 <div className="mb-5 overflow-hidden rounded-sm border border-line-800 bg-surface-900">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src={postCoverPath(p)}
-                    alt=""
-                    width={1200}
-                    height={630}
+                    src={postImagePath(p)}
+                    alt={p.image?.alt ?? ""}
+                    width={1280}
+                    height={720}
                     loading="lazy"
-                    className="aspect-[1200/630] w-full object-cover transition-transform duration-700 ease-out-expo group-hover:scale-[1.03]"
+                    className="aspect-video w-full object-cover transition-transform duration-700 ease-out-expo group-hover:scale-[1.03]"
                   />
                 </div>
                 <p className="flex items-center gap-4 label-mono">

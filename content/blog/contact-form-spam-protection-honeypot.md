@@ -4,6 +4,11 @@ description: "No CAPTCHA, no third-party script, and almost no spam. The three c
 date: 2027-05-17T03:30:00Z
 tags: [security, forms, nextjs, nodejs]
 keywords: [contact form spam protection without captcha, honeypot field react, form fill time bot detection, rate limit contact form, server action spam protection]
+image: /blog/stock/security-2.webp
+imageAlt: "Rusted hasp and padlock on a red wooden door"
+imageCredit: "Estormiz"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Padlock_Valimokatu_Oulu_20250307_03.jpg"
+imageLicense: "CC0"
 ---
 
 The contact form on this site has had spam protection since the day it went live, and in that time it has forwarded three spam messages. It has never shown a CAPTCHA. The bots that hit small business sites are not sophisticated; they fill every field, submit instantly, and come back from the same address. Three cheap checks catch nearly all of them.

@@ -5,6 +5,11 @@ date: 2027-06-21T03:30:00Z
 tags: [jwt, security, express, nodejs, redis]
 keywords: [jwt revoke token, invalidate jwt on logout, jwt deny list redis, force logout all devices jwt, token version user]
 project: growth-avenues
+image: /blog/stock/security-3.webp
+imageAlt: "Old iron latch on weathered wooden boards"
+imageCredit: "Estormiz"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Padlock_Valimokatu_Oulu_20250307_01.jpg"
+imageLicense: "CC0"
 ---
 
 The convenient thing about JWTs is that the server does not need to look anything up to trust one. The inconvenient thing is the same sentence. When compliance removes someone's access at 3 pm, a token issued at 2:50 pm keeps working until it expires. The first post in this series used 15-minute access tokens to bound that window. This one closes it.

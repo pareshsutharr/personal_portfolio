@@ -5,6 +5,11 @@ date: 2028-01-10T03:30:00Z
 tags: [webhooks, nodejs, express, reliability, payments]
 keywords: [webhook idempotency node, verify webhook signature express, webhook retry duplicate events, process webhooks reliably, webhook queue node.js]
 project: growth-avenues
+image: /blog/stock/servers-2.webp
+imageAlt: "Rows of server racks lit blue in a data centre"
+imageCredit: "NOIRLab/NSF/AURA/P. Horálek"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:NOIRLab_HQ_Server_Racks_(OK_upr_IMG_0225-CC).jpg"
+imageLicense: "CC BY 4.0"
 ---
 
 The payment gateway sent the same `payment.captured` event four times in one minute because the handler took six seconds and the gateway's timeout was five. The handler credited the account four times. The fix was not "make it faster". The fix was to change what a webhook handler does.

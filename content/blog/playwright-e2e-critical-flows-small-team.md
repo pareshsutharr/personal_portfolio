@@ -5,6 +5,11 @@ date: 2028-08-28T03:30:00Z
 tags: [testing, playwright, e2e, ci, nodejs]
 keywords: [playwright e2e tests next.js, playwright test critical user flows, playwright auth state reuse, playwright seed test data, flaky e2e tests fix]
 project: growth-avenues-hrms
+image: /blog/stock/checklist-1.webp
+imageAlt: "Clipboards with paper checklists"
+imageCredit: "Unknown"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:USMC-100914-M-0646Q-45.jpg"
+imageLicense: "Public domain"
 ---
 
 Unit tests cover functions and the API tests cover routes. What neither covers is "an HR executive can approve a leave request in the browser and the balance updates". That is what end-to-end tests are for, and the mistake is writing hundreds of them. The HRMS has nine, chosen by asking: if this breaks on a Monday morning, does someone call me?

@@ -5,6 +5,11 @@ date: 2027-11-01T03:30:00Z
 tags: [email, dns, nodejs, deliverability]
 keywords: [spf dkim dmarc setup, transactional email deliverability, email going to spam fix, handle email bounces node, sending domain authentication]
 project: growth-avenues
+image: /blog/stock/email-3.webp
+imageAlt: "A row of colourful mailboxes"
+imageCredit: "Bernard Spragg. NZ from Christchurch, New Zealand"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Postmans_delight._(23143602121).jpg"
+imageLicense: "CC0"
 ---
 
 The Gmail-SMTP post was for email to yourself. This is for email to your users: account verification, password resets, order confirmations. The code for those is trivial. Whether they arrive is decided by DNS records on your domain and by how you handle the replies you never see.

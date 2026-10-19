@@ -5,6 +5,11 @@ date: 2028-07-31T03:30:00Z
 tags: [security, auth, nodejs, express, rate-limiting]
 keywords: [login brute force protection node.js, account lockout vs progressive delay, credential stuffing defense express, failed login counter redis, login security alert]
 project: growth-avenues
+image: /blog/stock/security-2.webp
+imageAlt: "Rusted hasp and padlock on a red wooden door"
+imageCredit: "Estormiz"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Padlock_Valimokatu_Oulu_20250307_03.jpg"
+imageLicense: "CC0"
 ---
 
 Per-IP rate limiting is the first line and it is not enough. The attempt that got through it used a list of leaked email and password pairs, tried each once or twice, and rotated IPs on every request. Every IP stayed under the limit. Four accounts with reused passwords were accessed before the pattern was noticed. The defences below went in that week.

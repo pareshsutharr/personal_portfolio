@@ -5,6 +5,11 @@ date: 2028-09-18T03:30:00Z
 tags: [supabase, postgres, pg_cron, nextjs, operations]
 keywords: [supabase pg_cron scheduled job, supabase cron without server, pg_net call edge function schedule, postgres scheduled task supabase, serverless cron next.js vercel]
 project: portfolio
+image: /blog/stock/alarm-2.webp
+imageAlt: "Old alarm clock on a bookshelf"
+imageCredit: "Nenad Stojkovic"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Old_alarm_clock_on_the_bookshelf_-_50233824038.jpg"
+imageLicense: "CC BY 2.0"
 ---
 
 The VPS projects have systemd timers and a worker process. This site has neither: Vercel runs the pages on request and Supabase holds the data. Three things still need to happen on a schedule, and the answer that needed no new infrastructure was to let the database schedule them.

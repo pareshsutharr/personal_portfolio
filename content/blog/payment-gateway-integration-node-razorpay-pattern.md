@@ -5,6 +5,11 @@ date: 2028-01-17T03:30:00Z
 tags: [payments, nodejs, razorpay, express, reliability]
 keywords: [razorpay integration node.js, payment gateway integration pattern, verify payment signature server, payment webhook vs redirect, payment ledger design]
 project: growth-avenues
+image: /blog/stock/payments-1.webp
+imageAlt: "Card payment terminal at a shop counter"
+imageCredit: "Syced"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:LaCuCa_card_reader_-_payment_terminal_at_supermarket_register.jpg"
+imageLicense: "CC0"
 ---
 
 Every gateway's quick-start shows the same thing: a button, a checkout popup, a success callback. Shipping that as-is leads to the three support tickets I have personally handled: "I paid but the portal says pending", "I was charged twice", and "where is my refund". The pattern below has not produced any of them in two years.

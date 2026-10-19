@@ -5,6 +5,11 @@ date: 2027-07-26T03:30:00Z
 tags: [react, svg, hrms, data-structures]
 keywords: [react org chart component, build org chart from flat list, tree layout algorithm react, svg connector lines react, export react component to pdf]
 project: growth-avenues-hrms
+image: /blog/stock/writing-2.webp
+imageAlt: "Notebook and pen on a desk next to a laptop"
+imageCredit: "Shixart1985"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Person_writing_in_a_notebook_while_sitting_at_a_desk.jpg"
+imageLicense: "CC BY 2.0"
 ---
 
 HR asked for an org chart. The employee table already had a `reportsTo` field on every row, so the data existed; it just needed to become a picture. I looked at charting libraries, found them either huge or inflexible about styling, and wrote the layout in about 150 lines. Here is the shape of it.

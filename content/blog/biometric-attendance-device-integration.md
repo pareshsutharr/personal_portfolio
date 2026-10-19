@@ -5,6 +5,11 @@ date: 2027-08-09T03:30:00Z
 tags: [integration, hrms, nodejs, mongodb, hardware]
 keywords: [biometric device api integration, attendance device sync node.js, essl zkteco integration, idempotent sync design, fingerprint attendance hrms]
 project: biometric-attendance-integration
+image: /blog/stock/fingerprint-2.webp
+imageAlt: "Fingerprint scanner device on a desk"
+imageCredit: "Harrison Keely"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:A_fingerprint_scanner_at_a_prison_or_jail_in_the_United_States.jpg"
+imageLicense: "CC BY 4.0"
 ---
 
 The biometric devices on office walls are small computers with a fingerprint sensor and a log. Most of them, from the common vendors, expose that log over the local network, either through a vendor SDK, a push protocol, or a plain HTTP or TCP interface. The HRMS needs those punches. The design below has survived two years, a device replacement and several power cuts.

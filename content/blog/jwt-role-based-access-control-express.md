@@ -5,6 +5,11 @@ date: 2026-10-26T03:30:00Z
 tags: [nodejs, express, jwt, security, rbac]
 keywords: [express jwt authentication, role based access control node, jwt refresh token httponly cookie, express authorization middleware, rbac middleware express]
 project: growth-avenues
+image: /blog/stock/security-1.webp
+imageAlt: "Padlock on a wooden door"
+imageCredit: "Quim Gil"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Abloy_padlock_in_Oulu.jpg"
+imageLicense: "CC0"
 ---
 
 On the Growth Avenues platform there are three kinds of people hitting the same API: distributors who should only ever see their own clients, operations staff who see everyone's but cannot change settings, and admins who can. Getting that wrong on a financial product is not a bug, it is a complaint to a regulator.
